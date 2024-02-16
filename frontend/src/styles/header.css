@@ -1,0 +1,139 @@
+
+.scheduleBtn {
+  flex-shrink: 0;
+  align-items: center;
+  background-color: #f26727;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue",sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 14px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: 0.5s;
+}
+.scheduleBtn1 {
+  flex-shrink: 0;
+  align-items: center;
+  background-color: #f26727;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue",sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 14px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: 0.5s;
+}
+.scheduleBtn:hover {
+  background-color: #f88550;
+}
+.mainSchedulebtn{
+    margin-right: 2%;
+}
+
+.careerBtn{
+  flex-shrink: 0;
+  align-items: center;
+  background-color: #2745f2;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue",sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 14px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: 0.5s;
+}
+.careerBtn1{
+  flex-shrink: 0;
+  align-items: center;
+  background-color: #2745f2;
+  border-radius: 6px;
+  border-style: none;
+  box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: "RM Neue",sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  padding: 14px 21px;
+  text-align: center;
+  text-transform: none;
+  transition: 0.5s;
+}
+.careerBtn:hover {
+    background-color: #132af8;
+}
+.mainCareerBtn{
+    margin-right: 10%;
+}
+@media only screen and (max-width: 600px){
+    .scheduleBtn{
+        flex-shrink: 0;
+        align-items: center;
+        background-color: #f26727;
+        border-radius: 6px;
+        border-style: none;
+        box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+        font-family: "RM Neue",sans-serif;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0;
+        padding: 14px 21px;
+        text-align: center;
+        text-transform: none;
+        transition: 0.5s;
+    }
+    .mainSchedulebtn{
+        margin-right: 15px;
+    }
+    .careerBtn{
+      display: none;
+    }
+    .careerBtn1{
+      display: none;
+    }
+    .scheduleBtn1{
+      display: none;
+  }
+}
+
