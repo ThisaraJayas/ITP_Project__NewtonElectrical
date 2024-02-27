@@ -7,6 +7,12 @@ import UserRouter from './routes/UserRoute.js'
 const app = express()
 app.use(express.json())
 
+mongoose.connect(process.env.MONGO_DB).then(()=>{
+    console.log("Database Connected Succesfully..");
+}).catch((err)=>{
+    console.log(err);
+})
+
 app.listen(3000, ()=>{
     console.log("Server Running on Port 3000");
 })
