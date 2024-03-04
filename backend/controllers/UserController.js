@@ -1,33 +1,46 @@
-import { setTokenCookie } from '../middleware/CookieSession.js'
 import User from '../models/UserModel.js'
 
-export const test = (req,res)=>{
-    res.json({message:'Hello There'})
-}
 
-export const register = async(req,res)=>{
-    const {firstName,lastName,email,mobileNumber,address,password } = req.body
-
-    const newUser = new User({firstName,lastName,email,mobileNumber,address,password})
+export const retriveUsers = async(req,res)=>{
     try{
-        await newUser.save()
-        res.status(200).json({message:'User Created Success'})
+        const user = await User.find()
+        res.status(200).json({user})
     }catch(error){
-        res.status(500).json({message:'Sorry, User not Created'})
+        res.status(500).json({message:"Sorry"})
     }
 }
-export const login = async(req,res)=>{
-    const {email,password} =req.body
-    try{
-        const user = await User.findOne({email})
 
-        if(user.password==password){
-            setTokenCookie(res,user._id,user.email)
-            res.status(200).json({userId: user._id, email: user.email})
+export const retriveUser = async(req,res)=>{
+    const {id} = req.params
+    try{
+        const user = await User.findOne({_id: id})
+        if(user){
+            res.status(200).json({user})
         }else{
-            res.status(500).json({message: "Incorrect Password"})
+            res.status(404).json({message:"User Not Found"})
+        }
+        
+    }catch(error){
+        res.status(500).json({message:"Internal Server Error"})
+    }
+}
+
+export const updateUser=async(req,res)=>{
+    const {id}=req.params
+    const { firstName, lastName, email, mobileNumber, address, password} = req.body;
+    try{
+        const user = await User.findByIdAndUpdate(id,{
+            firstName,
+            lastName,
+            email,
+            mobileNumber,
+            address,
+            password
+        },{ new: true })
+        if(user){
+            res.status(200).json({message:"Updated Succesfull"})
         }
     }catch(error){
-        res.status(500).json({message:"User Not Found"})
+        res.status(500).json({message:"Server Error"})
     }
 }

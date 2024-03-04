@@ -2,7 +2,8 @@ import express, { json } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 dotenv.config()
-import UserRouter from './routes/UserRoute.js'
+import authRouter from './routes/AuthRoute.js'
+import userRouter from './routes/UserRoute.js'
 
 const app = express()
 app.use(express.json())
@@ -20,4 +21,5 @@ app.get('/hello',(req,res)=>{
     res.json('Helloi')
 })
 
-app.use('/user',UserRouter)
+app.use('/auth',authRouter)
+app.use('/user',userRouter)
