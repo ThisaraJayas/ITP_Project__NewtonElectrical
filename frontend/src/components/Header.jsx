@@ -6,7 +6,7 @@ import image from '../assets/images/logo.png'
 export default function Header() {
   const [isOpen, setisOpen] = useState(false)
   return (
-    <header className='transition ease-linear duration-700 fixed w-full z-20  start-0 border-b'>
+    <header className='transition ease-linear duration-700 fixed w-full z-20 top-0 border-b'>
       <div className='bg-[#172554]'>
         <div className='max-w-screen-xl flex flex-wrap items-center justify-end mx-auto p-3'>
           <div className='mainSchedulebtn'>
@@ -20,7 +20,6 @@ export default function Header() {
       </div>
       <div className='shadow-md w-full'>
         <div className='md:px-10 py-0 px-7 md:flex justify-between items-center bg-white'>
-          
             <div className='flex cursor-pointer items-center gap-2'>
               <img className='w-25 h-20' src={image}/>
             </div>

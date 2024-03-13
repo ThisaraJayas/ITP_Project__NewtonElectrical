@@ -1,16 +1,18 @@
 import React from 'react'
-import '../styles/Admin/AdminLayout.css'
+import './adminStyles/AdminLayout.css'
 import SideBar from './components/SideBar'
-import Home from './components/Home'
+import Home from './pages/Home'
 import Header from './components/Header'
 
-export default function AdminLayout() {
+export default function AdminHome() {
   return (
     <>
+    <div className='backgroundBody'>
     <div className='grid-container'>
         <Header/>
         <SideBar/>
         <Home/>
+    </div>
     </div>
     </>
   )

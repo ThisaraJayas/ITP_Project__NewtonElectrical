@@ -1,53 +1,53 @@
 import React from 'react'
 import { BsCart3 } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import image from '../images/logo.png'
 
 export default function SideBar() {
   return (
     <aside id='sidebar'>
       <div className='sidebar-title'>
         <div className='sidebar-brand'>
-            <BsCart3 className='icon_header'/>SHOP
+            <img src={image} className='w-35 h-25'/>
         </div>
         <span className='icon close_icon'>X</span>
       </div>
       <ul className='sidebar-list'>
-        <a href=''>
+      <Link to={'/admin'}>
         <li className='sidebar-list-item'>
-          
-            <BsCart3 className='icon'/><a href="">  Dashboard
-          </a>
+            <BsCart3 className='icon'/> Dashboard
         </li>
-        </a>
+        </Link>
+        <Link to={'/admin/user'}>
         <li className='sidebar-list-item'>
-          <a href="">
+            <BsCart3 className='icon'/>Users
+        </li>
+        </Link>
+        <Link to={'/admin/product'}>
+        <li className='sidebar-list-item'>
             <BsCart3 className='icon'/>Products
-          </a>
         </li>
+        </Link>
+        <Link to={'/admin/item1'}>
         <li className='sidebar-list-item'>
-          <a href="">
-            <BsCart3 className='icon'/>Categories
-          </a>
-        </li>
-        <li className='sidebar-list-item'>
-          <a href="">
             <BsCart3 className='icon'/>Customers
-          </a>
         </li>
+        </Link>
+        <Link to={'/admin/item2'}>
         <li className='sidebar-list-item'>
-          <a href="">
             <BsCart3 className='icon'/>Inventory
-          </a>
         </li>
+        </Link>
+        <Link to={'/admin/item3'}>
         <li className='sidebar-list-item'>
-          <a href="">
             <BsCart3 className='icon'/>Reports
-          </a>
         </li>
+        </Link>
+        <Link to={'/admin/item4'}>
         <li className='sidebar-list-item'>
-          <a href="">
             <BsCart3 className='icon'/><span>Setting</span>
-          </a>
         </li>
+        </Link>
       </ul>
     </aside>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import {BsFillBellFill, BsFillEnvelopeFill,BsPersonCircle,BsSearch,BsJustify} from 'react-icons/bs'
 
+
 export default function Header() {
   return (
     <header className='header'>
@@ -8,9 +9,9 @@ export default function Header() {
             <BsJustify className='icon'/>
         </div>
         <div className='header-left'>
-            <BsSearch className='icon'/>
+        <button className='homeBtn'> Go HomePage</button>
         </div>
-        <div className='header-right'>
+        <div className='header-right flex justify-end'>
             <BsFillBellFill className='icon'/>
             <BsFillEnvelopeFill className='icon'/>
             <BsPersonCircle className='icon'/>
