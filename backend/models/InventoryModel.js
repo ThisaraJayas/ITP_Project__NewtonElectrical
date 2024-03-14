@@ -15,7 +15,7 @@ const InventoryScheema=new mongoose.Schema({
       
     },
     productDiscount:{
-        type:Number,
+        type:String,
     },
     productQty:{
         type:String,
