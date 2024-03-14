@@ -6,6 +6,7 @@ import Project from '../pages/Project'
 import Product from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
+import Register from '../pages/Register'
 
 export default function PageRoutes() {
   return (
@@ -16,6 +17,7 @@ export default function PageRoutes() {
       <Route path='/admin' element={<AdminHome/>}/>
       <Route path='/admin/product' element={<Product/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>
+      <Route path='/register' element={<Register/>}/>
     </Routes>
     </UseContextProvider>
     </>
