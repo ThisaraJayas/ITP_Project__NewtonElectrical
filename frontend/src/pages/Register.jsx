@@ -5,8 +5,10 @@ import Header from '../components/Header'
 export default function Register() {
   return (
     <>
-    <div className='bodyC'>
-    <div className='container'>
+    <Header/>
+    <div className='pt-36'>
+    <div className='bodyC '>
+    <div className='regContainer'>
     <div className='formContainer'>
         <div className='title'>
             <h2>Registration</h2>
@@ -60,6 +62,7 @@ export default function Register() {
             </form>
         </div>
         <h3 className='haveAccount'>Already have an account?<span> Log in</span></h3>
+    </div>
     </div>
     </div>
     </div>

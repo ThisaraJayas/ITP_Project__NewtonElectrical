@@ -1,6 +1,5 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
-import Header from '../components/Header'
 import AdminHome from '../Admin/AdminHome'
 import Project from '../pages/Project'
 import Product from '../Admin/components/Product'

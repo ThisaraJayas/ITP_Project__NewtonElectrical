@@ -5,11 +5,11 @@
 	background-position: center;
 	background-size: cover;
 }
-.container{
+.regContainer{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 40px 0px;
+    padding: 40px 50px;
     
 }
 .formContainer{
