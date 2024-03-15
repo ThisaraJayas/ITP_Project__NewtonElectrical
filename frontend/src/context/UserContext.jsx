@@ -7,7 +7,7 @@ export default function UseContextProvider({children}) {
 
   return (
     <UserContext.Provider value={{userData,setUserData}}>
-        {children}
+        {childrens}
     </UserContext.Provider>
   )
 }
