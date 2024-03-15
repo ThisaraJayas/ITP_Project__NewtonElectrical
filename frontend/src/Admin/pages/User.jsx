@@ -5,6 +5,7 @@ import { BsPersonHearts } from "react-icons/bs";
 
 export default function User() {
   return (
+    <>
         <div className='container pt-8 pl-8'>
             <div className='mainTitle'>
                 <h3>User Dashboard</h3>
@@ -73,5 +74,6 @@ export default function User() {
             </table>
 
         </div>
+    </>
   )
 }

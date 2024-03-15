@@ -1,8 +1,8 @@
 import React from 'react'
 import './adminStyles/AdminLayout.css'
+import Header from './components/Header'
 import SideBar from './components/SideBar'
 import User from './pages/User'
-import Header from './components/Header'
 
 
 export default function UserManager() {
