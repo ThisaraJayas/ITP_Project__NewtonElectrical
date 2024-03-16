@@ -14,17 +14,18 @@ export default function Header() {
   return (
     <>
     <div className='bg-[#172554] shadow-md w-full fixed top-0 left-0 z-10'> {/* Added z-10 */}
-        <div className='max-w-screen-xl flex flex-wrap items-center justify-end mx-auto p-3'>
-          <div className='mainSchedulebtn'>
-            <button className='scheduleBtn'>Schedule Appointment</button>
+        <div className='max-w-screen-xl flex flex-wrap items-center justify-end mx-auto p-2'>
+          <div className='mainLoginbtn'>
+          <button className='loginBtn font-semibold'>Sign Up</button>
           </div>
-          <div className='mainCareerBtn'>
-            <button className='careerBtn'>Careers</button>
+          <div className='mainRegBtn'>
+            <button className='registerBtn font-semibold'>Login</button>
+            {/* <button className='careerBtn'>Careers</button> */}
           </div>
-          <img className='rounded-full h-12 w-12 object-cover' src="https://i.pinimg.com/736x/b2/54/ea/b254ea1ec256b93c61aecb2aca62e277.jpg" alt='profile'/>
+          <img className='rounded-full h-9 w-9 object-cover' src="https://i.pinimg.com/736x/b2/54/ea/b254ea1ec256b93c61aecb2aca62e277.jpg" alt='profile'/>
         </div>
       </div>
-    <div className='shadow-md w-full fixed top-16 left-0 z-0'> {/* Added z-0 */}
+    <div className='shadow-md w-full fixed top-12 left-0 z-0'> {/* Added z-0 */}
            <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
             {/* logo section */}
             <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
@@ -48,7 +49,8 @@ export default function Header() {
                 <li className='md:ml-8 md:my-0 my-7 font-semibold'><a className='text-gray-800 hover:text-blue-400 duration-500' href='/'>Service</a></li>
                 <li className='md:ml-8 md:my-0 my-7 font-semibold'><a className='text-gray-800 hover:text-blue-400 duration-500'  href='/'>About</a></li>
                 <li className='md:ml-8 md:my-0 my-7 font-semibold'><a className='text-gray-800 hover:text-blue-400 duration-500'  href='/'>Contact</a></li>
-                <button className='btn bg-blue-600 text-white md:ml-8 font-semibold px-3 py-1 rounded duration-500 md:static'>Get Started</button>
+                <button className='btn bg-orange-500   text-white md:ml-8 font-semibold px-4 py-3 rounded-lg duration-500 md:static '>Schedule Appointment</button>
+                <button className='btn bg-blue-600   text-white md:ml-4 font-semibold px-4 py-3 rounded-lg duration-500 md:static'>Careers</button>
             </ul>
             {/* button */}
            </div>
