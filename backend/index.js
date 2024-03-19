@@ -6,7 +6,8 @@ import authRouter from './routes/AuthRoute.js'
 import userRouter from './routes/UserRoute.js'
 import feedbackRouter from './routes/FeedbackRoute.js'
 import projectRouter from './routes/ProjectRoute.js'
-
+import packageRouter from './routes/PackageRoute.js'
+import serviceRouter from './routes/ServiceRoute.js'
 const app = express()
 app.use(express.json())
 
@@ -27,3 +28,5 @@ app.use('/auth',authRouter)
 app.use('/user',userRouter)
 app.use('/feedbacks',feedbackRouter)
 app.use('/project',projectRouter)
+app.use('/package',packageRouter)
+app.use('/service',serviceRouter)
