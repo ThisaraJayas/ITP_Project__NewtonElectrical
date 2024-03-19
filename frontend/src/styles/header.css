@@ -1,5 +1,5 @@
 
-.scheduleBtn {
+/* .scheduleBtn {
   flex-shrink: 0;
   align-items: center;
   background-color: #f26727;
@@ -99,6 +99,62 @@
 }
 .mainCareerBtn{
     margin-right: 10%;
+} */
+
+/* ///new */
+.mainLoginbtn{
+  margin-right: 2%;
+}
+
+.loginBtn{
+flex-shrink: 0;
+align-items: center;
+background-color: #2745f2;
+border-radius: 6px;
+border-style: none;
+box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: flex;
+flex-direction: row;
+flex-shrink: 0;
+font-family: "RM Neue",sans-serif;
+font-size: 100%;
+line-height: 1.15;
+margin: 0;
+padding: 10px 15px;
+text-align: center;
+text-transform: none;
+transition: 0.5s;
+}
+.registerBtn{
+flex-shrink: 0;
+align-items: center;
+background-color: #2745f2;
+border-radius: 6px;
+border-style: none;
+box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: flex;
+flex-direction: row;
+flex-shrink: 0;
+font-family: "RM Neue",sans-serif;
+font-size: 100%;
+line-height: 1.15;
+margin: 0;
+padding: 10px 15px;
+text-align: center;
+text-transform: none;
+transition: 0.5s;
+}
+.loginBtn:hover {
+  background-color: #132af8;
+}
+.mainRegBtn{
+  margin-right: 5%;
 }
 @media only screen and (max-width: 600px){
     .scheduleBtn{
