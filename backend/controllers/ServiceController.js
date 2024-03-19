@@ -3,7 +3,7 @@ import Service from "../models/ServiceModel.js"
 
 export const InsertService = async(req,res)=>{ 
     const {packageId, serviceName,  Price}=req.body
-    const newService = new service({packageId, serviceName,  Price})
+    const newService = new Service({packageId, serviceName,  Price})
 
     try{
         await newService.save()
@@ -20,7 +20,8 @@ export const UpdateService = async(req,res)=>{
     const updateService = await Service.findByIdAndUpdate(id,{
         packageId,
         serviceName,
-        Price
+        Price,
+        
     },{ new: true })
     if(updateService){
         res.status(200).json({message:"Updated Succesfull"})
