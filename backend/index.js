@@ -7,7 +7,7 @@ import userRouter from './routes/UserRoute.js'
 import feedbackRouter from './routes/FeedbackRoute.js'
 import projectRouter from './routes/ProjectRoute.js'
 import jobRouter from './routes/JobRoute.js';
-import cvRouter from './routes/CVRoutes.js';
+import cvRouter from './routes/CVRoute.js';
 
 
 const app = express()
