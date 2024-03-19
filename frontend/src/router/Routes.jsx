@@ -1,15 +1,24 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
-import Project from '../pages/Project'
-import Header from '../components/Header'
+import AdminHome from '../Admin/AdminHome'
+import Projects from '../pages/Project'
+import Product from '../Admin/components/Product'
+import UserManager from '../Admin/UserManager'
+import UseContextProvider from '../context/UserContext'
+import Register from '../pages/Register'
 
 export default function PageRoutes() {
   return (
     <>
-    <Header/>
+    <UseContextProvider>
     <Routes>
-      <Route path='/projects' element={<Project/>}/>
+      <Route path='/projects' element={<Projects/>}/>
+      <Route path='/admin' element={<AdminHome/>}/>
+      <Route path='/admin/product' element={<Product/>}/>
+      <Route path='/admin/user' element={<UserManager/>}/>
+      <Route path='/register' element={<Register/>}/>
     </Routes>
+    </UseContextProvider>
     </>
   )
 }
