@@ -1,9 +1,10 @@
 import Shedule from "../models/ProjectModel.js"
 
+//insert data to database
 
 export const InsertShedule = async(req,res)=>{ 
     const {service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot}=req.body
-    const newShedule = new Project({service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot})
+    const newShedule = new Shedule({service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot})
 
     try{
         await newShedule.save()
@@ -13,6 +14,8 @@ export const InsertShedule = async(req,res)=>{
     }
 }
 
+
+//update data
 export const UpdateShedule = async(req,res)=>{
     const {id}=req.params
     const {service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot}=req.body
@@ -39,6 +42,7 @@ export const UpdateShedule = async(req,res)=>{
     }
 }
 
+//get data from database
 export const ReadShedule = async(req,res)=>{
     try{
        const readShedule = await Shedule.find()
@@ -48,12 +52,13 @@ export const ReadShedule = async(req,res)=>{
     }
 }
 
+//delete data
 export const DeleteShedule = async(req,res)=>{
     const {id}=req.params
     try{
        const deleteShedule = await Shedule.deleteOne()
-       res.status(200).json({message:"Delete Succesfull"})
+       res.status(200).json({message:"cancelation Succesfull"})
     }catch{
-        res.status(500).json({message:"Delete Unsuccesfull"})
+        res.status(500).json({message:"cancelation Unsuccesfull"})
     }
 }
