@@ -1,4 +1,4 @@
-// models/Job.js
+// models/JobModel.js
 
 import mongoose from 'mongoose';
 

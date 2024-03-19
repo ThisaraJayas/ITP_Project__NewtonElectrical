@@ -1,4 +1,4 @@
-// models/CV.js
+// models/CVModel.js
 
 import mongoose from 'mongoose';
 
