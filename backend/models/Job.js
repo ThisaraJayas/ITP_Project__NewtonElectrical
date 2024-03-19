@@ -11,10 +11,10 @@ const jobSchema = new mongoose.Schema({
     salary:{ type: String},
     requirements:{ type: String},
     postedBy:{ type: String, required: true },
-    postedDate:{ type: Date, defaul:Date.now },
+    postedDate:{ type: Date, default:Date.now },
 
     // Add other fields as needed for job postings
-    
+
 });
 
 const Job = mongoose.model('Job', jobSchema);
