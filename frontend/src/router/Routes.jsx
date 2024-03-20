@@ -1,6 +1,8 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import AdminHome from '../Admin/AdminHome'
+import Projects from '../pages/Project'
+import Product from '../Admin/components/Product'
 import Project from '../pages/project'
 import ProductAdmin from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
@@ -16,7 +18,7 @@ export default function PageRoutes() {
     <>
     <UseContextProvider>
     <Routes>
-      <Route path='/projects' element={<Project/>}/>
+      <Route path='/projects' element={<Projects/>}/>
       <Route path='/admin' element={<AdminHome/>}/>
       <Route path='/admin/product' element={<ProductManager/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>

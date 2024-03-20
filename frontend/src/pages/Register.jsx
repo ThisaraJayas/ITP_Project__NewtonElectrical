@@ -6,7 +6,7 @@ export default function Register() {
   return (
     <>
     <Header/>
-    <div className='pt-36'>
+    <div className='pt-12'>
     <div className='bodyC '>
     <div className='regContainer'>
     <div className='formContainer'>
