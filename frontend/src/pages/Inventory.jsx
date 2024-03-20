@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/product.css';
 
-export default function Product() {
+export default function Inventory() {
     const [priceRange, setPriceRange] = useState(20000);
     const [category, setCategory] = useState('');
 

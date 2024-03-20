@@ -1,16 +1,15 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import AdminHome from '../Admin/AdminHome'
-import Projects from '../pages/Project'
-import Product from '../Admin/components/Product'
-import Project from '../pages/project'
-import ProductAdmin from '../Admin/components/Product'
+// import Projects from '../pages/Project'
+// import Product from '../Admin/components/project'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
 import ProductManager from '../Admin/ProductManager'
 import Register from '../pages/Register'
-import Product from '../pages/Product'
-imp
+import Inventory from '../pages/Inventory'
+
+
 
 
 export default function PageRoutes() {
@@ -18,12 +17,12 @@ export default function PageRoutes() {
     <>
     <UseContextProvider>
     <Routes>
-      <Route path='/projects' element={<Projects/>}/>
+      {/* <Route path='/projects' element={<Projects/>}/> */}
       <Route path='/admin' element={<AdminHome/>}/>
       <Route path='/admin/product' element={<ProductManager/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>
       <Route path='/register' element={<Register/>}/>
-      <Route path='/product' element={<Product/>}/>
+      <Route path='/product' element={<Inventory/>}/>
     </Routes>
     </UseContextProvider>
     </>
