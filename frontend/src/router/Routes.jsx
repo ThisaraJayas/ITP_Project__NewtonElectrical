@@ -2,14 +2,14 @@ import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import AdminHome from '../Admin/AdminHome'
 import Project from '../pages/project'
-import Product from '../Admin/components/Product'
+import ProductAdmin from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
-<<<<<<< HEAD
 import ProductManager from '../Admin/ProductManager'
-=======
 import Register from '../pages/Register'
->>>>>>> 3ee7f0164630da7b0e14ba0ef08251ccbfc0d71f
+import Product from '../pages/Product'
+imp
+
 
 export default function PageRoutes() {
   return (
@@ -21,6 +21,7 @@ export default function PageRoutes() {
       <Route path='/admin/product' element={<ProductManager/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/product' element={<Product/>}/>
     </Routes>
     </UseContextProvider>
     </>

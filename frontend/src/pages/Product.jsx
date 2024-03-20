@@ -1,56 +1,35 @@
-import React from 'react'
-import '../styles/product.css'
+
+import React, { useEffect, useState } from 'react';
+import '../styles/product.css';
 
 export default function Product() {
-  return (
-    <div>
-      <div class="container">
-    <div class="sidebar">
-        <h2 class="filter-heading">Filter Products</h2>
-        <div class="filter-input">
-            <label for="price-range">Price Range:</label>
-            <input type="range" id="price-range" name="price-range" min="20000" max="500000" step="10000" value="20000">
-            <div id="price-range-value" class="price-range-label">RS 20000 - RS 500000</div>
-        </div>
-        <div class="filter-input">
-            <label>Category:</label><br>
-            <input type="radio" id="lighting" name="category" class="category-input" value="lighting">
-            <label for="lighting">Lighting</label><br>
-            <input type="radio" id="backup-power" name="category" class="category-input" value="backup-power">
-            <label for="backup-power">Backup Power Solution</label><br>
-            <input type="radio" id="security-systems" name="category" class="category-input" value="security-systems">
-            <label for="security-systems">Security Systems</label><br>
-            <input type="radio" id="solar-panel" name="category" class="category-input" value="solar-panel">
-            <label for="solar-panel">Solar Panel</label><br>
-            <input type="radio" id="wiring" name="category" class="category-input" value="wiring">
-            <label for="wiring">Wiring</label><br>
-        </div>
-        <button class="filter-btn" onclick="applyFilters()">Apply Filters</button>
-    </div>
-    <div class="products">
-        <!-- Product items will be dynamically loaded here -->
-    </div>
-</div>
+    const [priceRange, setPriceRange] = useState(20000);
+    const [category, setCategory] = useState('');
 
-<script>
-    const priceRangeInput = document.getElementById('price-range');
-    const priceRangeValue = document.getElementById('price-range-value');
+    useEffect(() => {
+        const priceRangeInput = document.getElementById('price-range');
+        const priceRangeValue = document.getElementById('price-range-value');
 
-    priceRangeInput.addEventListener('input', () => {
-        const selectedRange = priceRangeInput.value;
-        priceRangeValue.textContent = `RS ${selectedRange} - RS 500000`;
-    });
+        priceRangeInput.addEventListener('input', () => {
+            const selectedRange = priceRangeInput.value;
+            priceRangeValue.textContent = `RS ${selectedRange} - RS 500000`;
+        });
 
-    function applyFilters() {
+        return () => {
+            priceRangeInput.removeEventListener('input', () => {});
+        };
+    }, []);
+
+    const applyFilters = () => {
         const priceRange = document.getElementById('price-range').value;
         const category = document.querySelector('input[name="category"]:checked').value;
 
         // Use fetch or AJAX to fetch and display products based on the filters
         // Example:
         fetchProducts(priceRange, category);
-    }
+    };
 
-    function fetchProducts(priceRange, category) {
+    const fetchProducts = (priceRange, category) => {
         // Fetch products based on the provided filters
         // Replace this with your actual API call or product fetching logic
         // Example:
@@ -62,9 +41,9 @@ export default function Product() {
         ];
 
         displayProducts(products);
-    }
+    };
 
-    function displayProducts(products) {
+    const displayProducts = (products) => {
         const productsContainer = document.querySelector('.products');
         productsContainer.innerHTML = ''; // Clear previous products
 
@@ -98,14 +77,37 @@ export default function Product() {
 
             productsContainer.appendChild(productItem);
         });
-    }
+    };
 
-    // Initial fetch or display all products when the page loads
-    window.addEventListener('load', () => {
-        fetchProducts(20000, ''); // Initial load with default filters
-    });
-</script>
-
-    </div>
-  )
+    return (
+        <div>
+            <div className="container">
+                <div className="sidebar">
+                    <h2 className="filter-heading">Filter Products</h2>
+                    <div className="filter-input">
+                        <label htmlFor="price-range">Price Range:</label>
+                        <input type="range" id="price-range" name="price-range" min="20000" max="500000" step="10000" value={priceRange} />
+                        <div id="price-range-value" className="price-range-label">RS {priceRange} - RS 500000</div>
+                    </div>
+                    <div className="filter-input">
+                        <label>Category:</label><br />
+                        <input type="radio" id="lighting" name="category" className="category-input" value="lighting" />
+                        <label htmlFor="lighting">Lighting</label><br />
+                        <input type="radio" id="backup-power" name="category" className="category-input" value="backup-power" />
+                        <label htmlFor="backup-power">Backup Power Solution</label><br />
+                        <input type="radio" id="security-systems" name="category" className="category-input" value="security-systems" />
+                        <label htmlFor="security-systems">Security Systems</label><br />
+                        <input type="radio" id="solar-panel" name="category" className="category-input" value="solar-panel" />
+                        <label htmlFor="solar-panel">Solar Panel</label><br />
+                        <input type="radio" id="wiring" name="category" className="category-input" value="wiring" />
+                        <label htmlFor="wiring">Wiring</label><br />
+                    </div>
+                    <button className="filter-btn" onClick={applyFilters}>Apply Filters</button>
+                </div>
+                <div className="products">
+                    {/* Product items will be dynamically loaded here */}
+                </div>
+            </div>
+        </div>
+    );
 }
