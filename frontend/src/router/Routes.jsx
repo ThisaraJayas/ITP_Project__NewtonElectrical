@@ -6,6 +6,7 @@ import Product from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
 import Register from '../pages/Register'
+import Dialogs from '../pages/Dialogs'
 
 export default function PageRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function PageRoutes() {
       <Route path='/admin/product' element={<Product/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/dialog' element={<Dialogs/>}/>
     </Routes>
     </UseContextProvider>
     </>

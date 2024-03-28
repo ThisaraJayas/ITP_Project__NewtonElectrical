@@ -1,32 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../adminStyles/UserManager.css'
 import { IoMdPerson } from "react-icons/io";
 import { BsPersonHearts } from "react-icons/bs";
+import UserTable from '../components/UserTable';
+
 
 export default function User() {
+    
   return (
         <div className='container pt-8 pl-8'>
+            
             <div className='mainTitle'>
                 <h3>User Dashboard</h3>
             </div>
             <div className='mainCards'>
                 <div className='cards'>
                     <div className='cardHead'>
-                        <h3>Users</h3>
+                        <h3>Total Users</h3>
                         <IoMdPerson className='card_icon'/>
                     </div>
                     <h1>349</h1>
                 </div>
                 <div className='cards'>
                     <div className='cardHead'>
-                        <h3>Loyal Users</h3>
+                        <h3>Monthly Users</h3>
                         <BsPersonHearts className='card_icon'/>
                     </div>
-                    <h1>349</h1>
+                    <h1>200</h1>
+                </div>
+                <div className='cards'>
+                    <div className='cardHead'>
+                        <h3>Weekly Users</h3>
+                        <BsPersonHearts className='card_icon'/>
+                    </div>
+                    <h1>110</h1>
+                </div>
+                <div className='cards'>
+                    <div className='cardHead'>
+                        <h3>Daily Users</h3>
+                        <BsPersonHearts className='card_icon'/>
+                    </div>
+                    <h1>39</h1>
                 </div>
             </div>
             {/* Section Two */}
-            <table>
+            {/* <table>
                 <thead>
                     <tr>
                     <th>First Name</th>
@@ -40,15 +58,12 @@ export default function User() {
                 </thead>
                 <tbody>
                     <tr>
-                    <td>Malcolm</td>
-                    <td>Reynolds</td>
-                    <td>Mal, Cap'nfffffffffffffffff</td>
+                    <td>Harry</td>
+                    <td>Perera</td>
+                    <td>harry@gmail.com</td>
                     <td>Female</td>
                     <td>Customer
-                        {/* <select>
-                            <option>Customer</option>
-                            <option>Admin</option>
-                        </select> */}
+                      
                     </td>
                     <td><button className='roleBtn'> Change Role</button></td>
                     <td><button className='deleteBtn'>Delete</button></td>
@@ -57,21 +72,18 @@ export default function User() {
                     <tr>
                     <td>Thisara</td>
                     <td>Jayasinghe</td>
-                    <td>New Kandy rd, Kaduwela</td>
+                    <td>thisara@gmail.com</td>
                     <td>Male</td>
                     <td>Customer
-                        {/* <select>
-                            <option>Customer</option>
-                            <option>Admin</option>
-                        </select> */}
+                       
                     </td>
                     <td><button className='roleBtn'> Change Role</button></td>
                     <td><button className='deleteBtn'>Delete</button></td>
 
                     </tr>
                 </tbody>
-            </table>
-
+            </table> */}
+            <UserTable/>
         </div>
   )
 }

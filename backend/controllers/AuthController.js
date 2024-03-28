@@ -1,3 +1,4 @@
+import validator from 'validator'
 import { setTokenCookie } from '../middleware/CookieSession.js'
 import User from '../models/UserModel.js'
 
@@ -6,9 +7,15 @@ export const test = (req,res)=>{
 }
 
 export const register = async(req,res)=>{
-    const {firstName,lastName,email,mobileNumber,address,password } = req.body
+    const {firstName,lastName,email,mobileNumber,gender,address,password } = req.body
 
-    const newUser = new User({firstName,lastName,email,mobileNumber,address,password})
+    const newUser = new User({firstName,lastName,email,mobileNumber,gender,address,password})
+    if(!validator.isEmail(email)){
+        return res.status(400).json({message: 'Invalid email address'})
+    }
+    if(password.length<8){
+        return res.status(400).json({message: 'Password must be at least 8 characters long'})
+    }
     try{
         await newUser.save()
         res.status(200).json({message:'User Created Success'})
