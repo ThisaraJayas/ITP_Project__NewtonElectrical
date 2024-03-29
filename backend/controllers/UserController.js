@@ -27,7 +27,7 @@ export const retriveUser = async(req,res)=>{
 
 export const updateUser=async(req,res)=>{
     const {id}=req.params
-    const { firstName, lastName, email, mobileNumber, address, password} = req.body;
+    const { firstName, lastName, email, mobileNumber, address, password,userType} = req.body;
     try{
         const user = await User.findByIdAndUpdate(id,{
             firstName,
@@ -35,12 +35,22 @@ export const updateUser=async(req,res)=>{
             email,
             mobileNumber,
             address,
-            password
+            password,
+            userType
         },{ new: true })
         if(user){
             res.status(200).json({message:"Updated Succesfull"})
         }
     }catch(error){
         res.status(500).json({message:"Server Error"})
+    }
+}
+export const DeleteUser = async(req,res)=>{
+    const {id}=req.params
+    try{
+       const deleteUser = await User.deleteOne()
+       res.status(200).json({message:"Delete Succesfull"})
+    }catch{
+        res.status(500).json({message:"Delete Unsuccesfull"})
     }
 }

@@ -31,9 +31,9 @@
   }
   .userDetails .inputBox input:focus,
   .userDetails .inputBox input:valid{
-    border-color: orangered;
+    border-color: rgb(255, 102, 0);
   }
-   .genderTitle{
+   .roleTitle{
     font-size: 20px;
     font-weight: 500;
    }
@@ -57,10 +57,10 @@
     border: 1px solid transparent;
     transition: all 0.3s ease;
   }
-   #dot1:checked ~ .category label .One,
-   #dot2:checked ~ .category label .Two{
-     background: orangered;
-   }
+  #dot1:checked + label .One,
+  #dot2:checked + label .Two {
+    background: blue;
+  }
    form input[type="radio"]{
      display: none;
    }
@@ -79,16 +79,13 @@
      letter-spacing: 1px;
      cursor: pointer;
      transition: all 0.3s ease;
-     background: orangered;
+     background: rgb(0, 38, 255);
    }
    form .button input:hover{
-    background: rgb(255, 120, 67);
+    background: rgb(0, 38, 255);
     }
 
-    .haveAccount span{
-        color: orangered;
-        font-weight: bold;
-    }
+
    @media(max-width: 584px){
    .formContainer{
     max-width: 100%;
