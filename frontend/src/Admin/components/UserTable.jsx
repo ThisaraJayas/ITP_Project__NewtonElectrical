@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
 import UserUpdate from './UserUpdate';
 import axios from 'axios'
+import DeleteUser from './DeleteUser';
 
 
 export default function UserTable() {
@@ -35,7 +36,7 @@ export default function UserTable() {
         },
         {
             name: "Delete",
-            cell: (row) => <button className='deleteBtn'>Delete</button>,
+            cell: (row) => <DeleteUser userId={row._id}/>,
             button: true,
         },
     ];
@@ -55,11 +56,11 @@ export default function UserTable() {
         
     },[])
 
-    const handleDelete=(id)=>{
-        axios.delete(`http://localhost:3000/user/user/${id}`)
-        .then(res=>{console.log(res),window.location.reload()})
-        .catch(err=>console.log(err))
-    }
+    // const handleDelete=(id)=>{
+    //     axios.delete(`http://localhost:3000/user/user/${id}`)
+    //     .then(res=>{console.log(res),window.location.reload()})
+    //     .catch(err=>console.log(err))
+    // }
 
     function handleFilter(event){
         console.log("Filtering...");
