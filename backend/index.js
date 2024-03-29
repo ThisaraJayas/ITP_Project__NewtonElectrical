@@ -1,6 +1,7 @@
 import express, { json } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cors from 'cors'
 dotenv.config()
 import authRouter from './routes/AuthRoute.js'
 import userRouter from './routes/UserRoute.js'
@@ -14,6 +15,10 @@ const app = express()
 
 //middleware
 app.use(express.json())  
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}))
 
 
 // Connect to MongoDB
