@@ -34,7 +34,7 @@ export default function UserTable() {
         },
         {
             name: "Edit Role",
-            cell: (row) =><UserUpdate userId={row._id}/>,
+            cell: (row) =><UserUpdate userId={row.userId}/>,
             button: true,
             minWidth: '120px'
         },

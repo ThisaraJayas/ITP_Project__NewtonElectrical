@@ -138,6 +138,7 @@ export default function UserUpdate({ userId }) {
                                     type="radio"
                                     name="role"
                                     id="dot1"
+                                    className="dot1"
                                     value="Customer"
                                     checked={userType === "Customer"}
                                     onChange={(e) => setUserType(e.target.value)}
@@ -146,6 +147,7 @@ export default function UserUpdate({ userId }) {
                                     type="radio"
                                     name="role"
                                     id="dot2"
+                                    className="dot2"
                                     value="Admin"
                                     checked={userType === "Admin"}
                                     onChange={() => setUserType("Admin")}

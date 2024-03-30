@@ -47,8 +47,9 @@
      display: flex;
      align-items: center;
      cursor: pointer;
+     
    }
-   form .category label .dot{
+    .category label .dot{
     height: 18px;
     width: 18px;
     border-radius: 50%;
@@ -56,11 +57,13 @@
     background: #d9d9d9;
     border: 1px solid transparent;
     transition: all 0.3s ease;
+    
   }
-  #dot1:checked + label .One,
-  #dot2:checked + label .Two {
-    background: blue;
+  #dot1:checked .One,
+  #dot2:checked .Two {
+      background: blue;
   }
+
    form input[type="radio"]{
      display: none;
    }
