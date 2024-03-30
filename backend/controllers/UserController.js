@@ -13,7 +13,7 @@ export const retriveUsers = async(req,res)=>{
 export const retriveUser = async(req,res)=>{
     const {id} = req.params
     try{
-        const user = await User.findOne({_id: id})
+        const user = await User.findOne({userId: id})
         if(user){
             res.status(200).json({user})
         }else{
@@ -48,7 +48,7 @@ export const updateUser=async(req,res)=>{
 export const DeleteUser = async(req,res)=>{
     const {id}=req.params
     try{
-       const deleteUser = await User.deleteOne({_id: id})
+       const deleteUser = await User.deleteOne({userId: id})
        res.status(200).json({message: "Delete Successfull"})
     }catch{
         res.status(500).json({message:"Delete Unsuccesfull"})

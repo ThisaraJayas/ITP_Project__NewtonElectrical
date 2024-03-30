@@ -9,6 +9,10 @@ import DeleteUser from './DeleteUser';
 export default function UserTable() {
     const columns =  [
         {
+            name: "User Id",
+            selector: row=>row.userId
+        },
+        {
             name: "First Name",
             selector: row => row.firstName
         },
@@ -36,7 +40,7 @@ export default function UserTable() {
         },
         {
             name: "Delete",
-            cell: (row) => <DeleteUser userId={row._id}/>,
+            cell: (row) => <DeleteUser userId={row.userId}/>,
             button: true,
         },
     ];
