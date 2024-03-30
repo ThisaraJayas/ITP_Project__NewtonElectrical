@@ -1,11 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../adminStyles/UserManager.css'
 import { IoMdPerson } from "react-icons/io";
 import { BsPersonHearts } from "react-icons/bs";
 import UserTable from '../components/UserTable';
+import axios from 'axios';
 
 
 export default function User() {
+
+    const [userCount, setUserCount]=useState(0)
+
+    useEffect(()=>{
+        const fetchUserCount = async()=>{
+            try{
+                const response = await axios.get('http://localhost:3000/user/user-count')
+                setUserCount(response.data.totalUsers)
+                console.log(response);
+            }catch(error){
+                console.log(error);
+            }
+            
+        }
+        fetchUserCount()
+    },[])
     
   return (
         <div className='container pt-8 pl-8'>
@@ -19,7 +36,7 @@ export default function User() {
                         <h3>Total Users</h3>
                         <IoMdPerson className='card_icon'/>
                     </div>
-                    <h1>349</h1>
+                    <h1>{userCount}</h1>
                 </div>
                 <div className='cards'>
                     <div className='cardHead'>

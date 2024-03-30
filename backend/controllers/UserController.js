@@ -48,9 +48,18 @@ export const updateUser=async(req,res)=>{
 export const DeleteUser = async(req,res)=>{
     const {id}=req.params
     try{
-       const deleteUser = await User.deleteOne()
-       res.status(200).json({message:"Delete Succesfull"})
+       const deleteUser = await User.deleteOne({_id: id})
+       res.status(200).json({message: "Delete Successfull"})
     }catch{
         res.status(500).json({message:"Delete Unsuccesfull"})
+    }
+}
+
+export const getTotalUserCount = async(req,res)=>{
+    try{
+        const totalUsers = await User.countDocuments()
+        res.status(200).json({totalUsers})
+    }catch{
+        res.status(500).json({ message: 'Unable to get total users' })
     }
 }

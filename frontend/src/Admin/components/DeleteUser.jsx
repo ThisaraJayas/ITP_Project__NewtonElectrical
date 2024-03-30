@@ -6,64 +6,79 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { ThemeProvider, createTheme } from "@mui/material";
+import axios from 'axios';
 
 const theme = createTheme({
-    typography: {
-        button: {
-            textTransform: "none",
-        },
+  typography: {
+    button: {
+      textTransform: "none",
     },
-    palette: {
-        secondary: {
-            main: "#B00020", // Specify the main color
-        },
+  },
+  palette: {
+    secondary: {
+      main: "#B00020", // Specify the main color
     },
+  },
 });
-export default function DeleteUser() {
-    const [open, setOpen] = React.useState(false);
+export default function DeleteUser({ userId }) {
+  const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
-        setOpen(true);
-      };
-    
-      const handleClose = () => {
-        setOpen(false);
-      };
-    
+  const handleDelete = async (e) => {
+    e.preventDefault()
+    try {
+      axios.delete(`http://localhost:3000/user/user/${userId}`)
+        .then(res => { console.log(res), window.location.reload() })
+        .catch(err => console.log(err))
+    } catch (error) {
+      console.error("Error Deleting ", error);
+    }
+  }
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <React.Fragment>
-    <ThemeProvider theme={theme}>
-                <Button
-                    variant="contained" color="secondary"
-                    style={{ marginLeft:"10px", width: "100%", maxHeight: "30px" }}
-                    className="roleBtn"
-                    onClick={handleClickOpen}
-                >
-                    Delete
-                </Button>
-    </ThemeProvider>
-    <Dialog
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-    >
-      <DialogTitle id="alert-dialog-title">
-        {"Use Google's location service?"}
-      </DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Disagree</Button>
-        <Button onClick={handleClose} autoFocus>
-          Agree
+      <ThemeProvider theme={theme}>
+        <Button
+          variant="contained" color="secondary"
+          style={{ marginLeft: "10px", width: "100%", maxHeight: "30px" }}
+          className="roleBtn"
+          onClick={handleClickOpen}
+        >
+          Delete
         </Button>
-      </DialogActions>
-    </Dialog>
-  </React.Fragment>
+      </ThemeProvider>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <form onSubmit={handleDelete}>
+          <DialogTitle id="alert-dialog-title">
+            {"User Deletion Confirmation"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Deleting this user account will permanently remove all associated
+              data and access rights from the system.
+              Are you absolutely certain you want to proceed with this action?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Disagree</Button>
+            <Button type='submit'  autoFocus>
+              Agree
+            </Button>
+          </DialogActions>
+        </form>
+      </Dialog>
+    </React.Fragment>
   )
 }

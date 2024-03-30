@@ -56,11 +56,7 @@ export default function UserTable() {
         
     },[])
 
-    // const handleDelete=(id)=>{
-    //     axios.delete(`http://localhost:3000/user/user/${id}`)
-    //     .then(res=>{console.log(res),window.location.reload()})
-    //     .catch(err=>console.log(err))
-    // }
+    
 
     function handleFilter(event){
         console.log("Filtering...");
