@@ -3,6 +3,9 @@ import '../styles/Register.css'
 import Header from '../components/Header'
 import validator from 'validator'
 import PasswordValidator from 'password-validator'
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+
 
 const passwordSchema = new PasswordValidator()
 passwordSchema
@@ -21,34 +24,41 @@ export default function Register() {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [gender, setGender] = useState('')
+    const [alertMessage, setAlertMessage] = useState('');
+    const [alertSeverity, setAlertSeverity] = useState('');
+
+    const handleAlert = (message, severity) =>{
+        setAlertMessage(message)
+        setAlertSeverity(severity)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         if (!validator.isEmail(email)) {
-            alert('Invalid email address')
+            handleAlert('Invalid email address','error')
         }
 
         if (!validator.isNumeric(phoneNumber)) {
-            alert('Phone number must be in Numeric');
+            handleAlert('Phone number must be Digits','error')
             return;
         }
         if (phoneNumber.length !== 10) {
-            alert('Phone number must be a 10-digit number');
+            handleAlert('Phone number must be a 10-digit number','error')
             return;
         }
 
         if (!passwordSchema.validate(password)) {
-            alert('Password does not meet the requirements.');
+            handleAlert('Password must have updercase, lowercase and digits','error')
             return
         }
 
         if (password !== confirmPassword) {
-            alert('Password dont match')
+            handleAlert('Password dont match','error')
             return
         }
         if (!gender) {
-            alert('Select Gender')
+            handleAlert('Please Select Gender','error')
         }
     }
 
@@ -64,6 +74,13 @@ export default function Register() {
                                 <h2>Registration</h2>
                             </div>
                             <div className='formContent'>
+                                {alertMessage && (
+                                    <Stack sx={{ width: '100%' }} spacing={2}>
+                                    <Alert variant="filled" severity={alertSeverity}>
+                                      {alertMessage}
+                                    </Alert>
+                                    </Stack>
+                                )}
                                 <form onSubmit={handleSubmit}>
                                     <div className='userDetails'>
                                         <div className='inputBox'>
