@@ -5,6 +5,8 @@ import validator from 'validator'
 import PasswordValidator from 'password-validator'
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const passwordSchema = new PasswordValidator()
@@ -20,30 +22,31 @@ export default function Register() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
+    const [mobileNumber, setPhoneNumber] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [gender, setGender] = useState('')
     const [alertMessage, setAlertMessage] = useState('');
     const [alertSeverity, setAlertSeverity] = useState('');
+    const navigate = useNavigate()
 
     const handleAlert = (message, severity) =>{
         setAlertMessage(message)
         setAlertSeverity(severity)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
 
         if (!validator.isEmail(email)) {
             handleAlert('Invalid email address','error')
         }
 
-        if (!validator.isNumeric(phoneNumber)) {
+        if (!validator.isNumeric(mobileNumber)) {
             handleAlert('Phone number must be Digits','error')
             return;
         }
-        if (phoneNumber.length !== 10) {
+        if (mobileNumber.length !== 10) {
             handleAlert('Phone number must be a 10-digit number','error')
             return;
         }
@@ -59,6 +62,28 @@ export default function Register() {
         }
         if (!gender) {
             handleAlert('Please Select Gender','error')
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/auth/register', {
+                firstName,
+                lastName,
+                email,
+                mobileNumber,
+                gender,
+                password
+            });
+            console.log(response);
+            
+            if(response.status===200){
+                handleAlert('Registration Success','success')
+                navigate('/login')
+            }else{
+                handleAlert('Registration Failed','error')
+            }
+        } catch (error) {
+            console.error("Error creating user:", error);
+            handleAlert('Sorry, User not Created','error')
         }
     }
 
@@ -97,7 +122,7 @@ export default function Register() {
                                         </div>
                                         <div className='inputBox'>
                                             <span className='details'>Phone Number</span>
-                                            <input type='text' placeholder='Enter your number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+                                            <input type='text' placeholder='Enter your number' value={mobileNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
                                         </div>
                                         <div className='inputBox'>
                                             <span className='details'>Password</span>

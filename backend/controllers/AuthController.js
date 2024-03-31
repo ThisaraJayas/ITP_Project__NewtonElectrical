@@ -7,20 +7,21 @@ export const test = (req,res)=>{
 }
 
 export const register = async(req,res)=>{
-    const {firstName,lastName,email,mobileNumber,gender,address,password } = req.body
-
-    const newUser = new User({firstName,lastName,email,mobileNumber,gender,address,password})
-    if(!validator.isEmail(email)){
-        return res.status(400).json({message: 'Invalid email address'})
-    }
-    if(password.length<8){
-        return res.status(400).json({message: 'Password must be at least 8 characters long'})
-    }
+    const {firstName,lastName,email,mobileNumber,address,gender,password } = req.body
     try{
+    const newUser = new User({firstName,lastName,email,mobileNumber,address,gender,password})
+    // if(!validator.isEmail(email)){
+    //     return res.status(400).json({message: 'Invalid email address'})
+    // }
+    // if(password.length<8){
+    //     return res.status(400).json({message: 'Password must be at least 8 characters long'})
+    // }
+    
         await newUser.save()
         res.status(200).json({message:'User Created Success',userId: newUser.userId})
     }catch(error){
         res.status(500).json({message:'Sorry, User not Created'})
+        console.error("Error creating user:", error);
     }
 }
 export const login = async(req,res)=>{
