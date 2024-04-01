@@ -7,6 +7,7 @@ import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 
 const passwordSchema = new PasswordValidator()
@@ -157,6 +158,7 @@ export default function Register() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

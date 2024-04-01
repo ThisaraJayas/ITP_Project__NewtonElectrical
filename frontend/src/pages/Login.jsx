@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Header from "../components/Header";
 import "../styles/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import { UserContext } from "../context/UserContext";
+import Footer from "../components/Footer";
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -12,6 +14,7 @@ export default function Login() {
   const navigate = useNavigate()
   const [alertMessage, setAlertMessage] = useState('');
   const [alertSeverity, setAlertSeverity] = useState('');
+  const {setUserData} = useContext(UserContext)
 
   const handleAlert = (message, severity) => {
     setAlertMessage(message)
@@ -26,9 +29,12 @@ export default function Login() {
         email,
         password,
       });
-  
+      
+      setUserData(response.data.user)
+      console.log(response.data.user);
       if (response.data.user.userType === 'Admin') {
         navigate('/admin');
+        
       } else if (response.data.user.userType === 'Customer') {
         navigate('/');
       }
@@ -78,6 +84,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
