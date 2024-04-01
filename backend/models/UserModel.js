@@ -1,6 +1,10 @@
 import mongoose from "mongoose"
+import Counter from "./CounterModel.js"
 
 const userSchema = new mongoose.Schema({
+    userId: {
+        type:Number,
+    },
     firstName:{
         type:String,
         required: true,
@@ -15,11 +19,14 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
     mobileNumber:{
-        type:Number,
+        type:String,
         required:true,
         unique:true,
     },
     address:{
+        type:String,
+    },
+    gender:{
         type:String,
     },
     password:{
@@ -28,8 +35,19 @@ const userSchema = new mongoose.Schema({
     },
     userType:{
         type:String,
+        enum: ['Customer', 'Admin'],
         default:"Customer"
     }
 },{timestamps: true})
+userSchema.pre('save', async function(next){
+    if(!this.isNew) return next()
+    try{
+        const counter = await Counter.findOneAndUpdate({},{$inc: {count:1}},{new:true, upsert:true})
+        this.userId=counter.count
+        next()
+    }catch(error){
+        next(error)
+    }
+})
 const User = mongoose.model('User',userSchema) //this becomes users in DB
 export default User
