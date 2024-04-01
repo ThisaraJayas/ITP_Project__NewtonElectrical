@@ -5,6 +5,7 @@
 }
 .accountContainer{
     padding: 40px;
+    box-shadow: 3px 6px 10px rgba(0,0,0,0.25);
   }
   .accountContainer form .userDetail{
     display: flex;
@@ -61,3 +62,37 @@
     border: 2px solid #ccc;
     transition: all 0.3s ease;
   }
+  .gendeTitle{
+    font-size: 17px;
+  }
+  .updateButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    background: orangered;
+    padding: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    margin: auto;
+    margin-top: 5%;
+  }
+ .updateButton:hover{
+    background: rgb(255, 120, 67);
+ }
+
+ /* password container */
+
+ .passwordContainer{
+    flex: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 20px 40px;
+    box-shadow: 3px 6px 10px rgba(0,0,0,0.25);
+ }
+ .passTitle{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 3%;
+ }
