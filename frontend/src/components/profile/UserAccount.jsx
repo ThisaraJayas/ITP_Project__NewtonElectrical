@@ -1,9 +1,45 @@
-import React from 'react'
-import Divider from '@mui/material/Divider';
+import React, { useContext, useEffect, useState } from 'react'
 import Paper from '@mui/material/Paper';
 import '../../styles/userAccount.css'
+import axios from 'axios';
+import { UserContext } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserAccount() {
+    const {userData, setUserData} = useContext(UserContext)
+    const [firstName, setFirstName] = useState(userData.firstName)
+    const [lastName, setLastName] = useState(userData.lastName)
+    const [mobileNumber, setMobileNumber] = useState(userData.mobileNumber)
+    const [email, setEmail] = useState(userData.email)
+    const [address, setAddress] = useState(userData.address)
+    const [gender, setGender] = useState(userData.gender)
+    const [oldPassword, setOldPassword] = useState('')
+    const [newPassword, setNewPassword] = useState('')
+    const [confirmNewPassword, setConfirmNewPassword] = useState('')
+    const navigate = useNavigate()
+
+    const userId = userData.userId;
+
+    const updateUser = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.put(`http://localhost:3000/user/user/${userId}`, {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                mobileNumber:mobileNumber,
+                address:address,
+                gender: gender,
+            }).then(response=>{
+                setUserData(response.data.user)
+                console.log(response.data.user);
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
     return (
         <div className='sm:ml-12 '>
             <div className='title'>
@@ -11,35 +47,35 @@ export default function UserAccount() {
             </div>
             <Paper sx={{ width: '100%', maxWidth: 'none' }} className='accountContainer'>
                 <div className='formContent'>
-                    <form >
+                    <form onSubmit={updateUser}>
                         <img className='rounded-full h-28 w-28 object-cover cursor-pointer self-center mt-2' src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'} alt='' />
                         <div className='userDetail'>
                             <div className='inputBox'>
                                 <span className='details'>First Name</span>
-                                <input type='text' placeholder='Enter your first name' required />
+                                <input type='text' placeholder='Enter your first name' value={firstName} onChange={(e)=>setFirstName(e.target.value)} required />
                             </div>
                             <div className='inputBox'>
                                 <span className='details'>Last Name</span>
-                                <input type='text' placeholder='Enter your last name' required />
+                                <input type='text' placeholder='Enter your last name' value={lastName} onChange={(e)=>setLastName(e.target.value)} required />
                             </div>
                             <div className='inputBox'>
                                 <span className='details'>Email</span>
-                                <input type='text' placeholder='Enter your email' required />
+                                <input type='text' placeholder='Enter your email' value={email} onChange={(e)=>setEmail(e.target.value)} required />
                             </div>
                             <div className='inputBox'>
                                 <span className='details'>Phone Number</span>
-                                <input type='text' placeholder='Enter your number' required />
+                                <input type='text' placeholder='Enter your number' value={mobileNumber} onChange={(e)=>setMobileNumber(e.target.value)} required />
                             </div>
                         </div>
                         <div className='userDetail2'>
                             <div className='inputBox'>
                                 <span className='details'>Address</span>
-                                <input type='text' placeholder='Enter your Address' required />
+                                <input type='text' placeholder='Enter your Address' value={address} onChange={(e)=>setAddress(e.target.value)}/>
                             </div>
                         </div>
                         <div className='genderDetails'>
-                            <input type='radio' name='gender' id='dot1' value="male" />
-                            <input type='radio' name='gender' id='dot2' value="female" />
+                            <input type='radio' name='gender' id='dot1' value="male" checked={gender ==='male'} onChange={(e)=>setGender('male')}/>
+                            <input type='radio' name='gender' id='dot2' value="female" checked={gender ==='female'} onChange={(e)=>setGender('female')}/>
                             <span className='gendeTitle'>Gender</span>
                             <div className='category'>
                                 <label for='dot1'>

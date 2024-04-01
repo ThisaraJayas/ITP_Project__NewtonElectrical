@@ -86,7 +86,7 @@ export default function UserUpdate({ userId }) {
                                 <h2>Update Role</h2>
                             </div>
 
-                            <div className="userDetails">
+                            <div className="userDetail">
                                 <div className="inputBox">
                                     <span className="details">First Name</span>
                                     <input

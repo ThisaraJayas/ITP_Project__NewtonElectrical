@@ -36,7 +36,7 @@ export default function Login() {
         navigate('/admin');
         
       } else if (response.data.user.userType === 'Customer') {
-        navigate('/');
+        navigate('/profile');
       }
     } catch (error) {
       if (error.response.status === 500) {

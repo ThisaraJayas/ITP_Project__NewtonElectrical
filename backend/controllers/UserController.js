@@ -39,7 +39,7 @@ export const updateUser=async(req,res)=>{
             userType
         },{ new: true })
         if(user){
-            res.status(200).json({message:"Updated Succesfull"})
+            res.status(200).json({user})
         }
     }catch(error){
         res.status(500).json({message:"Server Error"})

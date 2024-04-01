@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     address:{
         type:String,
+        default: ""
     },
     gender:{
         type:String,
