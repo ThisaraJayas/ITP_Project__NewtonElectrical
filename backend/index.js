@@ -7,9 +7,10 @@ import authRouter from './routes/AuthRoute.js'
 import userRouter from './routes/UserRoute.js'
 import feedbackRouter from './routes/FeedbackRoute.js'
 import projectRouter from './routes/ProjectRoute.js'
+import packageRouter from './routes/PackageRoute.js'
+import serviceRouter from './routes/ServiceRoute.js'
 import jobRouter from './routes/JobRoute.js';
 import cvRouter from './routes/CVRoute.js';
-
 
 const app = express()
 
@@ -40,5 +41,8 @@ app.use('/auth',authRouter)
 app.use('/user',userRouter)
 app.use('/feedbacks',feedbackRouter)
 app.use('/project',projectRouter)
+app.use('/package',packageRouter)
+app.use('/service',serviceRouter)
 app.use('/jobs', jobRouter);
 app.use('/cv', cvRouter);
+
