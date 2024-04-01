@@ -4,6 +4,9 @@ import '../../styles/userAccount.css'
 import axios from 'axios';
 import { UserContext } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce } from 'react-toastify'
 
 export default function UserAccount() {
     const {userData, setUserData} = useContext(UserContext)
@@ -17,6 +20,30 @@ export default function UserAccount() {
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const navigate = useNavigate()
+
+    const notifySuccess = (message) => toast.success(message,{
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+
+    const notifyError = (message) => toast.error(message,{
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+    })
 
     const userId = userData.userId;
 
@@ -33,9 +60,40 @@ export default function UserAccount() {
             }).then(response=>{
                 setUserData(response.data.user)
                 console.log(response.data.user);
+                notifySuccess('Updated Successfull')
             });
         } catch (error) {
             console.log(error);
+            notifyError('Updated UnSuccessfull')
+        }
+    };
+
+    const handlePassword = async (e) => {
+        e.preventDefault();
+        try {
+            if (oldPassword === userData.password) {
+                if (newPassword === confirmNewPassword) {
+                    if (newPassword.trim() !== '') {
+                        const response = await axios.put(`http://localhost:3000/user/user/${userId}`, {
+                            password: confirmNewPassword,
+                        });
+                        setUserData(response.data.user);
+                        console.log('Password updated successfully');
+                        notifySuccess('Password updated successfully')
+                    } else {
+                        console.log('New password cannot be blank');
+                        notifyError('New password cannot be blank')
+                    }
+                } else {
+                    console.log('Password confirmation does not match');
+                    notifyError('Password does not match')
+                }
+            } else {
+                console.log('Current password is invalid');
+                notifyError('Current password is invalid')
+            }
+        } catch (error) {
+            console.log('An error occurred while updating password:', error);
         }
     };
 
@@ -45,7 +103,7 @@ export default function UserAccount() {
             <div className='title'>
                 My Profile
             </div>
-            <Paper sx={{ width: '100%', maxWidth: 'none' }} className='accountContainer'>
+            <Paper sx={{ width: '100%', maxWidth: 'none',boxShadow: 3 }} className='accountContainer'>
                 <div className='formContent'>
                     <form onSubmit={updateUser}>
                         <img className='rounded-full h-28 w-28 object-cover cursor-pointer self-center mt-2' src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'} alt='' />
@@ -92,34 +150,35 @@ export default function UserAccount() {
                         <div className='updateButton'>
                             <input type='submit' value='Update Changes' />
                         </div>
+                        <ToastContainer />
                     </form>
                 </div>
             </Paper>
-            <Paper sx={{ width: '80%', maxWidth: 'none' }} className='passwordContainer'>
-            <div className='formContent'>
-                    <form >
+            <Paper sx={{ width: '80%', maxWidth: 'none', boxShadow: 3 }} className='passwordContainer'>
+            
+                    <form onSubmit={handlePassword} >
                         <div className='passTitle'>
                             Change Password
                         </div>
                         <div className='userDetail2'>
                             <div className='inputBox '>
-                                <span className='details'>Old Password</span>
-                                <input type='text' placeholder='Enter your Address' required />
+                                <span className='details'>Current Password</span>
+                                <input type='password' placeholder='Enter your current Password' onChange={(e)=>setOldPassword(e.target.value)} required />
                             </div>
                             <div className='inputBox '>
                                 <span className='details'>New Password</span>
-                                <input type='text' placeholder='Enter your Address' required />
+                                <input type='password' placeholder='Enter your new Password' onChange={(e)=>setNewPassword(e.target.value)} required />
                             </div>
                             <div className='inputBox '>
                                 <span className='details'>Confirm Password</span>
-                                <input type='text' placeholder='Enter your Address' required />
+                                <input type='password' placeholder='Re-enter new Password' onChange={(e)=>setConfirmNewPassword(e.target.value)} required />
                             </div>
                         </div>
                         <div className='updateButton'>
                             <input type='submit' value='Update Password' />
                         </div>
                     </form>
-                </div>
+                
             </Paper>
         </div>
     )
