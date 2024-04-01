@@ -1,7 +1,40 @@
 .backgroundBody{
     margin: 0;
     padding: 0;
-    background-color: #1d2634;
+   
+    color: #9e9ea4;
+    font-family: 'Montserrat',sans-serif;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas: 
+    'sidebar header header header'
+    'sidebar main main main';
+    height: 100vh;
+}
+.icon{
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 20px;
+}
+.icon_header{
+    vertical-align: middle;
+    line-height: 1px;
+    font-size: 26px;
+}
+.header-right{
+    display:flex;
+}
+.icon, .icon_header{
+    margin-right: 5px;
+}
+
+.backgroundBody{
+    margin: 0;
+    padding: 0;
+    /* background-color: #1d2634; */
     color: #9e9ea4;
     font-family: 'Montserrat',sans-serif;
 }
