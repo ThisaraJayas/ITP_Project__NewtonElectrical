@@ -1,0 +1,74 @@
+.bodyCon{
+    width: 100%;
+	height: auto;
+	background-image: url(register1.png);
+	background-position: center;
+	background-size: cover;
+}
+.loginContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 90px 50px;
+    
+}
+.logformContainer{
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    padding: 40px 30px;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  }
+  .logformContainer form .loginUserDetails{
+    margin: 20px 0 12px 0;
+  }
+  form .loginUserDetails .logininputBox{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .logininputBox span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .loginUserDetails .logininputBox input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+  }
+  .loginUserDetails .logininputBox input:focus,
+  .loginUserDetails .logininputBox input:valid{
+    border-color: orangered;
+  }
+  .logintext{
+    font-size: 30px;
+  }
+  .button{
+    height: 45px;
+    margin: 15px 10px;
+  }
+  .button{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: orangered;
+  }
+
+  form .button :hover{
+   background: rgb(255, 120, 67);
+}
