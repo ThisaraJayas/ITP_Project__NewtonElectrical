@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const projectSchema = new mongoose.Schema({
+const sheduleSchema = new mongoose.Schema({
     service:{
         type:String,
         required:true,
@@ -7,7 +7,7 @@ const projectSchema = new mongoose.Schema({
     
     serviceDetail:{
         type:String,
-        default:true,
+        required:true,
     },
     
     description:{
@@ -41,7 +41,6 @@ const projectSchema = new mongoose.Schema({
     },
     date:{
         type:String,
-        required:true,
     },
     timeslot:{
         type:String,

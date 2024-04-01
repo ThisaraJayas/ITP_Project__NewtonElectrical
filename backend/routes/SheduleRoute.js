@@ -5,7 +5,7 @@ import { DeleteShedule, InsertShedule, ReadShedule, UpdateShedule } from '../con
 const router = express.Router()
 
 router.post('/shedule',InsertShedule)
-router.post('/shedule/:id',UpdateShedule)
+router.put('/shedule/:id',UpdateShedule)
 router.get('/shedule',ReadShedule)
 router.delete('/shedule/:id',DeleteShedule)
 

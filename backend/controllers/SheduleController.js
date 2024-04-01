@@ -1,4 +1,4 @@
-import Shedule from "../models/ProjectModel.js"
+import Shedule from "../models/sheduleModel.js"
 
 //insert data to database
 
@@ -10,7 +10,7 @@ export const InsertShedule = async(req,res)=>{
         await newShedule.save()
         res.status(200).json({message:"Save Succesfully"})
     }catch(error){
-        res.status(500).json({message: "Save Unsuccess"})
+        res.status(500).json({error})
     }
 }
 
@@ -46,7 +46,7 @@ export const UpdateShedule = async(req,res)=>{
 export const ReadShedule = async(req,res)=>{
     try{
        const readShedule = await Shedule.find()
-       res.status(200).json({ReadShedule})
+       res.status(200).json({readShedule})
     }catch{
        res.status(500).json({message:"Data Not Found"})
     }
