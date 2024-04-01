@@ -52,7 +52,7 @@ export const ReadShedule = async(req,res)=>{
     }
 }
 
-//delete data
+//delete data details
 export const DeleteShedule = async(req,res)=>{
     const {id}=req.params
     try{
