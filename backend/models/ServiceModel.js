@@ -29,22 +29,22 @@ const serviceSchema = new mongoose.Schema({
     },
     service3:{
         type:String,
-        required:true,
+        required:false,
         
     },
     price3:{
         type:Number,
-        required:true,
+        required:false,
         
     },
     service4:{
         type:String,
-        required:true,
+        required:false,
         
     },
     price4:{
         type:Number,
-        required:true,
+        required:false,
         
     },
     totalprice:{
