@@ -9,6 +9,7 @@ import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Dialogs from '../pages/Dialogs'
 import Home from '../pages/Home'
+import Profile from '../pages/Profile'
 
 export default function PageRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function PageRoutes() {
       <Route path='/register' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/dialog' element={<Dialogs/>}/>
+      <Route path='/profile' element={<Profile/>}/>
     </Routes>
     </UseContextProvider>
     </>

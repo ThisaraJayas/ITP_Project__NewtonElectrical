@@ -1,0 +1,63 @@
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 3%;
+}
+.accountContainer{
+    padding: 40px;
+  }
+  .accountContainer form .userDetail{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .userDetail .inputBox{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  form .inputBox span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .userDetail .inputBox input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+  }
+  .userDetail2 .inputBox input:focus,
+  .userDetail2 .inputBox input:valid{
+    border-color: orangered;
+  }
+  /* input box 2 */
+  .accountContainer form .userDetail2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .userDetail2 .inputBox{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .inputBox span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .userDetail2 .inputBox input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+  }
