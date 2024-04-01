@@ -7,13 +7,47 @@ const serviceSchema = new mongoose.Schema({
         required:true,
         
     },
-    serviceName:{
+    service1:{
         type:String,
         required:true,
         
     },
-    
-    price:{
+    price1:{
+        type:Number,
+        required:true,
+        
+    },
+    service2:{
+        type:String,
+        required:true,
+        
+    },
+    price2:{
+        type:Number,
+        required:true,
+        
+    },
+    service3:{
+        type:String,
+        required:true,
+        
+    },
+    price3:{
+        type:Number,
+        required:true,
+        
+    },
+    service4:{
+        type:String,
+        required:true,
+        
+    },
+    price4:{
+        type:Number,
+        required:true,
+        
+    },
+    totalprice:{
         type:Number,
         required:true,
         
