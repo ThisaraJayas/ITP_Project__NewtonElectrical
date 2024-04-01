@@ -31,7 +31,7 @@ export const login = async(req,res)=>{
 
         if(user.password==password){
             setTokenCookie(res,user._id,user.email)
-            res.status(200).json({userId: user._id, email: user.email})
+            res.status(200).json({user})
         }else{
             res.status(500).json({message: "Incorrect Password"})
         }

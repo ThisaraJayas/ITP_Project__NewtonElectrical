@@ -6,7 +6,7 @@ import PasswordValidator from 'password-validator'
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const passwordSchema = new PasswordValidator()
@@ -94,7 +94,7 @@ export default function Register() {
                 <div className='bodyC '>
                     <div className='regContainer'>
                         <div className='formContainer'>
-                            <div className='title'>
+                            <div className='title text-center font-bold'>
                                 <h2>Registration</h2>
                             </div>
                             <div className='formContent'>
@@ -106,7 +106,7 @@ export default function Register() {
                                     </Stack>
                                 )}
                                 <form onSubmit={handleSubmit}>
-                                    <div className='userDetails'>
+                                    <div className='userDetail'>
                                         <div className='inputBox'>
                                             <span className='details'>First Name</span>
                                             <input type='text' placeholder='Enter your first name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
@@ -152,7 +152,7 @@ export default function Register() {
                                     </div>
                                 </form>
                             </div>
-                            <h3 className='haveAccount'>Already have an account?<span> Log in</span></h3>
+                            <h3 className='haveAccount'>Already have an account?<span><Link to={'/login'}> Log in</Link></span></h3>
                         </div>
                     </div>
                 </div>

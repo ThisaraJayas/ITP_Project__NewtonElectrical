@@ -1,5 +1,5 @@
 .bodyC{
-    width: 100%;
+  width: 100%;
 	height: auto;
 	background-image: url(register1.png);
 	background-position: center;
@@ -24,17 +24,16 @@
   }
   .formContainer .title{
     font-size: 30px;
-    font-weight:600;
     position: relative;
   }
   
-  .formContainer form .userDetails{
+  .formContainer form .userDetail{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
   }
-  form .userDetails .inputBox{
+  form .userDetail .inputBox{
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
   }
@@ -43,7 +42,7 @@
     font-weight: 500;
     margin-bottom: 5px;
   }
-  .userDetails .inputBox input{
+  .userDetail .inputBox input{
     height: 45px;
     width: 100%;
     outline: none;
@@ -53,8 +52,8 @@
     border: 2px solid #ccc;
     transition: all 0.3s ease;
   }
-  .userDetails .inputBox input:focus,
-  .userDetails .inputBox input:valid{
+  .userDetail .inputBox input:focus,
+  .userDetail .inputBox input:valid{
     border-color: orangered;
   }
    form .genderDetails .genderTitle{
@@ -99,7 +98,7 @@
      border: none;
      color: #fff;
      font-size: 20px;
-     font-weight: 500;
+     font-weight: bold;
      letter-spacing: 1px;
      cursor: pointer;
      transition: all 0.3s ease;

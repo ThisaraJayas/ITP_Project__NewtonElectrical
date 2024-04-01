@@ -8,12 +8,14 @@ import UseContextProvider from '../context/UserContext'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Dialogs from '../pages/Dialogs'
+import Home from '../pages/Home'
 
 export default function PageRoutes() {
   return (
     <>
     <UseContextProvider>
     <Routes>
+      <Route path='/' element={<Home/>}/> 
       <Route path='/projects' element={<Projects/>}/>
       <Route path='/admin' element={<AdminHome/>}/>
       <Route path='/admin/product' element={<Product/>}/>
