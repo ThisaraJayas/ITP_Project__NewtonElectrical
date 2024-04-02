@@ -1,39 +1,55 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { BookOpenIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import image from '../assets/images/logo.png'
 import '../styles/header.css'
+import { UserContext } from '../context/UserContext';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
-    let Links =[
-        {name:"HOME",link:"/"},
-        {name:"SERVICE",link:"/"},
-        {name:"ABOUT",link:"/"},
-        {name:"CONTACT",link:"/"},
+    let Links = [
+        { name: "HOME", link: "/" },
+        { name: "SERVICE", link: "/" },
+        { name: "ABOUT", link: "/" },
+        { name: "CONTACT", link: "/" },
     ];
     const [open, setOpen] = useState(false);
+    const { userData } = useContext(UserContext)
+
     return (
         <>
             <div className='bg-[#172554] shadow-md w-full fixed top-0 left-0 z-50'> {/* Modified z-index to 50 */}
                 <div className='max-w-screen-xl flex flex-wrap items-center justify-end mx-auto p-2'>
-                    <div className='mainLoginbtn'>
-                        <button className='loginBtn font-semibold'>Sign Up</button>
-                    </div>
-                    <div className='mainRegBtn'>
-                        <button className='registerBtn font-semibold'>Login</button>
-                    </div>
-                    <img className='rounded-full h-9 w-9 object-cover' src="https://i.pinimg.com/736x/b2/54/ea/b254ea1ec256b93c61aecb2aca62e277.jpg" alt='profile'/>
+                    {userData ? (
+                        <>
+                            <Link to={'/profile'}><img className='rounded-full h-9 w-9 mr-4 object-cover' src={userData.avatar} alt='profile' /></Link>
+                            <div className='mainLoginbtn'>
+                                <button className='loginBtn font-semibold'>Logout</button>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className='mainLoginbtn'>
+                                <button className='loginBtn font-semibold'>Sign Up</button>
+                            </div>
+                            <div className='mainRegBtn'>
+                                <button className='registerBtn font-semibold'>Login</button>
+                            </div>
+                        </>
+                    )}
+
+
                 </div>
             </div>
             <div className='shadow-md w-full fixed top-12 left-0 z-40'> {/* Modified z-index to 40 */}
                 <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
                     {/* logo section */}
                     <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
-                        <img className='w-15 h-10' src={image} alt='logo'/>
+                        <img className='w-15 h-10' src={image} alt='logo' />
                     </div>
                     {/* Menu icon */}
                     <div onClick={() => setOpen(!open)} className='absolute right-8 top-6 cursor-pointer md:hidden w-7 h-7'>
                         {
-                            open ? <XMarkIcon/> : <Bars3BottomRightIcon />
+                            open ? <XMarkIcon /> : <Bars3BottomRightIcon />
                         }
                     </div>
                     {/* link items */}
