@@ -10,6 +10,8 @@ import UserGenderPieChart from '../charts/UserGenderPieChart';
 export default function User() {
 
     const [userCount, setUserCount]=useState(0)
+    const [weeklyUserCount, setWeeklyUserCount] = useState(0)
+    const [dailyUserCount, setDailyUserCount] = useState(0)
 
     useEffect(()=>{
         const fetchUserCount = async()=>{
@@ -23,6 +25,32 @@ export default function User() {
             
         }
         fetchUserCount()
+    },[])
+
+    useEffect(()=>{
+        const weeklyUserCount = async()=>{
+            try{
+                const response = await axios.get('http://localhost:3000/user/weekly-user-count')
+                setWeeklyUserCount(response.data.weeklyCount)
+                console.log(response.data.weeklyCount);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        weeklyUserCount()
+    },[])
+
+    useEffect(()=>{
+        const dailyUserCount = async()=>{
+            try{
+                const response = await axios.get('http://localhost:3000/user/daily-user-count')
+                setDailyUserCount(response.data.dailyCount)
+                console.log(response.data.dailyCount);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        dailyUserCount()
     },[])
     
   return (
@@ -51,14 +79,14 @@ export default function User() {
                         <h3>Weekly Users</h3>
                         <BsPersonHearts className='card_icon'/>
                     </div>
-                    <h1>110</h1>
+                    <h1>{weeklyUserCount}</h1>
                 </div>
                 <div className='cards'>
                     <div className='cardHead'>
                         <h3>Daily Users</h3>
                         <BsPersonHearts className='card_icon'/>
                     </div>
-                    <h1>39</h1>
+                    <h1>{dailyUserCount}</h1>
                 </div>
             </div>
             {/* Section Two */}

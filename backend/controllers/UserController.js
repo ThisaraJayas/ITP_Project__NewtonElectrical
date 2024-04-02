@@ -84,9 +84,33 @@ export const getPastWeekUserCount = async (req,res) => {
                 }
             }
         ]);
-        const count = pastWeekUserCount.length>0? pastWeekUserCount[0].count:0
-        res.status(200).json({count})
+        const weeklyCount = pastWeekUserCount.length>0? pastWeekUserCount[0].count:0
+        res.status(200).json({weeklyCount})
     } catch (error) {
-        res.status(200).json({error})
+        res.status(500).json({error})
     }
 };
+
+export const getDailyUserCount = async(req,res)=>{
+    try{
+        const startDate = moment().subtract(1,'days').toDate()
+        const endDate = new Date()
+
+        const dailyUserCount = await User.aggregate([
+            {
+                $match:{
+                    createdAt:{ $gte: startDate, $lte: endDate}
+                }
+            },{
+                $group:{
+                    _id:null,
+                    count:{$sum :1}
+                }
+            }
+        ]);
+        const dailyCount = dailyUserCount.length>0? dailyUserCount[0].count:0
+        res.status(200).json({dailyCount})
+    }catch(error){
+        res.status(500).json({error})
+    }
+}
