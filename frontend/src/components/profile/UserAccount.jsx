@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import Paper from '@mui/material/Paper';
 import '../../styles/userAccount.css'
 import axios from 'axios';
@@ -20,6 +20,19 @@ export default function UserAccount() {
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const navigate = useNavigate()
+    //profile image upload ----start
+    const fileRef = useRef(null)
+    const [file, setFile]=useState(undefined)
+    console.log(file);
+
+    useEffect(()=>{
+        if(file){
+            handleProfilePicUpload(file)
+        }
+    },[file])
+    const handleProfilePicUpload = (file)=>{
+        
+    }
 
     const notifySuccess = (message) => toast.success(message,{
         position: "top-center",
@@ -106,7 +119,8 @@ export default function UserAccount() {
             <Paper sx={{ width: '100%', maxWidth: 'none',boxShadow: 3 }} className='accountContainer'>
                 <div className='formContent'>
                     <form onSubmit={updateUser}>
-                        <img className='rounded-full h-28 w-28 object-cover cursor-pointer self-center mt-2' src={'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'} alt='' />
+                        <input type='file' ref={fileRef} onChange={(e)=>setFile(e.target.files[0])} accept='image/*' hidden/>
+                        <img onClick={()=>fileRef.current.click()} className='rounded-full h-28 w-28 object-cover cursor-pointer self-center mt-2' src={userData.avatar} alt='' />
                         <div className='userDetail'>
                             <div className='inputBox'>
                                 <span className='details'>First Name</span>

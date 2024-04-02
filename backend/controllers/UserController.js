@@ -27,7 +27,7 @@ export const retriveUser = async(req,res)=>{
 
 export const updateUser=async(req,res)=>{
     const {id}=req.params
-    const { firstName, lastName, email, mobileNumber, address, password,userType} = req.body;
+    const { firstName, lastName, email, mobileNumber, address, password,userType, avatar} = req.body;
     try{
         const user = await User.findOneAndUpdate({userId: id},{
             firstName,
@@ -36,7 +36,8 @@ export const updateUser=async(req,res)=>{
             mobileNumber,
             address,
             password,
-            userType
+            userType,
+            avatar
         },{ new: true })
         if(user){
             res.status(200).json({user})

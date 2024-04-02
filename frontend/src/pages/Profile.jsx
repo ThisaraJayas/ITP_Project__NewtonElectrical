@@ -2,6 +2,7 @@ import React from 'react'
 import ProfileMenu from '../components/profile/ProfileMenu'
 import UserAccount from '../components/profile/UserAccount'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Profile() {
     return (
@@ -13,6 +14,7 @@ export default function Profile() {
                 <UserAccount />
             </div>
         </div>
+        <Footer/>
         </>
     )
 }
