@@ -4,6 +4,7 @@ import { IoMdPerson } from "react-icons/io";
 import { BsPersonHearts } from "react-icons/bs";
 import UserTable from '../components/UserTable';
 import axios from 'axios';
+import UserGenderPieChart from '../charts/UserGenderPieChart';
 
 
 export default function User() {
@@ -100,6 +101,7 @@ export default function User() {
                     </tr>
                 </tbody>
             </table> */}
+            <UserGenderPieChart/>
             <UserTable/>
         </div>
   )

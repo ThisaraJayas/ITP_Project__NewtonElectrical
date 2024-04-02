@@ -1,4 +1,5 @@
 import User from '../models/UserModel.js'
+import moment from 'moment'
 
 
 export const retriveUsers = async(req,res)=>{
@@ -64,3 +65,28 @@ export const getTotalUserCount = async(req,res)=>{
         res.status(500).json({ message: 'Unable to get total users' })
     }
 }
+
+export const getPastWeekUserCount = async (req,res) => {
+    try {
+
+        const startDate = moment().subtract(7,'days').toDate()
+        const endDate = new Date()
+        const pastWeekUserCount = await User.aggregate([
+            {
+                $match: {
+                    createdAt: { $gte: startDate, $lte:endDate}
+                }
+            },
+            {
+                $group:{
+                    _id:null,
+                    count: {$sum :1}
+                }
+            }
+        ]);
+        const count = pastWeekUserCount.length>0? pastWeekUserCount[0].count:0
+        res.status(200).json({count})
+    } catch (error) {
+        res.status(200).json({error})
+    }
+};
