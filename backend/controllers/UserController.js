@@ -114,3 +114,28 @@ export const getDailyUserCount = async(req,res)=>{
         res.status(500).json({error})
     }
 }
+
+export const getMontlyUserCount = async(req,res)=>{
+    try{
+        const startDate = moment().subtract(30,'days').toDate()
+        const endDate = new Date()
+
+        const monthlyUserCount = await User.aggregate([
+            {
+                $match:{
+                    createdAt:{ $gte: startDate, $lte: endDate}
+                }
+            },{
+                $group:{
+                    _id:null,
+                    count:{$sum :1}
+                }
+            }
+        ])
+        const montlyUser = monthlyUserCount.length>0? monthlyUserCount[0].count:0
+        res.status(200).json({montlyUser})
+
+    }catch(error){
+        res.status(500).json({error})
+    }
+}

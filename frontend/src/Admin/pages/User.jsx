@@ -12,6 +12,7 @@ export default function User() {
     const [userCount, setUserCount]=useState(0)
     const [weeklyUserCount, setWeeklyUserCount] = useState(0)
     const [dailyUserCount, setDailyUserCount] = useState(0)
+    const [monthlyUserCount, setMonthlyUserCount] = useState(0)
 
     useEffect(()=>{
         const fetchUserCount = async()=>{
@@ -52,6 +53,19 @@ export default function User() {
         }
         dailyUserCount()
     },[])
+
+    useEffect(()=>{
+        const monthlyUserCount = async()=>{
+            try{
+                const response = await axios.get('http://localhost:3000/user/monthly-user-count')
+                setMonthlyUserCount(response.data.montlyUser)
+                console.log(response.data.montlyUser);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        monthlyUserCount()
+    },[])
     
   return (
         <div className='container pt-8 pl-8'>
@@ -72,7 +86,7 @@ export default function User() {
                         <h3>Monthly Users</h3>
                         <BsPersonHearts className='card_icon'/>
                     </div>
-                    <h1>200</h1>
+                    <h1>{monthlyUserCount}</h1>
                 </div>
                 <div className='cards'>
                     <div className='cardHead'>
