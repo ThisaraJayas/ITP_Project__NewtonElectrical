@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce } from 'react-toastify'
+import {getStorage, ref, uploadBytesResumable, getDownloadURL} from 'firebase/storage'
+import { app } from '../../firebase';
 
 export default function UserAccount() {
     const {userData, setUserData} = useContext(UserContext)
@@ -21,18 +23,42 @@ export default function UserAccount() {
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const navigate = useNavigate()
     //profile image upload ----start
-    const fileRef = useRef(null)
-    const [file, setFile]=useState(undefined)
-    console.log(file);
+    const [file, setFile] = useState(undefined);
+    const fileRef = useRef(null);
 
     useEffect(()=>{
         if(file){
             handleProfilePicUpload(file)
         }
     },[file])
-    const handleProfilePicUpload = (file)=>{
-        
-    }
+    
+
+    let uploadComplete = false
+    const handleProfilePicUpload = (file) => {
+        const storage = getStorage(app);
+        const fileName = new Date().getTime() + file.name;
+        const storageRef = ref(storage, `avatars/${fileName}`);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+        uploadTask.on(
+            'state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                if(progress === 100 && !uploadComplete){
+                    notifySuccess('Profile Upload Successfull')
+                    uploadComplete=true
+                }else if(progress < 100 && uploadComplete){
+                    notifyError('Profile Upload UnSuccessfull')
+                    uploadComplete = false
+                }
+            },(error) => {
+                notifyError(error)
+            },
+            async () => {
+                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                setUserData({ ...userData, avatar: downloadURL });
+            }
+        );
+    };
 
     const notifySuccess = (message) => toast.success(message,{
         position: "top-center",
@@ -70,6 +96,7 @@ export default function UserAccount() {
                 mobileNumber:mobileNumber,
                 address:address,
                 gender: gender,
+                avatar: userData.avatar
             }).then(response=>{
                 setUserData(response.data.user)
                 console.log(response.data.user);
@@ -119,8 +146,13 @@ export default function UserAccount() {
             <Paper sx={{ width: '100%', maxWidth: 'none',boxShadow: 3 }} className='accountContainer'>
                 <div className='formContent'>
                     <form onSubmit={updateUser}>
-                        <input type='file' ref={fileRef} onChange={(e)=>setFile(e.target.files[0])} accept='image/*' hidden/>
-                        <img onClick={()=>fileRef.current.click()} className='rounded-full h-28 w-28 object-cover cursor-pointer self-center mt-2' src={userData.avatar} alt='' />
+                    <input type="file" ref={fileRef} onChange={(e) => setFile(e.target.files[0])} accept="image/*" hidden />
+                        <img
+                            onClick={() => fileRef.current.click()}
+                            className="rounded-full h-28 w-28 object-cover cursor-pointer self-center mt-2"
+                            src={userData.avatar}
+                            alt="profile"
+                        />
                         <div className='userDetail'>
                             <div className='inputBox'>
                                 <span className='details'>First Name</span>
