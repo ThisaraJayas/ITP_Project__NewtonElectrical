@@ -21,6 +21,7 @@ export default function UserAccount() {
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
+    const [location, setLocation] = useState(userData.district)
     const navigate = useNavigate()
     //profile image upload ----start
     const [file, setFile] = useState(undefined);
@@ -96,6 +97,7 @@ export default function UserAccount() {
                 mobileNumber:mobileNumber,
                 address:address,
                 gender: gender,
+                district: location,
                 avatar: userData.avatar
             }).then(response=>{
                 setUserData(response.data.user)
@@ -171,11 +173,27 @@ export default function UserAccount() {
                                 <input type='text' placeholder='Enter your number' value={mobileNumber} onChange={(e)=>setMobileNumber(e.target.value)} required />
                             </div>
                         </div>
-                        <div className='userDetail2'>
-                            <div className='inputBox'>
+                        <div className=''>
+                        <div className='userDetail3'>
+                            <div className='inputBox w-10'>
                                 <span className='details'>Address</span>
                                 <input type='text' placeholder='Enter your Address' value={address} onChange={(e)=>setAddress(e.target.value)}/>
                             </div>
+                            <div className='inputBox'>
+                                <div className='inputboxlocation'>
+                                <span className='details'>District/Province</span>
+                                <select type='text' value={location} onChange={(e)=>setLocation(e.target.value)} className='custom-select'>
+                                    <option value=' '>Select District</option>
+                                    <option value='Colombo'>Colombo</option>
+                                    <option value='Kandy'>Kandy</option>
+                                    <option value='Galle'>Galle</option>
+                                    <option value='Gampaha'>Gampaha</option>
+                                    <option value='Kalutara'>Kalutara</option>
+                                    <option value='Matara'>Matara</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                         <div className='genderDetails'>
                             <input type='radio' name='gender' id='dot1' value="male" checked={gender ==='male'} onChange={(e)=>setGender('male')}/>

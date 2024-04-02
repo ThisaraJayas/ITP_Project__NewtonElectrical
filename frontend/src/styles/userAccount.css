@@ -17,12 +17,51 @@
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
   }
+  form .userDetail3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+  }
+  form .userDetail3 .inputBox{
+    width: 100%;
+  }
+  .inputboxlocation{
+    width: 30%;
+  }
+  .inputboxlocation select{
+     height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+  }
+  .inputboxlocation select:focus,
+  .inputboxlocation select:valid{
+    border-color: orangered;
+  }
+  .custom-select {
+    appearance: none; 
+    padding: 8px 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #fff; 
+}
+
+.custom-select option {
+    background-color: #fff; 
+    border-radius: 5px;
+}
   form .inputBox span.details{
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
   }
-  .userDetail2 .inputBox input{
+  .userDetail3 .inputBox input{
     height: 45px;
     width: 100%;
     outline: none;
@@ -32,8 +71,8 @@
     border: 2px solid #ccc;
     transition: all 0.3s ease;
   }
-  .userDetail2 .inputBox input:focus,
-  .userDetail2 .inputBox input:valid{
+  .userDetail3 .inputBox input:focus,
+  .userDetail3 .inputBox input:valid{
     border-color: orangered;
   }
   /* input box 2 */

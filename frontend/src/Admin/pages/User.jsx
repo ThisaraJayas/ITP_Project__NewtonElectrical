@@ -5,6 +5,7 @@ import { BsPersonHearts } from "react-icons/bs";
 import UserTable from '../components/UserTable';
 import axios from 'axios';
 import UserGenderPieChart from '../charts/UserGenderPieChart';
+import UserLocationBarChart from '../charts/UserLocationBarChart';
 
 
 export default function User() {
@@ -143,7 +144,11 @@ export default function User() {
                     </tr>
                 </tbody>
             </table> */}
-            <UserGenderPieChart/>
+            <div className='flex justify-between mb-5'>
+                <UserGenderPieChart/>
+                <UserLocationBarChart/>
+            </div>
+            
             <UserTable/>
         </div>
   )

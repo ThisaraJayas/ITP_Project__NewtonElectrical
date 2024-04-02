@@ -10,7 +10,8 @@ import Login from '../pages/Login'
 import Dialogs from '../pages/Dialogs'
 import Home from '../pages/Home'
 import Profile from '../pages/Profile'
-import UserGenderPieChart from '../Admin/charts/UserGenderPieChart'
+import UserLocationBarChart from '../Admin/charts/UserLocationBarChart'
+
 
 export default function PageRoutes() {
   return (
@@ -26,7 +27,7 @@ export default function PageRoutes() {
       <Route path='/login' element={<Login/>}/>
       <Route path='/dialog' element={<Dialogs/>}/>
       <Route path='/profile' element={<Profile/>}/>
-      <Route path='/gender' element={<UserGenderPieChart/>}/>
+      <Route path='/gender' element={<UserLocationBarChart/>}/>
     </Routes>
     </UseContextProvider>
     </>

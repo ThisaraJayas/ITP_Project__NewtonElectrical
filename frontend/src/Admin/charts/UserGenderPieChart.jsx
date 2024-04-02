@@ -39,8 +39,8 @@ export default function UserGenderPieChart() {
           ],
         },
       ]}
-      width={400}
-      height={200}
+      width={410}
+      height={280}
     />
     </Paper>
     </div>
