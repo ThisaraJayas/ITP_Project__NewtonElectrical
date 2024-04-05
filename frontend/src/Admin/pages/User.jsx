@@ -140,7 +140,6 @@ export default function User() {
                     </td>
                     <td><button className='roleBtn'> Change Role</button></td>
                     <td><button className='deleteBtn'>Delete</button></td>
-
                     </tr>
                 </tbody>
             </table> */}
