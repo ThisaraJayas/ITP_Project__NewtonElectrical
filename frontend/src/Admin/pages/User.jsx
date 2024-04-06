@@ -143,10 +143,13 @@ export default function User() {
                     </tr>
                 </tbody>
             </table> */}
-            <div className='flex justify-between mb-5'>
+
+
+            
+            {/* <div className='flex justify-between mb-5'>
                 <UserGenderPieChart/>
                 <UserLocationBarChart/>
-            </div>
+            </div> */}
             
             <UserTable/>
         </div>
