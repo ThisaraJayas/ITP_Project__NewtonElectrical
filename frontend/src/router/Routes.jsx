@@ -11,6 +11,7 @@ import Dialogs from '../pages/Dialogs'
 import Home from '../pages/Home'
 import Profile from '../pages/Profile'
 import UserLocationBarChart from '../Admin/charts/UserLocationBarChart'
+import UserPdf from '../components/UserPdf'
 
 
 export default function PageRoutes() {
@@ -28,6 +29,7 @@ export default function PageRoutes() {
       <Route path='/dialog' element={<Dialogs/>}/>
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/gender' element={<UserLocationBarChart/>}/>
+      <Route path='/userpdf' element={<UserPdf/>}/>
     </Routes>
     </UseContextProvider>
     </>
