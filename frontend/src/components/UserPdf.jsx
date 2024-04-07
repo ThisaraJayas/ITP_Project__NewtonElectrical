@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
+import UserTable from '../Admin/components/UserTable';
+import '../styles/userpdf.css'
 
 
 export default function UserPdf() {
@@ -29,26 +31,37 @@ export default function UserPdf() {
             pdf.save('userdetails.pdf');
         });
     };
-  return (
-    <>
-    <div ref={pdfRef}>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    <div>UserPdf</div>
-    </div>
-    <button className='button' onClick={downloadPdf}>Download</button>
-    </>
-  )
+    return (
+        <>
+            <div ref={pdfRef}>
+                <h1>A Fancy Table</h1>
+
+                <table className="customers">
+                    <tr>
+                        <th>ID</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>LastName</th>
+                        <th>LastName</th>
+                        <th>LastName</th>
+                        <th>LastName</th>
+                        <th>LastName</th>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                        <td>Germany</td>
+                    </tr>
+                    
+                </table>
+
+            </div>
+            <button className='button' onClick={downloadPdf}>Download</button>
+        </>
+    )
 }
