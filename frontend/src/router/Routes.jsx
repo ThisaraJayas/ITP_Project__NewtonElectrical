@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import AdminHome from '../Admin/AdminHome'
-import Projects from '../pages/Project'
+import Projects from '../pages/project/Project'
 import Product from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
