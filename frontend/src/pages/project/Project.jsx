@@ -3,6 +3,8 @@ import Header from '../../components/Header';
 import './1.css';
 
 export default function Project() {
+
+
   return (
     <>
       <Header />
@@ -59,10 +61,7 @@ export default function Project() {
                   <p>This card has a gradient overlay on hover and a subtle shadow effect. The colors change on hover to provide a more engaging experience.</p>
                 </div>
               </div>
-              
-
               {/* Add more Completed Project Cards similarly */}
-
             </div>
           </section>
         </div>
