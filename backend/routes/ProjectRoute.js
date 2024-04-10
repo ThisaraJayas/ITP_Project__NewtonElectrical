@@ -5,7 +5,7 @@ import { DeleteProject, InsertProject, ReadProject, UpdateProject } from '../con
 const router = express.Router()
 
 router.post('/projects',InsertProject)
-router.post('/projects/:id',UpdateProject)
+router.put('/projects/:id',UpdateProject)
 router.get('/projects',ReadProject)
 router.delete('/projects/:id',DeleteProject)
 
