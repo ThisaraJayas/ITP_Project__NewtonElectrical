@@ -4,6 +4,7 @@ import SideBar from './components/SideBar'
 import Header from './components/Header'
 import Jobs from './pages/Jobs'
 
+
 export default function JobsManager() {
     return (
       <>

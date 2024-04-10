@@ -28,9 +28,9 @@ export default function SideBar() {
             <BsCart3 className='icon'/>Products
         </li>
         </Link>
-        <Link to={'/admin/item1'}>
+        <Link to={'/admin/jobsManager'}>
         <li className='sidebar-list-item'>
-            <BsCart3 className='icon'/>Customers
+            <BsCart3 className='icon'/>Jobs
         </li>
         </Link>
         <Link to={'/admin/item2'}>

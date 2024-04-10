@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 export default function ProfileMenu() {
   return (
     <div>
-        <Paper sx={{ width: 320, maxWidth: '100%' }}>
+        <Paper sx={{ width: 320, maxWidth: '100%', boxShadow: 6 }}>
                 <MenuList>
                 <div className='h-24 text-center'>
                         Manage My Account

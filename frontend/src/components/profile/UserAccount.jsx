@@ -145,7 +145,7 @@ export default function UserAccount() {
             <div className='title'>
                 My Profile
             </div>
-            <Paper sx={{ width: '100%', maxWidth: 'none',boxShadow: 3 }} className='accountContainer'>
+            <Paper sx={{ width: '100%', maxWidth: 'none',boxShadow: 16 }} className='accountContainer'>
                 <div className='formContent'>
                     <form onSubmit={updateUser}>
                     <input type="file" ref={fileRef} onChange={(e) => setFile(e.target.files[0])} accept="image/*" hidden />
@@ -218,7 +218,7 @@ export default function UserAccount() {
                     </form>
                 </div>
             </Paper>
-            <Paper sx={{ width: '80%', maxWidth: 'none', boxShadow: 3 }} className='passwordContainer'>
+            <Paper sx={{ width: '80%', maxWidth: 'none', boxShadow: 16 }} className='passwordContainer'>
             
                     <form onSubmit={handlePassword} >
                         <div className='passTitle'>
