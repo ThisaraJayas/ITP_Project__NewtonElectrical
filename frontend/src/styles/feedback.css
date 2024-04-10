@@ -23,3 +23,20 @@
 .textfield:hover {
     border-color: #66afe9; 
 }
+.FeedbackCancelBtn,
+.FeedbackSubmitBtn {
+    padding: 8px 30px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.FeedbackCancelBtn {
+    background-color: #b8b8b8;
+    color: black;
+}
+.FeedbackSubmitBtn{
+    background-color: #ff7a0e;
+    color: white;
+}

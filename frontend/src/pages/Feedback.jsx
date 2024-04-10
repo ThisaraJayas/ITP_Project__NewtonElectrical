@@ -1,12 +1,15 @@
 import React from 'react';
 import '../styles/feedback.css';
 import Header from '../components/Header';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+import Footer from '../components/Footer';
 
 export default function Feedback() {
     return (
         <>
             <Header />
-            <div className='pt-24'>
+            <div className='pt-24 pb-9'>
                 <div className="page flex justify-center items-center">
                     <div className="input-container">
                         <div className='textSection'>
@@ -60,10 +63,18 @@ export default function Feedback() {
                                     rows="4"
                                 />
                             </div>
+                            <Stack spacing={1}>
+                                <Rating name="size-large" defaultValue={2} size="large" />
+                            </Stack>
+                            <div className='feedbackBtns flex justify-end'>
+                                <button className='FeedbackCancelBtn'>Cancel</button>
+                                <button className='FeedbackSubmitBtn ml-8'>Submit</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }
