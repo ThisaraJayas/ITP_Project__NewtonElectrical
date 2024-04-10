@@ -8,7 +8,7 @@ export default function Store() {
       <Header />
       <div className="pt-20 flex justify-between">
         <div className="">
-          <div class="sidebarCard">
+          <div class="sidebarCard ml-8">
             <h2 class="sidebarTitle">Filter by Category</h2>
             <ul class="categoryList">
               <li class="categoryItem">Category 1</li>

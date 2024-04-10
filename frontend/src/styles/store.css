@@ -56,3 +56,34 @@
   .buyNowBtn:hover{
     background-color: #ce4100;
   }
+
+  /* side card bar */
+
+  .sidebarCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 250px;
+  }
+  
+  .sidebarTitle {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .categoryList {
+    list-style: none;
+    padding: 0;
+    margin-left: 5%;
+  }
+  
+  .categoryItem {
+    font-size: 16px;
+    padding: 8px 0;
+    cursor: pointer;
+  }
+  
+  .categoryItem:hover {
+    background-color: #f0f0f0;
+  }
