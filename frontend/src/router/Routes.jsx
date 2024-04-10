@@ -16,6 +16,8 @@ import JobsManager from '../Admin/JobsManager'
 import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
 import OngoingProject from '../pages/project/OngoingProject'
+import Store from '../pages/Store'
+
 
 
 
@@ -40,6 +42,7 @@ export default function PageRoutes() {
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/ongoingproject' element={<OngoingProject/>}/>
+      <Route path='/store' element={<Store/>}/>
 
     </Routes>
     </UseContextProvider>

@@ -2,12 +2,13 @@ import React from 'react';
 import Header from '../../components/Header';
 import './2.css';
 import image from './project.jpg';
+import Footer from '../../components/Footer';
 
 export default function OngoingProject() {
   return (
     <div>
       <Header />
-      <div className='pt-24'>
+      <div className='pt-24 pb-40'>
         <div className='projectDisplay ml-9 mr-9 flex justify-between'>
           <div className='imageContainer'>
             <img src={image} className='projectImage' alt='Project' />
@@ -37,6 +38,7 @@ export default function OngoingProject() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
