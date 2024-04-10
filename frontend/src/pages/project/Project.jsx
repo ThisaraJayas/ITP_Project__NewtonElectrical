@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header';
 import './1.css';
+import { Link } from 'react-router-dom';
 
 export default function Project() {
 
@@ -31,9 +32,9 @@ export default function Project() {
               {/* Ongoing Project Card 1 */}
               <div className="projectcard">
                 <img src="https://via.placeholder.com/300" alt="Placeholder Image" />
-                <div className="projectcardcontent">
-                  <h2>Beautiful Card</h2>
-                  <p>This card has a gradient overlay on hover and a subtle shadow effect. The colors change on hover to provide a more engaging experience.</p>
+                <div className="projectcardcontent mt-7 mb-7">
+                  {/* <h2>Beautiful Card</h2> */}
+                  <Link to={'/ongoingproject'}><button className="but1">CEB Sub Station - Kalawana</button></Link>
                 </div>
               </div>
 
@@ -48,17 +49,15 @@ export default function Project() {
               {/* Completed Project Card 1 */}
               <div className="projectcard">
                 <img src="https://via.placeholder.com/300" alt="Placeholder Image" />
-                <div className="projectcardcontent">
-                  <h2>Beautiful Card</h2>
-                  <p>This card has a gradient overlay on hover and a subtle shadow effect. The colors change on hover to provide a more engaging experience.</p>
+                <div className="projectcardcontent mt-7 mb-7">
+                  <Link to={'/ongoingproject'}><button className="but1">CEB Sub Station - Kalawana</button></Link>
                 </div>
               </div>
 
               <div className="projectcard">
                 <img src="https://via.placeholder.com/300" alt="Placeholder Image" />
-                <div className="projectcardcontent">
-                  <h2>Beautiful Card</h2>
-                  <p>This card has a gradient overlay on hover and a subtle shadow effect. The colors change on hover to provide a more engaging experience.</p>
+                <div className="projectcardcontent mt-7 mb-7">
+                  <Link to={'/ongoingproject'}><button className="but1">CEB Sub Station - Kalawana</button></Link>
                 </div>
               </div>
               {/* Add more Completed Project Cards similarly */}

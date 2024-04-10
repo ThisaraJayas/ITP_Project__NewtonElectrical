@@ -119,3 +119,11 @@
 .projectcard:hover .projectcardcontent p {
   color: #f0f0f0; /* Changed description color on hover */
 }
+.but1{font-size:15px;
+  font-weight:400;
+  border-radius:10px;
+  background-color:#4194cb;
+  width:100%;
+  height:100%;
+  color:#fff;
+}
