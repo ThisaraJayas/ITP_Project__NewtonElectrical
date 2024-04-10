@@ -2,22 +2,32 @@ import Feedback from "../models/FeedbackModel.js"
 
 //insert to database
 export const insertFeedback = async(req,res)=>{
-    const {firstName,lastName,email,contactNumber,feedback}=req.body
+    const {userId,firstName,lastName,email,contactNumber,feedback,rating}=req.body
 
-    const newFeedback = new Feedback({firstName,lastName,email,contactNumber,feedback})
+    const newFeedback = new Feedback({userId,firstName,lastName,email,contactNumber,feedback,rating})
 
     try{
         await newFeedback.save()
-        res.status(200).json({message: "Feeback Inserted Success"})
+        res.status(200).json({newFeedback, message:"Feedback Success"})
     }catch(error){
         res.status(500).json({message: "Feedback UnSuccess"})
     }
 }
 
 //retrive from database
-export const getFeedback = async(req,res)=>{
+export const getFeedbacks = async(req,res)=>{
     try{
     const feedbacks = await Feedback.find()
+    res.status(200).json({feedbacks})
+    }catch(error){
+        res.status(500).json({message:"Canot Get Users"})
+    }
+}
+export const getFeedback = async(req,res)=>{
+    const {id} = req.params
+
+    try{
+    const feedbacks = await Feedback.find({userId: id})
     res.status(200).json({feedbacks})
     }catch(error){
         res.status(500).json({message:"Canot Get Users"})

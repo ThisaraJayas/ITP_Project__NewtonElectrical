@@ -1,0 +1,93 @@
+.input-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+}
+form .textSection{
+    padding: 20px;
+}
+form .textfield {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease; 
+}
+
+.textfield:focus {
+    border-color: #007bff; 
+}
+
+.textfield:hover {
+    border-color: #66afe9; 
+}
+.FeedbackCancelBtn,
+form .FeedbackSubmitBtn {
+    padding: 8px 30px;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.FeedbackCancelBtn {
+    background-color: #b8b8b8;
+    color: black;
+}
+form .FeedbackSubmitBtn {
+    background-color: #ff7a0e;
+    color: white;
+}
+.myFeedbackTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+.myFeedbackTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.myFeedbackCard {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.feedbackHeader {
+    margin-bottom: 10px;
+}
+
+.userName {
+    font-weight: bold;
+}
+
+.feedbackBody {
+    margin-bottom: 10px;
+}
+
+.userMessage {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.feedbackActions {
+    display: flex;
+    align-items: center;
+}
+
+.deleteButton {
+    background-color: #ff5555;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #dd0000;
+}
