@@ -1,6 +1,7 @@
 import Project from "../models/ProjectModel.js"
 
 
+//insert to database
 export const InsertProject = async(req,res)=>{ 
     const {title, status, description, duration, cost}=req.body
     const newProject = new Project({title, status, description, duration, cost})
@@ -13,6 +14,7 @@ export const InsertProject = async(req,res)=>{
     }
 }
 
+//retrive from database
 export const UpdateProject = async(req,res)=>{
     const {id}=req.params
     const {title, status, description, duration, cost}=req.body
@@ -33,6 +35,7 @@ export const UpdateProject = async(req,res)=>{
     }
 }
 
+//update data
 export const ReadProject = async(req,res)=>{
     try{
        const readProject = await Project.find()
@@ -42,6 +45,7 @@ export const ReadProject = async(req,res)=>{
     }
 }
 
+//Delete Feedback
 export const DeleteProject = async(req,res)=>{
     const {id}=req.params
     try{
@@ -50,4 +54,4 @@ export const DeleteProject = async(req,res)=>{
     }catch{
         res.status(500).json({message:"Delete Unsuccesfull"})
     }
-}
+} 
