@@ -15,9 +15,19 @@ export const insertFeedback = async(req,res)=>{
 }
 
 //retrive from database
-export const getFeedback = async(req,res)=>{
+export const getFeedbacks = async(req,res)=>{
     try{
     const feedbacks = await Feedback.find()
+    res.status(200).json({feedbacks})
+    }catch(error){
+        res.status(500).json({message:"Canot Get Users"})
+    }
+}
+export const getFeedback = async(req,res)=>{
+    const {id} = req.params
+
+    try{
+    const feedbacks = await Feedback.find({userId: id})
     res.status(200).json({feedbacks})
     }catch(error){
         res.status(500).json({message:"Canot Get Users"})

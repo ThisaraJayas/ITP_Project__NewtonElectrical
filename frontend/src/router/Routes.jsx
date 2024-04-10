@@ -13,6 +13,7 @@ import Profile from '../pages/Profile'
 import UserLocationBarChart from '../Admin/charts/UserLocationBarChart'
 import UserPdf from '../components/UserPdf'
 import Feedback from '../pages/Feedback'
+import MyFeedback from '../components/feedback/MyFeedback'
 
 
 
@@ -33,6 +34,7 @@ export default function PageRoutes() {
       <Route path='/gender' element={<UserLocationBarChart/>}/>
       <Route path='/userpdf' element={<UserPdf/>}/>
       <Route path='/feedback' element={<Feedback/>}/>
+      <Route path='/myfeedback' element={<MyFeedback/>}/>
     </Routes>
     </UseContextProvider>
     </>
