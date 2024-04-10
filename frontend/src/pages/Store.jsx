@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
+import Footer from '../components/Footer'
 import "../styles/store.css";
 
 export default function Store() {
   return (
     <div>
       <Header />
-      <div className="pt-20 flex justify-between">
+      <div className="pt-20 pb-20 flex justify-between">
         <div className="">
           <div class="sidebarCard ml-8">
             <h2 class="sidebarTitle">Filter by Category</h2>
@@ -104,6 +105,7 @@ export default function Store() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }
