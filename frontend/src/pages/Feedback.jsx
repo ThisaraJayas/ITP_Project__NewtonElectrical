@@ -29,6 +29,7 @@ export default function Feedback() {
             rating
         })
         console.log(response);
+        window.location.reload()
     }
 
     return (
