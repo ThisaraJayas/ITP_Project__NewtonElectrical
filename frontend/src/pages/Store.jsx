@@ -14,7 +14,7 @@ export default function Store() {
               <li class="categoryItem">Electrical Tools</li>
               <li class="categoryItem">Lightings</li>
               <li class="categoryItem">Security Systems</li>
-              <li class="categoryItem">Wiring</li>
+              <li class="categoryItem">Wiring Items</li>
               <li class="categoryItem">Solar Pannel</li>
             </ul>
           </div>
