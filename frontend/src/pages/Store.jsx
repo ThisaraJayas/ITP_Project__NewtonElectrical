@@ -11,11 +11,11 @@ export default function Store() {
           <div class="sidebarCard ml-8">
             <h2 class="sidebarTitle">Filter by Category</h2>
             <ul class="categoryList">
-              <li class="categoryItem">Category 1</li>
-              <li class="categoryItem">Category 2</li>
-              <li class="categoryItem">Category 3</li>
-              <li class="categoryItem">Category 4</li>
-              <li class="categoryItem">Category 5</li>
+              <li class="categoryItem">Electrical Tools</li>
+              <li class="categoryItem">Lightings</li>
+              <li class="categoryItem">Security Systems</li>
+              <li class="categoryItem">Wiring</li>
+              <li class="categoryItem">Solar Pannel</li>
             </ul>
           </div>
         </div>
