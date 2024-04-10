@@ -8,14 +8,14 @@ export default function Store() {
       <Header />
       <div className="pt-20 flex justify-between">
         <div className="">
-          <div class="sidebar-card">
-            <h2 class="sidebar-title">Filter by Category</h2>
-            <ul class="category-list">
-              <li class="category-item">Category 1</li>
-              <li class="category-item">Category 2</li>
-              <li class="category-item">Category 3</li>
-              <li class="category-item">Category 4</li>
-              <li class="category-item">Category 5</li>
+          <div class="sidebarCard">
+            <h2 class="sidebarTitle">Filter by Category</h2>
+            <ul class="categoryList">
+              <li class="categoryItem">Category 1</li>
+              <li class="categoryItem">Category 2</li>
+              <li class="categoryItem">Category 3</li>
+              <li class="categoryItem">Category 4</li>
+              <li class="categoryItem">Category 5</li>
             </ul>
           </div>
         </div>
