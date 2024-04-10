@@ -15,6 +15,7 @@ import UserPdf from '../components/UserPdf'
 import JobsManager from '../Admin/JobsManager'
 import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
+import ProjectManager from '../Admin/ProjectManager'
 
 
 
@@ -38,6 +39,7 @@ export default function PageRoutes() {
       <Route path='/admin/jobsManager' element={<JobsManager/>}/>
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
+      <Route path='/admin/project' element={<ProjectManager/>}/>
 
     </Routes>
     </UseContextProvider>
