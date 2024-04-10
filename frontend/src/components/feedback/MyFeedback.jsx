@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../context/UserContext'
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 import  axios  from 'axios'
 
 export default function () {
@@ -30,15 +32,22 @@ export default function () {
             </div>
             <div>
             {feedback.map((feedback, index) => (
-                        <div key={index} className='myFeedbackContainer mb-12'>
-                            <div>User ID: {feedback.userId}</div>
-                            <div>First Name: {feedback.firstName}</div>
-                            <div>Last Name: {feedback.lastName}</div>
-                            <div>Email: {feedback.email}</div>
-                            <div>Contact Number: {feedback.contactNumber}</div>
-                            <div>Feedback: {feedback.feedback}</div>
-                            <div>Rating: {feedback.rating}</div>
-                        </div>
+                         <div key={index} className='myFeedbackCard'>
+                         <div className='feedbackHeader '>
+                             <div className='userName'>{feedback.firstName} {feedback.lastName}</div>
+                         </div>
+                         <div className='feedbackBody mb-4'>
+                             <Stack spacing={1}>
+                                 <Rating name="size-large" value={feedback.rating} readOnly size="small" />
+                             </Stack>
+                            </div>
+                             <div className='userMessage'>{feedback.feedback}</div>
+                         
+                         <div className='feedbackActions flex justify-end'>
+                         <button className='deleteButton mr-4' >Edit</button>
+                             <button className='deleteButton' >Delete</button>
+                         </div>
+                     </div>
                     ))}
             </div>
         </div>
