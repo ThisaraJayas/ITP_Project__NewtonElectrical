@@ -12,8 +12,12 @@ import Home from '../pages/Home'
 import Profile from '../pages/Profile'
 import UserLocationBarChart from '../Admin/charts/UserLocationBarChart'
 import UserPdf from '../components/UserPdf'
+
+import JobsManager from '../Admin/JobsManager'
+
 import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
+
 
 
 
@@ -33,8 +37,13 @@ export default function PageRoutes() {
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/gender' element={<UserLocationBarChart/>}/>
       <Route path='/userpdf' element={<UserPdf/>}/>
+
+      <Route path='/admin/jobsManager' element={<JobsManager/>}/>
+    
+
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
+
     </Routes>
     </UseContextProvider>
     </>
