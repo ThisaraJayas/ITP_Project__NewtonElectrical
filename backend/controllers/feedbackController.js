@@ -2,13 +2,13 @@ import Feedback from "../models/FeedbackModel.js"
 
 //insert to database
 export const insertFeedback = async(req,res)=>{
-    const {firstName,lastName,email,contactNumber,feedback}=req.body
+    const {userId,firstName,lastName,email,contactNumber,feedback,rating}=req.body
 
-    const newFeedback = new Feedback({firstName,lastName,email,contactNumber,feedback})
+    const newFeedback = new Feedback({userId,firstName,lastName,email,contactNumber,feedback,rating})
 
     try{
         await newFeedback.save()
-        res.status(200).json({message: "Feeback Inserted Success"})
+        res.status(200).json({newFeedback, message:"Feedback Success"})
     }catch(error){
         res.status(500).json({message: "Feedback UnSuccess"})
     }

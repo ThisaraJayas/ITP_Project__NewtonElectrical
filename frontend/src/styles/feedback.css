@@ -4,10 +4,10 @@
     border-radius: 5px;
     width: 80%;
 }
-.textSection{
+form .textSection{
     padding: 20px;
 }
-.textfield {
+form .textfield {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -24,7 +24,7 @@
     border-color: #66afe9; 
 }
 .FeedbackCancelBtn,
-.FeedbackSubmitBtn {
+form .FeedbackSubmitBtn {
     padding: 8px 30px;
     border: none;
     font-size: 20px;
@@ -36,7 +36,11 @@
     background-color: #b8b8b8;
     color: black;
 }
-.FeedbackSubmitBtn{
+form .FeedbackSubmitBtn {
     background-color: #ff7a0e;
     color: white;
+}
+.myFeedbackTitle{
+    font-size: 30px;
+    font-weight: bold;
 }

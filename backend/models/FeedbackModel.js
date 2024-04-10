@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
 const feedbackSchema = new mongoose.Schema({
+    userId:{
+        type:Number,
+    },
     firstName:{
         type:String,
         required:true
@@ -20,6 +23,9 @@ const feedbackSchema = new mongoose.Schema({
     feedback:{
         type:String,
         required:true
+    },
+    rating:{
+        type:Number,
     }
 
 },{timestamps: true})
