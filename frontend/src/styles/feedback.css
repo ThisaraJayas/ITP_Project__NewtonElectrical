@@ -1,0 +1,25 @@
+.input-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+}
+.textSection{
+    padding: 20px;
+}
+.textfield {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease; 
+}
+
+.textfield:focus {
+    border-color: #007bff; 
+}
+
+.textfield:hover {
+    border-color: #66afe9; 
+}
