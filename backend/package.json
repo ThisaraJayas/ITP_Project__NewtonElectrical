@@ -18,11 +18,9 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.2.0",
     "multer": "^1.4.5-lts.1",
-<<<<<<< HEAD
-    "nodemon": "^3.0.3"
-=======
+
     "nodemon": "^3.0.3",
     "validator": "^13.11.0"
->>>>>>> e9284902301f542fe9170ff27ad38b7b8157ddb8
+
   }
 }
