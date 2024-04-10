@@ -156,6 +156,7 @@ transition: 0.5s;
 .mainRegBtn{
   margin-right: 5%;
 }
+
 @media only screen and (max-width: 600px){
     .scheduleBtn{
         flex-shrink: 0;

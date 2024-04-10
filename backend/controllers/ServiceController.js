@@ -2,8 +2,8 @@ import Service from "../models/ServiceModel.js"
 
 
 export const InsertService = async(req,res)=>{ 
-    const {packageId, serviceName,  Price}=req.body
-    const newService = new service({packageId, serviceName,  Price})
+    const {packageId, serviceName, service1, price1, service2, price2, service3, price3, service4, price4, totalPrice,}=req.body
+    const newService = new Service({packageId, serviceName, service1, price1, service2, price2, service3, price3, service4, price4, totalPrice})
 
     try{
         await newService.save()
@@ -14,13 +14,22 @@ export const InsertService = async(req,res)=>{
 }
 export const UpdateService = async(req,res)=>{
     const {id}=req.params
-    const {packageId, serviceName, Price}=req.body
+    const {packageId, serviceName, service1, price1, service2, price2, service3, price3, service4, price4, totalprice}=req.body
 
     try{
     const updateService = await Service.findByIdAndUpdate(id,{
         packageId,
         serviceName,
-        Price
+        service1, 
+        price1, 
+        service2, 
+        price2, 
+        service3, 
+        price3, 
+        service4, 
+        price4,
+        totalprice,
+        
     },{ new: true })
     if(updateService){
         res.status(200).json({message:"Updated Succesfull"})
