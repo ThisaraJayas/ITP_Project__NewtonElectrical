@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import { Link } from 'react-router-dom';
 import UserUpdate from './UserUpdate';
-import axios from 'axios'
+import axios from 'axios';
 import DeleteUser from './DeleteUser';
 
-
 export default function UserTable() {
-    const columns =  [
+    const columns = [
         {
             name: "User Id",
-            selector: row=>row.userId
+            selector: row => row.userId
         },
         {
             name: "First Name",
@@ -34,36 +32,34 @@ export default function UserTable() {
         },
         {
             name: "Edit Role",
-            cell: (row) =><UserUpdate userId={row.userId}/>,
+            cell: (row) => <UserUpdate userId={row.userId} />,
             button: true,
             minWidth: '120px'
         },
         {
             name: "Delete",
-            cell: (row) => <DeleteUser userId={row.userId}/>,
+            cell: (row) => <DeleteUser userId={row.userId} />,
             button: true,
         },
     ];
-   const [records, setRecords]=useState([])
+    const [records, setRecords] = useState([]);
+    const [filteredRecords, setFilteredRecords] = useState([]);
 
-    useEffect(()=>{
-        const fetchData = async()=>{
-            try {
-                const response = await axios.get('http://localhost:3000/user/users');
-                setRecords(response.data.user);
-                console.log(response.data.user);
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-            }
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/user/users');
+            setRecords(response.data.user);
+            setFilteredRecords(response.data.user);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
         }
-        fetchData()
-        
-    },[])
+    }
 
-    
-
-    function handleFilter(event){
-        console.log("Filtering...");
+    function handleFilter(event) {
         const newData = records.filter(row => {
             return (
                 row.firstName.toLowerCase().includes(event.target.value.toLowerCase()) ||
@@ -72,23 +68,42 @@ export default function UserTable() {
                 row.userType.toLowerCase().includes(event.target.value.toLowerCase())
             );
         });
-        console.log("Filtered data:", newData);
-        setRecords(newData);
+        setFilteredRecords(newData);
     }
 
-
-    
     return (
         <div className='mainTable'>
             <div className='text-right mb-4'>
-                <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
+                <input className='searchbox px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500' type='text' placeholder='Search..' onChange={handleFilter} />
             </div>
-            <DataTable
-                columns={columns}
-                data={records}
-                fixedHeader
-                pagination
-            />
+            <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                <DataTable
+                    columns={columns}
+                    data={filteredRecords}
+                    fixedHeader
+                    pagination
+                    // customStyles={{
+                    //     headRow: {
+                    //         style: {
+                    //             backgroundColor: '#ff4b15',
+                    //             color: '#FFFFFF',
+                    //             fontWeight: 'bold',
+                    //             fontSize: '14px',
+                    //         },
+                    //     },
+                    //     rows: {
+                    //         style: {
+                    //             '&:nth-child(even)': {
+                    //                 backgroundColor: '#f3f4f6',
+                    //             },
+                    //             '&:nth-child(odd)': {
+                    //                 backgroundColor: '#FFFFFF',
+                    //             },
+                    //         },
+                    //     },
+                    // }}
+                />
+            </div>
         </div>
     );
 }
