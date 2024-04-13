@@ -74,3 +74,23 @@ export const forgotPassword = async(req,res)=>{
         }
       })
 }
+export const passwordReset = (req,res)=>{
+    const {id,token}= req.params
+    const {password} = req.body
+
+    jwt.verify(token, "Jwt_secret_key", async (err, decodedToken) =>{
+        if(err){
+            return res.status(400).json({ message: 'Invalid or expired token' })
+        }else{
+            const user = await User.findOneAndUpdate({userId: id},{
+                password
+            })
+            if(user){
+                res.status(200).json({message: "Update Success"})
+            }else{
+                res.status(500).json({message: "Update Failed"})
+            }
+        }
+    })
+
+}

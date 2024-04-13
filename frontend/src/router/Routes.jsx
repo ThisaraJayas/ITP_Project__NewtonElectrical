@@ -18,6 +18,7 @@ import MyFeedback from '../components/feedback/MyFeedback'
 import OngoingProject from '../pages/project/OngoingProject'
 import Store from '../pages/Store'
 import ForgotPassword from '../components/ForgotPassword'
+import ResetPassword from '../components/ResetPassword'
 
 
 
@@ -45,6 +46,7 @@ export default function PageRoutes() {
       <Route path='/ongoingproject' element={<OngoingProject/>}/>
       <Route path='/store' element={<Store/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
+      <Route path='/reset-password/:id/:token' element={<ResetPassword/>}/>
 
     </Routes>
     </UseContextProvider>
