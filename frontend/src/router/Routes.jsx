@@ -17,6 +17,7 @@ import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
 import OngoingProject from '../pages/project/OngoingProject'
 import Store from '../pages/Store'
+import ForgotPassword from '../components/ForgotPassword'
 
 
 
@@ -43,6 +44,7 @@ export default function PageRoutes() {
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/ongoingproject' element={<OngoingProject/>}/>
       <Route path='/store' element={<Store/>}/>
+      <Route path='/forgot-password' element={<ForgotPassword/>}/>
 
     </Routes>
     </UseContextProvider>
