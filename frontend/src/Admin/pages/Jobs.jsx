@@ -1,10 +1,10 @@
 import React from 'react'
-import JobsTable from '../components/AddJobsTable'
+import AddJobsTable from '../components/AddJobsTable'
 
 export default function Jobs() {
   return (
     
-      <div><JobsTable/></div>
+      <div><AddJobsTable/></div>
             
      
   );

@@ -6,16 +6,16 @@ import { createJob, getAllJobs, updateJob, deleteJob } from '../controllers/JobC
 const router = express.Router();
 
 // Route for creating a job posting
-router.post('/', createJob);
+router.post('/add', createJob);
 
 // Route for reading all job postings
-router.get('/', getAllJobs);
+router.get('/read', getAllJobs);
 
 // Route for updating a job posting
-router.put('/:id', updateJob);
+router.put('/edit/:id', updateJob);
 
 // Route for deleting a job posting
-router.delete('/:id', deleteJob);
+router.delete('/delete/:id', deleteJob);
 
 export default router;
 
