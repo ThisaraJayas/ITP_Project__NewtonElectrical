@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
+
+
 const JobUpdate = () => {
   const [title, setTitle] = useState('');
   const [department, setDepartment] = useState('');
@@ -13,6 +15,7 @@ const JobUpdate = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
+  
 
   useEffect(() => {
     setLoading(true);
@@ -29,9 +32,10 @@ const JobUpdate = () => {
         setLoading(false);
       }).catch((error) => {
         setLoading(false);
+        alert('An error happened. Please Chack console');
         console.error('An error happened:', error);
       });
-  }, [id]);
+  }, [id]); // Make sure to include id as a dependency
 
   const handleUpdate = () => {
     const updatedJob = {
@@ -48,8 +52,7 @@ const JobUpdate = () => {
       .then(() => {
         setLoading(false);
         console.log('Job updated successfully');
-        navigate('/jobsTable');
-       
+        navigate('/JobsTable'); // Redirect to home page after successful update
       }).catch((error) => {
         setLoading(false);
         console.error('Error updating job:', error);
@@ -59,7 +62,7 @@ const JobUpdate = () => {
   return (
     <div>
       <h1>Edit Job</h1>
-      {loading ? <div>Loading...</div> :  (
+      {loading ? <div>Loading...</div> : (
         <div>
           <div>
             <label htmlFor="title">Title:</label>
