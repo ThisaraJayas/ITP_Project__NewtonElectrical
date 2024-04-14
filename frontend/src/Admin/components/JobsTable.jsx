@@ -1,21 +1,25 @@
+// JobsTable.jsx
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import axios from 'axios';
-import JobUpdate from './JobUpdate';
-import '../adminStyles/JobsTable.css'
+import '../adminStyles/JobsTable.css';
+import { Link } from 'react-router-dom';
 
 export default function JobsTable() {
     const [jobs, setJobs] = useState([]);
-    
+
+    // Define fetchData function
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/jobs/read');
+            setJobs(response.data);
+        } catch (error) {
+            console.error('Error fetching jobs data:', error);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/jobs/read');
-                setJobs(response.data);
-            } catch (error) {
-                console.error('Error fetching jobs data:', error);
-            }
-        };
+        // Call fetchData function when component mounts
         fetchData();
     }, []);
 
@@ -29,7 +33,6 @@ export default function JobsTable() {
             console.error("Error deleting job:", error);
         }
     };
-
 
     const columns =  [
         {
@@ -66,7 +69,7 @@ export default function JobsTable() {
         },
         {
             name: "Edit Job",
-            cell: row => <JobUpdate {...row} fetchData={fetchData} />,
+            cell: row => <Link to={`/edit/${row._id}`}>Edit</Link>, // Changed to use Link for navigation
         },
         {
             name: "Delete",
@@ -98,5 +101,3 @@ function DeleteJob({ id, title, handleDelete }) {
         <button className="delete-button" onClick={() => handleDelete(id)}>Delete {title}</button>
     );
 }
-
-

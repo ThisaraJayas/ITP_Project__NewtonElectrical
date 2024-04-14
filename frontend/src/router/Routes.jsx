@@ -16,6 +16,7 @@ import JobsManager from '../Admin/JobsManager'
 import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
 import JobsTable from '../Admin/components/JobsTable'
+import JobUpdate from '../Admin/components/JobUpdate'
 
 
 
@@ -39,6 +40,7 @@ export default function PageRoutes() {
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/jobsTable' element={<JobsTable/>}/>
+      <Route path='/edit/:id' element={<JobUpdate/>}/>
 
 
     </Routes>
