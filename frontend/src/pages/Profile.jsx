@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import ProfileMenu from '../components/profile/ProfileMenu'
 import UserAccount from '../components/profile/UserAccount'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { UserContext } from '../context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile() {
+    const {userData} = useContext(UserContext)
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        if(userData===null){
+            navigate('/login')
+        }
+    },[userData,navigate])
+
     return (
         <>
         <Header/>

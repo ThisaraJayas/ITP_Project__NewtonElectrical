@@ -94,3 +94,11 @@ export const passwordReset = (req,res)=>{
     })
 
 }
+
+export const logOut = (req,res)=>{
+    res.cookie('tokenKey','',{
+        expires: new Date(0),
+        httpOnly: true,
+    })
+    res.status(200).json({ message: "Logout Successful" });
+}
