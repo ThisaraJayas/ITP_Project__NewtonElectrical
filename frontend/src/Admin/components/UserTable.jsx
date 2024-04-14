@@ -4,6 +4,7 @@ import UserUpdate from './UserUpdate';
 import axios from 'axios';
 import DeleteUser from './DeleteUser';
 import { Link } from 'react-router-dom';
+import '../adminStyles/userReport.css'
 
 export default function UserTable() {
     const columns = [
@@ -76,7 +77,7 @@ export default function UserTable() {
         <div className='mainTable'>
             <div className='text-right mb-4 flex justify-between'>
                 <div>
-                    <Link to={'/user-report'}><button className='generateReport'>Generate Report</button></Link>
+                    <Link to={'/user-report'}><button className='userTableGenerateReport'>Generate Report</button></Link>
                 </div>
                 <div>
                 <input className='searchbox px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500' type='text' placeholder='Search..' onChange={handleFilter} />
@@ -88,26 +89,26 @@ export default function UserTable() {
                     data={filteredRecords}
                     fixedHeader
                     pagination
-                    // customStyles={{
-                    //     headRow: {
-                    //         style: {
-                    //             backgroundColor: '#ff4b15',
-                    //             color: '#FFFFFF',
-                    //             fontWeight: 'bold',
-                    //             fontSize: '14px',
-                    //         },
-                    //     },
-                    //     rows: {
-                    //         style: {
-                    //             '&:nth-child(even)': {
-                    //                 backgroundColor: '#f3f4f6',
-                    //             },
-                    //             '&:nth-child(odd)': {
-                    //                 backgroundColor: '#FFFFFF',
-                    //             },
-                    //         },
-                    //     },
-                    // }}
+                    customStyles={{
+                        headRow: {
+                            style: {
+                                backgroundColor: '#1976d2',
+                                color: '#FFFFFF',
+                                fontWeight: 'bold',
+                                fontSize: '14px',
+                            },
+                        },
+                        rows: {
+                            style: {
+                                '&:nth-child(even)': {
+                                    backgroundColor: '#f3f4f6',
+                                },
+                                '&:nth-child(odd)': {
+                                    backgroundColor: '#FFFFFF',
+                                },
+                            },
+                        },
+                    }}
                 />
             </div>
         </div>
