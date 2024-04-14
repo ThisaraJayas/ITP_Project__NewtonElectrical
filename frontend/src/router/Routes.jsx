@@ -19,6 +19,7 @@ import OngoingProject from '../pages/project/OngoingProject'
 import Store from '../pages/Store'
 import ForgotPassword from '../components/ForgotPassword'
 import ResetPassword from '../components/ResetPassword'
+import UserReportPdf from '../Admin/components/ReportStructure/UserReportPdf'
 
 
 
@@ -47,6 +48,7 @@ export default function PageRoutes() {
       <Route path='/store' element={<Store/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:id/:token' element={<ResetPassword/>}/>
+      <Route path='/user-report' element={<UserReportPdf/>}/>
 
     </Routes>
     </UseContextProvider>

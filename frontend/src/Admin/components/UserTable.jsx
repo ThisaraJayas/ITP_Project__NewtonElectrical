@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component';
 import UserUpdate from './UserUpdate';
 import axios from 'axios';
 import DeleteUser from './DeleteUser';
+import { Link } from 'react-router-dom';
 
 export default function UserTable() {
     const columns = [
@@ -73,8 +74,13 @@ export default function UserTable() {
 
     return (
         <div className='mainTable'>
-            <div className='text-right mb-4'>
+            <div className='text-right mb-4 flex justify-between'>
+                <div>
+                    <Link to={'/user-report'}><button className='generateReport'>Generate Report</button></Link>
+                </div>
+                <div>
                 <input className='searchbox px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500' type='text' placeholder='Search..' onChange={handleFilter} />
+                </div>
             </div>
             <div className="bg-white shadow-md rounded-lg overflow-hidden">
                 <DataTable
