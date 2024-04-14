@@ -27,24 +27,42 @@ export const getFeedback = async(req,res)=>{
     const {id} = req.params
 
     try{
-    const feedbacks = await Feedback.find({userId: id})
-    res.status(200).json({feedbacks})
+    const feedbacks = await Feedback.findOne({feedbackId: id})
+    if(feedbacks){
+        res.status(200).json({feedbacks})
+    }else{
+        res.status(404).json({message:"feedback Not Found"})
+    }
+    
     }catch(error){
         res.status(500).json({message:"Canot Get Users"})
     }
 }
+export const getUserFeedback = async(req,res)=>{
+    const {id} = req.params
 
+    try{
+    const feedbacks = await Feedback.find({userId: id})
+    
+        res.status(200).json({feedbacks})
+    
+    
+    }catch(error){
+        res.status(500).json({message:"Canot Get feedback"})
+    }
+}
 //update data
 export const updateFeedback = async(req,res)=>{
     const {id}=req.params
-    const {firstName,lastName,email,contactNumber,feedback} = req.body;
+    const {firstName,lastName,email,contactNumber,feedback,rating} = req.body;
     try{
-        const feedbackupdate = await Feedback.findByIdAndUpdate(id,{
+        const feedbackupdate = await Feedback.findOneAndUpdate({feedbackId: id},{
             firstName,
             lastName,
             email,
             contactNumber,
-            feedback
+            feedback,
+            rating,
         },{ new: true })
         if(feedbackupdate){
             res.status(200).json({message:"Updated Succesfull"})

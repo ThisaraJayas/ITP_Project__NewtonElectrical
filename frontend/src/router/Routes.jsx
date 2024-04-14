@@ -21,6 +21,7 @@ import ForgotPassword from '../components/ForgotPassword'
 import ResetPassword from '../components/ResetPassword'
 import UserReportPdf from '../Admin/components/ReportStructure/UserReportPdf'
 import FeedbackManager from '../Admin/FeedbackManager'
+import UpdateFeedback from '../components/feedback/UpdateFeedback'
 
 
 
@@ -52,6 +53,7 @@ export default function PageRoutes() {
       <Route path='/reset-password/:id/:token' element={<ResetPassword/>}/>
       <Route path='/user-report' element={<UserReportPdf/>}/>
       <Route path='/admin/feedback' element={<FeedbackManager/>}/>
+      <Route path='/feedback-update/:id' element={<UpdateFeedback/>}/>
 
     </Routes>
     </UseContextProvider>
