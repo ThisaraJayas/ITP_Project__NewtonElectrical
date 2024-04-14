@@ -15,7 +15,7 @@ import UserPdf from '../components/UserPdf'
 import JobsManager from '../Admin/JobsManager'
 import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
-
+import JobsTable from '../Admin/components/JobsTable'
 
 
 
@@ -38,6 +38,8 @@ export default function PageRoutes() {
       <Route path='/admin/jobsManager' element={<JobsManager/>}/>
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
+      <Route path='/jobsTable' element={<JobsTable/>}/>
+
 
     </Routes>
     </UseContextProvider>

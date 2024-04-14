@@ -1,3 +1,6 @@
+//JobsManager.jsx
+
+
 import React from 'react'
 import './adminStyles/AdminLayout.css'
 import SideBar from './components/SideBar'

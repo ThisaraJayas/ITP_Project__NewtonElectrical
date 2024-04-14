@@ -1,3 +1,5 @@
+//AddJobsTable.jsx
+
 import React, { useState } from 'react';
 import jobImage from '../images/job1.png';
 import axios from 'axios';
@@ -17,10 +19,18 @@ function sendData(e){
   e.preventDefault();
   alert("succesfullly inserted.");
 
-   const newjob={Title,Department,Description,Location,Salary,Requirements,PostedBy}
+   const newjob={ title: Title, department: Department, description: Description, location: Location, salary: Salary, requirements: Requirements, postedBy: PostedBy }
 
    axios.post("http://localhost:3000/jobs/add",newjob).then(()=>{
     alert("Student added.")
+    /*setTitle("");
+    setDepartment("");
+    setDescription("");
+    setLocation("");
+    setSalary("");
+    setRequirements("");
+    setPostedBy("");*/
+
    }).catch((err)=>{
     alert(err) 
    })
@@ -33,6 +43,7 @@ function sendData(e){
           <div className="w-72" style={{ width: '45rem' }}>
             <h1 className="text-3xl font-semibold mb-2">Job Posting</h1>
             <small className="text-lg text-gray-400 mb-4">Please fill in the details</small>
+
             <form onSubmit={sendData}className="mt-4">
               <div className="flex justify-between mb-6">
                 <div className="mr-4 w-1/2">
