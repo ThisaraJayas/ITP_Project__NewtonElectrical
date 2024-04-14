@@ -1,9 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
-import '../adminStyles/JobsTable.css';
 import axios from 'axios';
+import JobUpdate from './JobUpdate';
+import '../adminStyles/JobsTable.css'
 
 export default function JobsTable() {
+    const [jobs, setJobs] = useState([]);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/jobs/read');
+                setJobs(response.data);
+            } catch (error) {
+                console.error('Error fetching jobs data:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3000/jobs/delete/${id}`);
+            console.log("Job deleted successfully");
+            // Update the jobs state after deletion
+            setJobs(prevJobs => prevJobs.filter(job => job._id !== id));
+        } catch (error) {
+            console.error("Error deleting job:", error);
+        }
+    };
+
+
     const columns =  [
         {
             name: "Title",
@@ -39,31 +66,13 @@ export default function JobsTable() {
         },
         {
             name: "Edit Job",
-            cell: (row) => <UserUpdate title={row.title} />,
-            button: true,
-            minWidth: '120px'
+            cell: row => <JobUpdate {...row} fetchData={fetchData} />,
         },
         {
             name: "Delete",
-            cell: (row) => <DeleteUser title={row.title} />,
-            button: true,
+            cell: row => <DeleteJob id={row._id} title={row.title} handleDelete={handleDelete} />,
         },
     ];
-
-    const [jobs, setJobs] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/jobs/read');
-                setJobs(response.data);
-                console.log(response.data);
-            } catch (error) {
-                console.error('Error fetching jobs data:', error);
-            }
-        };
-        fetchData();
-    }, []);
 
     return (
         <div className="text-gray-900 bg-gray-200">
@@ -84,26 +93,10 @@ export default function JobsTable() {
     );
 }
 
-function DeleteUser({ title }) {
-    const handleDelete = async (e) => {
-        e.preventDefault();
-        try {
-            await axios.delete(`http://localhost:3000/jobs/delete/${title}`);
-            console.log("Job deleted successfully");
-            window.location.reload();
-        } catch (error) {
-            console.error("Error deleting job:", error);
-        }
-    };
-
+function DeleteJob({ id, title, handleDelete }) {
     return (
-        <button onClick={handleDelete}>Delete {title}</button>
+        <button className="delete-button" onClick={() => handleDelete(id)}>Delete {title}</button>
     );
 }
 
-function UserUpdate({ title }) {
-    // Implement your logic for updating a job here
-    return (
-        <button>Edit {title}</button>
-    );
-}
+

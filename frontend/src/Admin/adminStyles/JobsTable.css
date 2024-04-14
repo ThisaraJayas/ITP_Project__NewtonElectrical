@@ -1,5 +1,7 @@
 /* styles.css */
-/* Add your CSS styles here */
+/* Jobstable.css*/
+
+
 .border-b {
     border-bottom: 1px solid #ddd;
 }
@@ -147,4 +149,24 @@
 
 .shadow-outline {
     box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.3);
+}
+.delete-button {
+    margin-right: 3px;
+    font-size: 12px;
+    background-color: #ef4444;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    font-size: 12px;
+    background-color: #3b82f6;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
 }
