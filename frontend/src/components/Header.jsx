@@ -97,12 +97,11 @@ export default function Header() {
           >
             {Links.map((link, index) => (
               <li key={index} className="md:ml-8 md:my-0 my-7 font-semibold">
-                <a
-                  href={link.link}
+                <Link to={link.link}
                   className="text-gray-800 hover:text-blue-400 duration-500"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
             <button className="btn bg-orange-500 text-white md:ml-8 font-semibold px-4 py-3 rounded-lg duration-500 md:static ">

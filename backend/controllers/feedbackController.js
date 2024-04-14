@@ -57,7 +57,7 @@ export const updateFeedback = async(req,res)=>{
 export const deleteFeedback = async(req,res)=>{
     const {id}=req.params
     try{
-        const feedbackDelete = await Feedback.deleteOne({_id:id})
+        const feedbackDelete = await Feedback.deleteOne({feedbackId:id})
         res.status(200).json({message:"Deleted Success"})
     }catch(error){
         res.status(500).json({message:"Delete Unsuccess"})

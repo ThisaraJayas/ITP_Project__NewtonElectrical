@@ -33,9 +33,9 @@ export default function SideBar() {
             <BsCart3 className='icon'/>Jobs
         </li>
         </Link>
-        <Link to={'/admin/item2'}>
+        <Link to={'/admin/feedback'}>
         <li className='sidebar-list-item'>
-            <BsCart3 className='icon'/>Inventory
+            <BsCart3 className='icon'/>Feedback
         </li>
         </Link>
         <Link to={'/admin/item3'}>

@@ -24,6 +24,16 @@ export default function () {
         fetchFeedback();
     }, [])
     console.log(feedback);
+
+    const deleteFeedback = async (feedbackId) => {
+        try {
+          await axios.delete(`http://localhost:3000/feedbacks/feedback/${feedbackId}`)
+          window.location.reload();
+            
+        } catch (error) {
+          console.log(error);
+        }
+      };
   return (
     <div>
         <div className=''>
@@ -45,7 +55,7 @@ export default function () {
                          
                          <div className='feedbackActions flex justify-end'>
                          <button className='deleteButton mr-4' >Edit</button>
-                             <button className='deleteButton' >Delete</button>
+                             <button onClick={() => deleteFeedback(feedback.feedbackId)} className='deleteButton' >Delete</button>
                          </div>
                      </div>
                     ))}
