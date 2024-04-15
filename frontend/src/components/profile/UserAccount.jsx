@@ -23,6 +23,14 @@ export default function UserAccount() {
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const [location, setLocation] = useState(userData.district)
     const navigate = useNavigate()
+
+
+    useEffect(() => {
+        if (!userData) {
+            navigate('/login');
+        }
+    }, [userData, navigate]);
+
     //profile image upload ----start
     const [file, setFile] = useState(undefined);
     const fileRef = useRef(null);

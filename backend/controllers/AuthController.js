@@ -1,6 +1,9 @@
 import validator from 'validator'
 import { setTokenCookie } from '../middleware/CookieSession.js'
 import User from '../models/UserModel.js'
+import nodemailer from 'nodemailer'
+import VerifyToken from '../middleware/VerifyToken.js'
+import jwt from 'jsonwebtoken'
 
 export const test = (req,res)=>{
     res.json({message:'Hello There'})
@@ -38,4 +41,64 @@ export const login = async(req,res)=>{
     }catch(error){
         res.status(500).json({message:"User Not Found"})
     }
+}
+
+export const forgotPassword = async(req,res)=>{
+    const {email} = req.body
+
+    const user = await User.findOne({email})
+    if(!user){
+        return res.status(404).send({ message: "User not found" });
+    }
+    const token = jwt.sign({id: user.userId}, "Jwt_secret_key",{expiresIn: "1d"})
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'buzzcomparison@gmail.com',
+          pass: 'iuyq rcxy okco dejq'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'buzzcomparison@gmail.com',
+        to: user.email,
+        subject: 'Reset Your Password',
+        text: `http://localhost:5173/reset-password/${user.userId}/${token}`
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          return res.send({Status: "Success"})
+        }
+      })
+}
+export const passwordReset = (req,res)=>{
+    const {id,token}= req.params
+    const {password} = req.body
+
+    jwt.verify(token, "Jwt_secret_key", async (err, decodedToken) =>{
+        if(err){
+            return res.status(400).json({ message: 'Invalid or expired token' })
+        }else{
+            const user = await User.findOneAndUpdate({userId: id},{
+                password
+            })
+            if(user){
+                res.status(200).json({message: "Update Success"})
+            }else{
+                res.status(500).json({message: "Update Failed"})
+            }
+        }
+    })
+
+}
+
+export const logOut = (req,res)=>{
+    res.cookie('tokenKey','',{
+        expires: new Date(0),
+        httpOnly: true,
+    })
+    res.status(200).json({ message: "Logout Successful" });
 }
