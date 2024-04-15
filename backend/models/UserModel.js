@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import Counter from "./CounterModel.js"
+import Counter from "./UserIdCounterModel.js"
 
 const userSchema = new mongoose.Schema({
     userId: {

@@ -3,6 +3,7 @@ import { UserContext } from '../../context/UserContext'
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import  axios  from 'axios'
+import { Link } from 'react-router-dom';
 
 export default function () {
     const {userData}=useContext(UserContext)
@@ -14,7 +15,7 @@ export default function () {
     useEffect(()=>{
         const fetchFeedback = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/feedbacks/feedback/${userId}`);
+                const response = await axios.get(`http://localhost:3000/feedbacks/allfeedback/${userId}`);
                 console.log(response.data.feedbacks);
                 setFeedbacks(response.data.feedbacks)
             } catch (error) {
@@ -24,6 +25,16 @@ export default function () {
         fetchFeedback();
     }, [])
     console.log(feedback);
+
+    const deleteFeedback = async (feedbackId) => {
+        try {
+          await axios.delete(`http://localhost:3000/feedbacks/feedback/${feedbackId}`)
+          window.location.reload();
+            
+        } catch (error) {
+          console.log(error);
+        }
+      };
   return (
     <div>
         <div className=''>
@@ -44,8 +55,8 @@ export default function () {
                              <div className='userMessage'>{feedback.feedback}</div>
                          
                          <div className='feedbackActions flex justify-end'>
-                         <button className='deleteButton mr-4' >Edit</button>
-                             <button className='deleteButton' >Delete</button>
+                         <Link to={`/feedback-update/${feedback.feedbackId}`}><button className='deleteButton mr-4' >Edit</button></Link>
+                             <button onClick={() => deleteFeedback(feedback.feedbackId)} className='deleteButton' >Delete</button>
                          </div>
                      </div>
                     ))}

@@ -1,0 +1,94 @@
+.userTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    margin: 10px;
+  }
+  tr th{
+    padding: 20px;
+  }
+  .userTable td, .customers th {
+    border: 1px solid #ddd;
+    padding: 15px;
+    
+  }
+  
+  .userTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .userTable tr:hover {background-color: #ddd;}
+  
+  .userTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0025ca;
+    color: white;
+  }
+  .userReportTitle {
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2%;
+  }
+  .generateReportBtn {
+    background-color: #2617fa; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .generateReportBtn:hover {
+    background-color: #000cb6; /* Darker Green */
+  }
+  .generateReportBtnContainer{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+  }
+
+  .returnbackBtn{
+    background-color: #ff5c1c; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .returnbackBtn:hover {
+    background-color: #df4600; /* Darker Green */
+  }
+
+  /* User table button */
+  .userTableGenerateReport{
+    background-color: #1976d2; /* Green */
+    border: none;
+    color: white;
+    padding: 14px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .userTableGenerateReport:hover {
+    background-color: #002f96; /* Darker Green */
+  }
