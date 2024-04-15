@@ -13,7 +13,7 @@ import axios from "axios";
 export default function Header() {
   let Links = [
     { name: "HOME", link: "/" },
-    { name: "SERVICE", link: "/" },
+    { name: "PROJECTS", link: "/projects" },
     { name: "FEEDBACKS", link: "/feedback" },
     { name: "ABOUT", link: "/" },
   ];

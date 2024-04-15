@@ -3,6 +3,7 @@
     border-collapse: collapse;
     width: 95%;
     margin: 10px;
+    margin-left: 3%;
   }
   tr th{
     padding: 20px;

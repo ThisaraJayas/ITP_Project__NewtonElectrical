@@ -1,7 +1,6 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import AdminHome from '../Admin/AdminHome'
-import Projects from '../pages/project/Project'
 import Product from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
@@ -15,17 +14,18 @@ import UserPdf from '../components/UserPdf'
 import JobsManager from '../Admin/JobsManager'
 import Feedback from '../pages/Feedback'
 import MyFeedback from '../components/feedback/MyFeedback'
-
 import JobsTable from '../Admin/components/JobsTable'
 import JobUpdate from '../Admin/components/JobUpdate'
-
-import OngoingProject from '../pages/project/OngoingProject'
 import Store from '../pages/Store'
 import ForgotPassword from '../components/ForgotPassword'
 import ResetPassword from '../components/ResetPassword'
 import UserReportPdf from '../Admin/components/ReportStructure/UserReportPdf'
 import FeedbackManager from '../Admin/FeedbackManager'
 import UpdateFeedback from '../components/feedback/UpdateFeedback'
+import Project from '../pages/project'
+import OngoingProject from '../components/OngoingProjects'
+import PreviousProject from '../components/PreviousProject'
+import AdminProjects from '../Admin/AdminProjects'
 
 
 
@@ -36,7 +36,7 @@ export default function PageRoutes() {
     <UseContextProvider>
     <Routes>
       <Route path='/' element={<Home/>}/> 
-      <Route path='/projects' element={<Projects/>}/>
+      {/* <Route path='/projects' element={<Projects/>}/> */}
       <Route path='/admin' element={<AdminHome/>}/>
       <Route path='/admin/product' element={<Product/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>
@@ -51,14 +51,17 @@ export default function PageRoutes() {
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/jobsTable' element={<JobsTable/>}/>
       <Route path='/edit/:id' element={<JobUpdate/>}/>
-      <Route path='/ongoingproject' element={<OngoingProject/>}/>
+      {/* <Route path='/ongoingproject' element={<OngoingProject/>}/> */}
       <Route path='/store' element={<Store/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:id/:token' element={<ResetPassword/>}/>
       <Route path='/user-report' element={<UserReportPdf/>}/>
       <Route path='/admin/feedback' element={<FeedbackManager/>}/>
       <Route path='/feedback-update/:id' element={<UpdateFeedback/>}/>
-
+      <Route path='/projects' element={<Project/>}/>
+      <Route path='/ongoingProject' element={<OngoingProject/>}/>
+      <Route path='/previousProject' element={<PreviousProject/>}/>
+      <Route path='/admin/projects' element={<AdminProjects/>}/>
 
     </Routes>
     </UseContextProvider>

@@ -2,38 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import '../../adminStyles/userReport.css'
 import UserGenderPieChart from '../../charts/UserGenderPieChart'
 import UserLocationBarChart from '../../charts/UserLocationBarChart'
-import { Link } from "react-router-dom";
 
 export default function UserReportPdf() {
   const pdfRef = useRef();
   const [users, setUsers] = useState([]);
-
-  const downloadPdf = () => {
-    const input = pdfRef.current;
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      console.log("Canvas width:", canvas.width);
-      console.log("Canvas height:", canvas.height);
-      const pdf = new jsPDF("p", "mm", "a4", true);
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      console.log("PDF width:", pdfWidth);
-      console.log("PDF height:", pdfHeight);
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      console.log("Ratio:", ratio);
-      const scaledWidth = imgWidth * ratio;
-      const scaledHeight = imgHeight * ratio;
-      const imgX = (pdfWidth - scaledWidth) / 2;
-      const imgY = 30;
-      pdf.addImage(imgData, "PNG", imgX, imgY, scaledWidth, scaledHeight);
-      pdf.save("userdetails.pdf");
-    });
-  };
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -48,52 +24,88 @@ export default function UserReportPdf() {
   }, []);
 
   console.log(users);
+
+  const downloadPdf = () => {
+    const input = pdfRef.current;
+    const pdf = new jsPDF('p', 'pt', 'letter');
+
+    html2canvas(input, { scale: 2 }).then((canvas) => {
+      const imgWidth = 612; // 8.5in * 72 (1in = 72pt)
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+
+      let pdfHeight = imgHeight;
+      let position = 0;
+
+      const renderPage = () => {
+        pdf.addImage(canvas, 'PNG', 0, position, imgWidth, imgHeight);
+        pdfHeight -= 841.89; // 841.89pt = 11in * 72pt/in
+        position -= 841.89;
+
+        if (pdfHeight > 0) {
+          pdf.addPage();
+          renderPage();
+        } else {
+          pdf.save("userdetails.pdf");
+        }
+      };
+
+      renderPage();
+    });
+  };
+
   return (
     <>
-    <div className="generateReportBtnContainer">
+      <div className="generateReportBtnContainer">
+        
+          <button className="generateReportBtn" onClick={downloadPdf}>
+            Download Report
+          </button>
+        
         <Link to={'/admin/user'}>
-    <button className="generateReportBtn" onClick={downloadPdf}>
-        Download Report
-      </button>
-      </Link>
-      <Link to={'/admin/user'}>
-    <button className="returnbackBtn">
-        Return Back
-      </button>
-      </Link>
-    </div>
-    
+          <button className="returnbackBtn">Return Back</button>
+        </Link>
+      </div>
+
       <div ref={pdfRef}>
         <h1 className="userReportTitle">User Report</h1>
-    <div className="userTable flex justify-center">
-        <table className="">
-          <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Mobile Number</th>
-            <th>Address</th>
-            <th>District</th>
-            <th>Gender</th>
-          </tr>
-          {users.map((user, index) => (
-            <tr key={index}>
-              <td key={index}>{user.userId}</td>
-              <td key={index}>{user.firstName}</td>
-              <td key={index}>{user.lastName}</td>
-              <td key={index}>{user.email}</td>
-              <td key={index}>{user.mobileNumber}</td>
-              <td key={index}>{user.address}</td>
-              <td key={index}>{user.district}</td>
-              <td key={index}>{user.gender}</td>
-            </tr>
-          ))}
-        </table>
+        <div className="userTable flex justify-center">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Address</th>
+                <th>District</th>
+                <th>Gender</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.userId}</td>
+                  <td>{user.firstName}</td>
+                  <td>{user.lastName}</td>
+                  <td>{user.email}</td>
+                  <td>{user.mobileNumber}</td>
+                  <td>{user.address}</td>
+                  <td>{user.district}</td>
+                  <td>{user.gender}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div>
-     
-      </div>
+        <div className="">
+        <h1 className="userReportTitle">User Graphs</h1>
+          <div className="flex justify-center">
+          <UserGenderPieChart/>
+        <UserLocationBarChart/>
+          </div>
+        </div>
+        
       </div>
     </>
   );
