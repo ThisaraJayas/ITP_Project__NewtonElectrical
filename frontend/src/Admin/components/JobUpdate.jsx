@@ -50,7 +50,7 @@ const JobUpdate = () => {
       .then(() => {
         setLoading(false);
         console.log('Job updated successfully');
-        navigate('/JobsTable'); 
+        navigate('/admin/jobsManager'); 
       }).catch((error) => {
         setLoading(false);
         console.error('Error updating job:', error);

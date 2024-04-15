@@ -1,142 +1,42 @@
-/* StatsCards.css */
-.flex {
+.stats-cards-container {
     display: flex;
+    justify-content: space-between;
+    overflow-x: auto; /* Add horizontal scroll */
+    padding: 20px;
+    gap: 20px; /* Adjust gap space between cards */
   }
   
-  .justify-center {
-    justify-content: center;
+  .stats-card {
+    flex: 1;
+    max-width: 200px; /* Reduce the size of each card */
   }
   
-  .bg-gray-100 {
-    background-color: #edf2f7;
-  }
-  
-  .py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
-  
-  .p-14 {
-    padding: 3.5rem;
-  }
-  
-  .container {
-    width: 100%;
-  }
-  
-  .mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .pr-4 {
-    padding-right: 1rem;
-  }
-  
-  .w-72 {
-    width: 18rem;
-  }
-  
-  .bg-white {
-    background-color: #fff;
-  }
-  
-  .max-w-xs {
-    max-width: 20rem;
-  }
-  
-  .rounded-sm {
-    border-radius: 0.25rem;
-  }
-  
-  .overflow-hidden {
+  .stats-content {
+    height: 150px; /* Adjust height of each card */
+    border-radius: 8px;
     overflow: hidden;
   }
   
-  .shadow-lg {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  .stats-title {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
   }
   
-  .hover\:shadow-2xl:hover {
-    box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  .stats-info {
+    padding: 10px;
   }
   
-  .transition {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
-    transition-duration: 150ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  .stats-label {
+    font-size: 14px;
+    color: #ccc;
   }
   
-  .duration-500 {
-    transition-duration: 500ms;
-  }
-  
-  .transform {
-    transform: translateX(0);
-  }
-  
-  .hover\:scale-100:hover {
-    transform: scale(1);
-  }
-  
-  .cursor-pointer {
-    cursor: pointer;
-  }
-  
-  .h-20 {
-    height: 5rem;
-  }
-  
-  .flex {
-    display: flex;
-  }
-  
-  .items-center {
-    align-items: center;
-  }
-  
-  .justify-between {
-    justify-content: space-between;
-  }
-  
-  .pl-5 {
-    padding-left: 1.25rem;
-  }
-  
-  .mr-0 {
-    margin-right: 0;
-  }
-  
-  .text-white {
+  .stats-value {
+    font-size: 24px;
     color: #fff;
   }
   
-  .text-lg {
-    font-size: 1.125rem;
-  }
-  
-  .text-sm {
-    font-size: 0.875rem;
-  }
-  
-  .text-gray-600 {
-    color: #4a5568;
-  }
-  
-  .py-4 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  .text-3xl {
-    font-size: 1.875rem;
-  }
-  
-  .ml-5 {
-    margin-left: 1.25rem;
-  }
-  
-  /* Additional styles for each card color */
   .bg-red-400 {
     background-color: #fc8181;
   }
