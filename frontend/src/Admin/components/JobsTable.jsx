@@ -79,29 +79,23 @@ export default function JobsTable() {
 
     return (
         <div className="text-gray-900 bg-gray-200">
-        <div className="flex flex-col">
-            <div className="p-4">
+            <div className="p-4 flex">
                 <h1 className="text-3xl">Jobs</h1>
             </div>
-            <div className="p-4 ml-4">
-                <button className="top-left-button">Add a Job</button>
+            <div className="px-3 py-4">
+                {/* DataTable component with pagination */}
+                <DataTable
+                    columns={columns}
+                    data={jobs}
+                    pagination
+                    paginationPerPage={10} // Number of rows per page
+                    paginationRowsPerPageOptions={[10, 20, 30]} // Options for rows per page
+                    striped
+                    highlightOnHover
+                />
             </div>
         </div>
-        <div className="px-3 py-4 flex justify-center">
-            <DataTable
-                columns={columns}
-                data={jobs}
-                fixedHeader
-                pagination
-            />
-        </div>
-        <div className="pagination-container">
-            <nav className="sc-iKOmoZ hVPalX rdt_Pagination">
-                {/* Pagination component code goes here */}
-            </nav>
-        </div>
-    </div>
-);
+    );
 }
 
 function DeleteJob({ id, title, handleDelete }) {
