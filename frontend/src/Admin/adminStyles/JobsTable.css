@@ -179,3 +179,13 @@
 .pagination-container nav {
     display: inline-flex;
 }
+
+.top-left-button{
+    font-size: 12px;
+    background-color: #3b82f6;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
