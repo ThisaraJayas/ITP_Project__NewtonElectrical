@@ -1,7 +1,6 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import AdminHome from '../Admin/AdminHome'
-import Product from '../Admin/components/Product'
 import UserManager from '../Admin/UserManager'
 import UseContextProvider from '../context/UserContext'
 import Register from '../pages/Register'
@@ -29,6 +28,7 @@ import AdminProjects from '../Admin/AdminProjects'
 import AddJobsTable from '../Admin/components/AddJobsTable'
 import AddJobsManager from '../Admin/AddJobsManager'
 import JobUpdateManager from '../Admin/JobUpdateManager'
+import ProductManager from '../Admin/ProductManager'
 
 
 
@@ -41,7 +41,6 @@ export default function PageRoutes() {
       <Route path='/' element={<Home/>}/> 
       {/* <Route path='/projects' element={<Projects/>}/> */}
       <Route path='/admin' element={<AdminHome/>}/>
-      <Route path='/admin/product' element={<Product/>}/>
       <Route path='/admin/user' element={<UserManager/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/login' element={<Login/>}/>
@@ -66,6 +65,7 @@ export default function PageRoutes() {
       <Route path='/ongoingProject' element={<OngoingProject/>}/>
       <Route path='/previousProject' element={<PreviousProject/>}/>
       <Route path='/admin/projects' element={<AdminProjects/>}/>
+      <Route path='/admin/product' element={<ProductManager/>}/>
 
     </Routes>
     </UseContextProvider>
