@@ -60,11 +60,11 @@ const JobUpdate = () => {
   return (
     <div>
 
-      <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
+      <div className="flex flex-wrap  w-full content-center justify-center bg-gray-200 py-2">
         <div className="flex shadow-md">
           <div className="flex flex-wrap content-center justify-center rounded-l-md bg-white" style={{ width: '50rem', height: '100%' }}>
             <div className="w-72" style={{ width: '45rem' }}>
-              <h1 className="text-3xl font-semibold mb-2">Edit Job</h1>
+              <h1 className="text-3xl mt-5  font-semibold mb-2">Edit Job</h1>
               {loading ? (
                 <div>Loading...</div>
               ) : (

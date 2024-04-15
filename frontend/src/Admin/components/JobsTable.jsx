@@ -71,7 +71,7 @@ export default function JobsTable() {
         },
         {
             name: "Edit Job",
-            cell: row => <Link to={`/edit/${row._id}`} className="edit-button">Edit</Link>, // Changed to use Link for navigation
+            cell: row => <Link to={`/admin/jobsManager/edit/${row._id}`} className="edit-button">Edit</Link>, // Changed to use Link for navigation
             minWidth: '50px'
         },
         {

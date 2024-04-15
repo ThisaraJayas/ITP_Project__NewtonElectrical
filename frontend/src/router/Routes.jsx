@@ -28,6 +28,7 @@ import PreviousProject from '../components/PreviousProject'
 import AdminProjects from '../Admin/AdminProjects'
 import AddJobsTable from '../Admin/components/AddJobsTable'
 import AddJobsManager from '../Admin/AddJobsManager'
+import JobUpdateManager from '../Admin/JobUpdateManager'
 
 
 
@@ -53,7 +54,7 @@ export default function PageRoutes() {
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/jobsTable' element={<JobsTable/>}/>
-      <Route path='/edit/:id' element={<JobUpdate/>}/>
+      <Route path='/admin/jobsManager/edit/:id' element={<JobUpdateManager/>}/>
       {/* <Route path='/ongoingproject' element={<OngoingProject/>}/> */}
       <Route path='/store' element={<Store/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
