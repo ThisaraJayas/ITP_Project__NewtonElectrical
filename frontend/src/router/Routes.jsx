@@ -49,11 +49,8 @@ export default function PageRoutes() {
       <Route path='/admin/jobsManager' element={<JobsManager/>}/>
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
-
       <Route path='/jobsTable' element={<JobsTable/>}/>
       <Route path='/edit/:id' element={<JobUpdate/>}/>
-
-
       <Route path='/ongoingproject' element={<OngoingProject/>}/>
       <Route path='/store' element={<Store/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>

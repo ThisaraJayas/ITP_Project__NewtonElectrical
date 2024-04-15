@@ -19,7 +19,7 @@ const JobUpdate = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3000/jobs/${id}`)
+    axios.get(`http://localhost:3000/jobs/job/${id}`)
       .then((response) => {
         const { title, department, description, location, salary, requirements, postedBy } = response.data;
         setTitle(title);
