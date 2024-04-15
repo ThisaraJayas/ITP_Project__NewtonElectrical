@@ -37,7 +37,8 @@ export default function JobsTable() {
     const columns =  [
         {
             name: "Title",
-            selector: row => row.title
+            selector: row => row.title,
+            minWidth: "50px"
         },
         {
             name: "Department",
@@ -61,7 +62,8 @@ export default function JobsTable() {
         },
         {
             name: "Posted By",
-            selector: row => row.postedBy
+            selector: row => row.postedBy,
+            minWidth: "90px",
         },
         {
             name: "Posted Date",
@@ -70,10 +72,12 @@ export default function JobsTable() {
         {
             name: "Edit Job",
             cell: row => <Link to={`/edit/${row._id}`} className="edit-button">Edit</Link>, // Changed to use Link for navigation
+            minWidth: '50px'
         },
         {
             name: "Delete",
             cell: row => <DeleteJob id={row._id} title={row.title} handleDelete={handleDelete} />,
+            minWidth: '120px'
         },
     ];
 
@@ -82,7 +86,7 @@ export default function JobsTable() {
             <div className="p-4 flex">
                 <h1 className="text-3xl">Jobs</h1>
                 <div className="p-4 ml-4">
-                            <Link to="/admin/jobsManager" className="top-left-button">Add a Job</Link>
+                            <Link to="/admin/jobsManager/addsjob" className="top-left-button">Add a Job</Link>
                         </div>
             </div>
             <div className="px-3 py-4">

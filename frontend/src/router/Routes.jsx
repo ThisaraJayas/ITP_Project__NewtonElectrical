@@ -26,6 +26,8 @@ import Project from '../pages/project'
 import OngoingProject from '../components/OngoingProjects'
 import PreviousProject from '../components/PreviousProject'
 import AdminProjects from '../Admin/AdminProjects'
+import AddJobsTable from '../Admin/components/AddJobsTable'
+import AddJobsManager from '../Admin/AddJobsManager'
 
 
 
@@ -47,6 +49,7 @@ export default function PageRoutes() {
       <Route path='/gender' element={<UserLocationBarChart/>}/>
       <Route path='/userpdf' element={<UserPdf/>}/>
       <Route path='/admin/jobsManager' element={<JobsManager/>}/>
+      <Route path='/admin/jobsManager/addsjob' element={<AddJobsManager/>}/>
       <Route path='/feedback' element={<Feedback/>}/>
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/jobsTable' element={<JobsTable/>}/>
