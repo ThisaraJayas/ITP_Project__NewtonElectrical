@@ -1,11 +1,13 @@
+//Jobs.jsx
+
 import React from 'react'
+import AddJobsTable from '../components/AddJobsTable'
 
 export default function Jobs() {
   return (
-    <div className='pt-8 pl-8'>
-      <div>Jobs</div>
-            
-    </div>
     
-  )
+      <div><AddJobsTable/></div>
+            
+     
+  );
 }
