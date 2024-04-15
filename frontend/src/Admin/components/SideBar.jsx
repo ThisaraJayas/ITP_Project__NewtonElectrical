@@ -3,6 +3,7 @@ import { BsCart3 } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import image from '../images/logo.png'
 
+
 export default function SideBar() {
   return (
     <aside id='sidebar'>
