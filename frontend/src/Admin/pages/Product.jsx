@@ -88,7 +88,10 @@ export default function Product() {
                 </select>
               </div>
               <div class="form-group">
+                <div className='prosubbtn'>
                 <input type="submit" value="Submit" />
+                </div>
+                
               </div>
             </form>
           </div>

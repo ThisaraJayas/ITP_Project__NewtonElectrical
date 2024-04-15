@@ -37,10 +37,12 @@ select {
     font-size: 16px;
 }
 
-input[type="submit"] {
+.prosubbtn {
     background-color: #007bff;
     color: #fff;
     padding: 12px 20px;
+    width: 30%;
+    text-align: center;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -48,7 +50,7 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+.prosubbtn:hover {
     background-color: #0056b3;
 }
 select option {
