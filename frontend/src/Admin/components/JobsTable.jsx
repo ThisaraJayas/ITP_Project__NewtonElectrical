@@ -81,6 +81,9 @@ export default function JobsTable() {
         <div className="text-gray-900 bg-gray-200">
             <div className="p-4 flex">
                 <h1 className="text-3xl">Jobs</h1>
+                <div className="p-4 ml-4">
+                            <Link to="/admin/jobsManager" className="top-left-button">Add a Job</Link>
+                        </div>
             </div>
             <div className="px-3 py-4">
                 {/* DataTable component with pagination */}

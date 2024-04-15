@@ -1,11 +1,9 @@
-//AddJobsTable.jsx
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import jobImage from '../images/job1.png';
 import axios from 'axios';
 
-
-export default function JobsTable() {
+export default function AddJobsTable() {
   const [Title, setTitle] = useState("");
   const [Department, setDepartment] = useState("");
   const [Description, setDescription] = useState("");
@@ -13,29 +11,32 @@ export default function JobsTable() {
   const [Salary, setSalary] = useState("");
   const [Requirements, setRequirements] = useState("");
   const [PostedBy, setPostedBy] = useState("");
+  const navigate = useNavigate();
 
+  function sendData(e) {
+    e.preventDefault();
+    alert("Successfully inserted.");
 
-function sendData(e){
-  e.preventDefault();
-  alert("succesfullly inserted.");
+    const newJob = {
+      title: Title,
+      department: Department,
+      description: Description,
+      location: Location,
+      salary: Salary,
+      requirements: Requirements,
+      postedBy: PostedBy
+    };
 
-   const newjob={ title: Title, department: Department, description: Description, location: Location, salary: Salary, requirements: Requirements, postedBy: PostedBy }
+    axios.post("http://localhost:3000/jobs/add", newJob)
+      .then(() => {
+        alert("Job added successfully.");
+        navigate('/jobsTable');
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
 
-   axios.post("http://localhost:3000/jobs/add",newjob).then(()=>{
-    alert("Student added.")
-    /*setTitle("");
-    setDepartment("");
-    setDescription("");
-    setLocation("");
-    setSalary("");
-    setRequirements("");
-    setPostedBy("");*/
-
-   }).catch((err)=>{
-    alert(err) 
-   })
-
-}
   return (
     <div className="flex flex-wrap min-h-screen w-full content-center justify-center bg-gray-200 py-10">
       <div className="flex shadow-md">
@@ -44,7 +45,7 @@ function sendData(e){
             <h1 className="text-3xl font-semibold mb-2">Job Posting</h1>
             <small className="text-lg text-gray-400 mb-4">Please fill in the details</small>
 
-            <form onSubmit={sendData}className="mt-4">
+            <form onSubmit={sendData} className="mt-4">
               <div className="flex justify-between mb-6">
                 <div className="mr-4 w-1/2">
                   <label className="block text-sm font-semibold mb-2">Title</label>
@@ -84,7 +85,7 @@ function sendData(e){
           </div>
         </div>
         <div className="flex flex-wrap content-center justify-center rounded-r-md" style={{ width: '24rem', height: '100%' }}>
-        <img className="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md" src={jobImage} alt="Job Banner" />
+          <img className="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md" src={jobImage} alt="Job Banner" />
         </div>
       </div>
     </div>
