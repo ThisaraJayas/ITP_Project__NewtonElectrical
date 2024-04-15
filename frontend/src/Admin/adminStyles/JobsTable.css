@@ -170,3 +170,12 @@
     border: none;
     cursor: pointer;
 }
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.pagination-container nav {
+    display: inline-flex;
+}

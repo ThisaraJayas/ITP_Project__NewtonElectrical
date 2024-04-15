@@ -69,7 +69,7 @@ export default function JobsTable() {
         },
         {
             name: "Edit Job",
-            cell: row => <Link to={`/edit/${row._id}`}>Edit</Link>, // Changed to use Link for navigation
+            cell: row => <Link to={`/edit/${row._id}`} className="edit-button">Edit</Link>, // Changed to use Link for navigation
         },
         {
             name: "Delete",
@@ -91,6 +91,11 @@ export default function JobsTable() {
                     fixedHeader
                     pagination
                 />
+            </div>
+            <div className="pagination-container">
+                <nav className="sc-iKOmoZ hVPalX rdt_Pagination">
+                    {/* Pagination component code goes here */}
+                </nav>
             </div>
         </div>
     );
