@@ -1,64 +1,65 @@
-import Shedule from "../models/sheduleModel.js"
 
-//insert data to database
+import Appointment from '../models/sheduleModel.js';
 
-export const InsertShedule = async(req,res)=>{ 
-    const {service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot}=req.body
-    const newShedule = new Shedule({service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot})
-
-    try{
-        await newShedule.save()
-        res.status(200).json({message:"Save Succesfully"})
-    }catch(error){
-        res.status(500).json({error})
+// Create a new appointment
+export const createAppointment = async (req, res) => {
+    try {
+        const appointment = await Appointment.create(req.body);
+        res.status(201).json({ success: true, data: appointment });
+    } catch (error) {
+        res.status(400).json({ success: false, error: error.message });
     }
-}
+};
 
-
-//update data
-export const UpdateShedule = async(req,res)=>{
-    const {id}=req.params
-    const {service,serviceDetail,description,firstName,lastName,address,city,province,zipcode,date,timeslot}=req.body
-
-    try{
-    const updateShedule = await Shedule.findByIdAndUpdate(id,{
-        service,
-        serviceDetail,
-        description,
-        firstName,
-        lastName,
-        address,
-        city,
-        province,
-        zipcode,
-        date,
-        timeslot
-    },{ new: true })
-    if(updateShedule){
-        res.status(200).json({message:"Updated Succesfull"})
+// Get all appointments
+export const getAppointments = async (req, res) => {
+    try {
+        const appointments = await Appointment.find();
+        res.status(200).json({ success: true, data: appointments });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+        console.log(error.message);
     }
-    }catch(error){
-        res.status(500).json({message:"Update Unsuccessfull"})
-    }
-}
+};
 
-//get data from database
-export const ReadShedule = async(req,res)=>{
-    try{
-       const readShedule = await Shedule.find()
-       res.status(200).json({readShedule})
-    }catch{
-       res.status(500).json({message:"Data Not Found"})
+// Get single appointment by ID
+export const getAppointmentById = async (req, res) => {
+    try {
+        const appointment = await Appointment.findById(req.params.id);
+        if (!appointment) {
+            return res.status(404).json({ success: false, error: 'Appointment not found' });
+        }
+        res.status(200).json({ success: true, data: appointment });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
     }
-}
+};
 
-//delete data
-export const DeleteShedule = async(req,res)=>{
-    const {id}=req.params
-    try{
-       const deleteShedule = await Shedule.deleteOne()
-       res.status(200).json({message:"cancelation Succesfull"})
-    }catch{
-        res.status(500).json({message:"cancelation Unsuccesfull"})
+// Update appointment by ID
+export const updateAppointment = async (req, res) => {
+    try {
+        const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
+        });
+        if (!appointment) {
+            return res.status(404).json({ success: false, error: 'Appointment not found' });
+        }
+        res.status(200).json({ success: true, data: appointment });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
     }
-}
+};
+
+// Delete appointment by ID
+export const deleteAppointment = async (req, res) => {
+    try {
+        const appointment = await Appointment.findByIdAndDelete(req.params.id);
+        if (!appointment) {
+            return res.status(404).json({ success: false, error: 'Appointment not found' });
+        }
+        res.status(200).json({ success: true, data: {} });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};

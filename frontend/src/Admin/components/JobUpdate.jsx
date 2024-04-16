@@ -59,7 +59,6 @@ const JobUpdate = () => {
 
   return (
     <div>
-
       <div className="flex flex-wrap  w-full content-center justify-center bg-gray-200 py-2">
         <div className="flex shadow-md">
           <div className="flex flex-wrap content-center justify-center rounded-l-md bg-white" style={{ width: '50rem', height: '100%' }}>
