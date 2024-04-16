@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import '../adminStyles/JobsTable.css';
 
 export default function JobsTable() {
@@ -97,10 +98,45 @@ export default function JobsTable() {
         },
     ];
 
+    // Render PDF document content using react-pdf
+    const PDFDocument = (
+        <Document>
+            <Page>
+                <View>
+                    <Text>Jobs Table</Text>
+                    {filteredJobs.map(job => (
+                        <View key={job._id}>
+                            <Text>Title: {job.title}</Text>
+                            <Text>Department: {job.department}</Text>
+                            <Text>Description: {job.description}</Text>
+                            <Text>Location: {job.location}</Text>
+                            <Text>Salary: {job.salary}</Text>
+                            <Text>Requirements: {job.requirements}</Text>
+                            <Text>Posted By: {job.postedBy}</Text>
+                            <Text>Posted Date: {job.postedDate}</Text>
+                            <Text>-----------------------------------</Text>
+                        </View>
+                    ))}
+                </View>
+            </Page>
+        </Document>
+    );
+
     return (
+        <div><div className='mb-8 mt-5'>
+        <PDFDownloadLink document={PDFDocument} fileName="jobs-list.pdf">
+            {({ blob, url, loading, error }) => (
+                <button className="JobsPdfDownload">
+                    {'Download PDF'}
+                </button>
+            )}
+        </PDFDownloadLink>
+        </div>
         <div className="text-gray-900 bg-gray-200">
+            
             <div className="p-4 flex justify-between items-center">
                 <h1 className="text-3xl">Jobs</h1>
+                
                 <div className="flex items-center">
                     <div className="ml-4">
                         <Link to="/admin/jobsManager/addsjob" className="top-left-button">Add a Job</Link>
@@ -111,6 +147,7 @@ export default function JobsTable() {
                 </div>
             </div>
             <div className="px-3 py-4">
+                
                 <DataTable
                     columns={columns}
                     data={filteredJobs}
@@ -121,6 +158,7 @@ export default function JobsTable() {
                     highlightOnHover
                 />
             </div>
+        </div>
         </div>
     );
 }

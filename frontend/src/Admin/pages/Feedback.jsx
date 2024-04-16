@@ -62,7 +62,7 @@ export default function Feedback() {
       <button onClick={downloadPdf} className="downloadPdfBtn">
         Download PDF
       </button>
-      <div className="tablecontainer" ref={pdfRef}>
+      <div className="tablefeedbackcontainer" ref={pdfRef}>
         <table>
           <thead>
             <tr>

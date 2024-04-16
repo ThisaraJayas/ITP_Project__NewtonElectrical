@@ -1,9 +1,9 @@
-/* Table style */
+
 .tablecontainer{
     max-width: 100%;
   overflow-x: auto;
 } 
-table {
+.tablefeedbackcontainer table {
   background: #edf7fa;
   border-radius: 0.25em;
   border-collapse: collapse;
@@ -13,7 +13,7 @@ table {
   max-width: 100%;
 
 }
-th {
+.tablefeedbackcontainer th {
   border-bottom: 1px solid #364043;
   color: #fcfcfc;
   background: #1976d2;
@@ -22,7 +22,7 @@ th {
   padding: 0.5em 1em;
   text-align: left;
 }
-td {
+.tablefeedbackcontainer td {
   color: #000000;
   font-weight: 400;
   padding: 0.65em 1em;
