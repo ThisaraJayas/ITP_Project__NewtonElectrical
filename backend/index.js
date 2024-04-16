@@ -44,9 +44,9 @@ app.use('/auth',authRouter)
 app.use('/user',userRouter)
 app.use('/feedbacks',feedbackRouter)
 app.use('/project',projectRouter)
-app.use('/Shedule',SheduleRouter)
 app.use('/package',packageRouter)
-app.use('/service',serviceRouter)
+app.use('/shedule', SheduleRouter);
+app.use('/service', serviceRouter);
 app.use('/jobs', jobRouter);
 app.use('/cv', cvRouter);
 app.use('/product',InventoryRouter)

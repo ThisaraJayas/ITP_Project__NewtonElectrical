@@ -31,6 +31,8 @@ import JobUpdateManager from '../Admin/JobUpdateManager'
 import ProductManager from '../Admin/ProductManager'
 import AdminPackage from '../Admin/AdminPackage'
 import Package from '../pages/Package'
+import Appointment from '../pages/appointment'
+import ViewAppointments from '../Admin/viewAppointments'
 
 
 
@@ -69,6 +71,8 @@ export default function PageRoutes() {
       <Route path='/admin/product' element={<ProductManager/>}/>
       <Route path='/package' element={<Package/>}/>
       <Route path='/admin/packages' element={<AdminPackage/>}/>
+      <Route path='/admin/appointments' element={<ViewAppointments/>}/>
+      <Route path='/appointments' element={<Appointment/>}/>
     </Routes>
     </UseContextProvider>
     </>
