@@ -6,12 +6,24 @@ import AddProject from '../components/AddProject';
 import { PieChart } from 'react-minimal-pie-chart'; // Importing PieChart from react-minimal-pie-chart
 
 export default function Projects() {
-  const [variable1, setVariable1] = useState(30);
-  const [variable2, setVariable2] = useState(70);
+  const [ongoing, setOngoing] = useState(0);
+  const [completed, setCompleted] = useState(0);
 
-  useEffect(() => {
-    // Fetch data or set variables as needed
-  }, []); // Add dependencies if necessary
+    useEffect(()=>{
+        const fetchStatus = async()=>{
+            try {
+                const response = await axios.get('http://localhost:3000/project/projects');
+                const project = response.data.readProject
+                const ongoing = project.filter(project=>project.status==='Ongoing').length
+                const completed = project.filter(project=>project.status==='Previous').length
+                setOngoing(ongoing)
+                setCompleted(completed)
+            } catch (error) {
+                console.error('Error fetching project:', error);
+            }
+        }
+        fetchStatus()
+    },[])
 
   return (
     <div className='container pt-8 pl-8'>
@@ -23,8 +35,8 @@ export default function Projects() {
       <div style={{ width: '200px', height: '200px' , marginLeft: '450px'}}>
         <PieChart
           data={[
-            { title: 'Variable 1', value: variable1, color: '#E38627' },
-            { title: 'Variable 2', value: variable2, color: '#C13C37' },
+            { title: 'Ongoing', value: ongoing, color: '#E38627' },
+            { title: 'Completed', value: completed, color: '#C13C37' },
           ]}
           label={({ dataEntry }) => dataEntry.title}
           labelStyle={{
