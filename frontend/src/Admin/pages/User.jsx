@@ -104,47 +104,6 @@ export default function User() {
                     <h1>{dailyUserCount}</h1>
                 </div>
             </div>
-            {/* Section Two */}
-            {/* <table>
-                <thead>
-                    <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email Address</th>
-                    <th>Gender</th>
-                    <th>User Role</th>
-                    <th>Edit Role</th>
-                    <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>Harry</td>
-                    <td>Perera</td>
-                    <td>harry@gmail.com</td>
-                    <td>Female</td>
-                    <td>Customer
-                      
-                    </td>
-                    <td><button className='roleBtn'> Change Role</button></td>
-                    <td><button className='deleteBtn'>Delete</button></td>
-
-                    </tr>
-                    <tr>
-                    <td>Thisara</td>
-                    <td>Jayasinghe</td>
-                    <td>thisara@gmail.com</td>
-                    <td>Male</td>
-                    <td>Customer
-                       
-                    </td>
-                    <td><button className='roleBtn'> Change Role</button></td>
-                    <td><button className='deleteBtn'>Delete</button></td>
-                    </tr>
-                </tbody>
-            </table> */}
-
-
             
             {/* <div className='flex justify-between mb-5'>
                 <UserGenderPieChart/>

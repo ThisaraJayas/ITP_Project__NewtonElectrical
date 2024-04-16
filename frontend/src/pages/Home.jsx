@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { UserContext } from '../context/UserContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import "../styles/home.css";
@@ -34,7 +34,7 @@ export default function Home() {
                     </span>
 
                   </button>
-                  <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 text-base font-medium rounded-lg px-7 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Careers</button>
+                  <Link to={'/store'}><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 text-base font-medium rounded-lg px-7 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Store</button></Link>
                 </div>
               </div>
             </div>

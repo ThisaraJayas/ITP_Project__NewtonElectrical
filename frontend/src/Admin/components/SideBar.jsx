@@ -3,6 +3,7 @@ import { BsCart3 } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import image from '../images/logo.png'
 
+
 export default function SideBar() {
   return (
     <aside id='sidebar'>
@@ -28,6 +29,11 @@ export default function SideBar() {
             <BsCart3 className='icon'/>Projects
         </li>
         </Link>
+        <Link to={'/admin/packages'}>
+        <li className='sidebar-list-item'>
+            <BsCart3 className='icon'/>Packages
+        </li>
+        </Link>
         <Link to={'/admin/jobsManager'}>
         <li className='sidebar-list-item'>
             <BsCart3 className='icon'/>Jobs
@@ -38,9 +44,9 @@ export default function SideBar() {
             <BsCart3 className='icon'/>Feedback
         </li>
         </Link>
-        <Link to={'/admin/item3'}>
+        <Link to={'/admin/product'}>
         <li className='sidebar-list-item'>
-            <BsCart3 className='icon'/>Reports
+            <BsCart3 className='icon'/>Products
         </li>
         </Link>
         <Link to={'/admin/item4'}>

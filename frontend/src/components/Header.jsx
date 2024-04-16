@@ -65,10 +65,10 @@ export default function Header() {
           ) : (
             <>
               <div className="mainLoginbtn">
-                <button className="loginBtn font-semibold">Sign Up</button>
+                <Link to={'/register'}><button className="loginBtn font-semibold">Sign Up</button></Link>
               </div>
               <div className="mainRegBtn">
-                <button className="registerBtn font-semibold">Login</button>
+                <Link to={'/login'}><button className="registerBtn font-semibold">Login</button></Link>
               </div>
             </>
           )}

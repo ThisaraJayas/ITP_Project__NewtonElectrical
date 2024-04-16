@@ -13,13 +13,24 @@ import { AiFillSchedule } from "react-icons/ai";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { LuLogOut } from "react-icons/lu";
 import { RiDeleteBack2Fill } from "react-icons/ri";
+import { UserContext } from "../../context/UserContext";
 
 export default function ProfileMenu() {
+  const {userData} = React.useContext(UserContext)
+
+
   return (
     <div>
       <Paper sx={{ width: 320, maxWidth: "100%", boxShadow: 6 }}>
         <MenuList>
-          <div className="h-24 mt-6 text-center">Manage My Account</div>
+          <div className="mt-6 mb-3 text-center font-extrabold">{userData.firstName}</div>
+          <div className="flex justify-center mb-4"> 
+      <img
+        className="rounded-full h-28 w-28 object-cover cursor-pointer"
+        src={userData.avatar}
+        alt="profile"
+      />
+    </div>
           <Divider />
           <Link to={'/profile'} >
           <MenuItem>
