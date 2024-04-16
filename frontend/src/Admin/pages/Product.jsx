@@ -69,7 +69,7 @@ export default function Product() {
               </div>
               <div class="form-group">
                 <label for="price">Product Price:</label>
-                <input type="number" id="price" name="price" onChange={(e) => setProductPrice(e.target.value)} min="0" step="0.01" required />
+                <input type="text" id="price" name="price" onChange={(e) => setProductPrice(e.target.value)} required />
               </div>
               <div class="form-group">
                 <label for="image">Product Image:</label>
