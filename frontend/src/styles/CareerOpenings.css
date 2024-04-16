@@ -1,143 +1,65 @@
-/* LatestNews.css */
-.text-gray-700 {
-    color: #4a5568;
-}
+/* App.css */
 
-.text-purple-600 {
-    color: #9f7aea;
-}
-
-.text-purple-600:hover, .text-purple-600:focus {
-    color: #805ad5;
-}
-
-.text-purple-700:hover, .text-purple-700:focus {
-    color: #6b46c1;
-}
-
-.text-purple-800:hover, .text-purple-800:focus {
-    color: #553c9a;
-}
-
-.text-purple-800 {
-    color: #4338ca;
-}
-
-.bg-purple-600 {
-    background-color: #9f7aea;
-}
-
-.bg-purple-600:hover, .bg-purple-600:focus {
-    background-color: #805ad5;
-}
-
-.bg-gray-100 {
-    background-color: #f7fafc;
-}
-
-.border-purple-600 {
-    border-left-color: #9f7aea;
-}
-
-.border-purple-600:focus, .border-purple-600:hover {
-    border-left-color: #805ad5;
-}
-
-.border-green-600 {
-    border-left-color: #48bb78;
-}
-
-.border-green-600:focus, .border-green-600:hover {
-    border-left-color: #38a169;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex-start {
-    align-items: flex-start;
-}
-
-.justify-between {
-    justify-content: space-between;
-}
-
-.mb-6 {
-    margin-bottom: 1.5rem;
-}
-
-.ml-3 {
-    margin-left: 0.75rem;
-}
-
-.ml-6 {
-    margin-left: 1.5rem;
-}
-
-.md\\:flex {
-    display: flex;
-}
-
-.md\\:p-6 {
-    padding: 1.5rem;
-}
-
-.md\\:rounded-lg {
+/* Style for the grid container */
+.grid {
+    /* Center the grid items horizontally */
+    justify-content: center;
+  }
+  
+  /* Style for each card */
+  .bg-white {
+    /* Add shadow to the cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Style for the banner image */
+  .rounded-lg {
+    /* Add rounded corners to the images */
     border-radius: 0.5rem;
+  }
+  
+  /* Style for the tag */
+  .text-indigo-500 {
+    /* Change tag color to indigo */
+    color: #4f46e5;
+  }
+  
+  /* Style for the title */
+  .font-semibold {
+    /* Make the title bold */
+    font-weight: 600;
+  }
+  
+  /* Style for the author */
+  .text-gray-900 {
+    /* Change author name color to dark gray */
+    color: #374151;
+  }
+  
+  /* Style for the author's profile photo */
+  .rounded-full {
+    /* Make the profile photo round */
+    border-radius: 50%;
+  }
+  /* CareerOpenings.css */
+.container {
+    padding-top: 80px; /* Adjust as needed */
+    padding-bottom: 20px; /* Adjust as needed */
+}
+/* Card.css */
+.upload-cv-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.md\\:shadow-lg {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.md\\:max-w-md {
-    max-width: 28rem;
-}
-
-.mr-6 {
-    margin-right: 1.5rem;
-}
-
-.py-1 {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-}
-
-.px-3.5 {
-    padding-left: 0.875rem;
-    padding-right: 0.875rem;
-}
-
-.px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-.py-1\\.5 {
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
-}
-
-.rounded {
-    border-radius: 0.25rem;
-}
-
-.shadow-lg {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-.text-2xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-}
-
-.text-2xl\\.leading-6 {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-}
-
-.text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
+.upload-cv-button:hover {
+    background-color: #45a049;
 }
