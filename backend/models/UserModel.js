@@ -1,5 +1,5 @@
 import mongoose from "mongoose"
-import Counter from "./CounterModel.js"
+import Counter from "./UserIdCounterModel.js"
 
 const userSchema = new mongoose.Schema({
     userId: {
@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
     },
     address:{
         type:String,
+        default: ""
     },
     gender:{
         type:String,
@@ -37,6 +38,14 @@ const userSchema = new mongoose.Schema({
         type:String,
         enum: ['Customer', 'Admin'],
         default:"Customer"
+    },
+    district:{
+        type:String,
+        default:" ",
+    },
+    avatar: {
+        type: String,
+        default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
     }
 },{timestamps: true})
 userSchema.pre('save', async function(next){

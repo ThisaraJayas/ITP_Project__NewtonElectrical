@@ -3,6 +3,7 @@ import { BsCart3 } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import image from '../images/logo.png'
 
+
 export default function SideBar() {
   return (
     <aside id='sidebar'>
@@ -23,24 +24,29 @@ export default function SideBar() {
             <BsCart3 className='icon'/>Users
         </li>
         </Link>
+        <Link to={'/admin/projects'}>
+        <li className='sidebar-list-item'>
+            <BsCart3 className='icon'/>Projects
+        </li>
+        </Link>
+        <Link to={'/admin/packages'}>
+        <li className='sidebar-list-item'>
+            <BsCart3 className='icon'/>Packages
+        </li>
+        </Link>
+        <Link to={'/admin/jobsManager'}>
+        <li className='sidebar-list-item'>
+            <BsCart3 className='icon'/>Jobs
+        </li>
+        </Link>
+        <Link to={'/admin/feedback'}>
+        <li className='sidebar-list-item'>
+            <BsCart3 className='icon'/>Feedback
+        </li>
+        </Link>
         <Link to={'/admin/product'}>
         <li className='sidebar-list-item'>
             <BsCart3 className='icon'/>Products
-        </li>
-        </Link>
-        <Link to={'/admin/item1'}>
-        <li className='sidebar-list-item'>
-            <BsCart3 className='icon'/>Customers
-        </li>
-        </Link>
-        <Link to={'/admin/item2'}>
-        <li className='sidebar-list-item'>
-            <BsCart3 className='icon'/>Inventory
-        </li>
-        </Link>
-        <Link to={'/admin/item3'}>
-        <li className='sidebar-list-item'>
-            <BsCart3 className='icon'/>Reports
         </li>
         </Link>
         <Link to={'/admin/item4'}>

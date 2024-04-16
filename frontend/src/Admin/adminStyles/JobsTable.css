@@ -1,0 +1,191 @@
+/* styles.css */
+/* Jobstable.css*/
+
+
+.border-b {
+    border-bottom: 1px solid #ddd;
+}
+
+.hover-bg-orange:hover {
+    background-color: #ffedcc;
+}
+
+.bg-gray-100 {
+    background-color: #f7fafc;
+}
+
+.bg-blue-500 {
+    background-color: #3b82f6;
+}
+
+.bg-red-500 {
+    background-color: #ef4444;
+}
+
+.text-gray-900 {
+    color: #1a202c;
+}
+
+.text-md {
+    font-size: 1rem;
+}
+
+.text-3xl {
+    font-size: 1.875rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.p-3 {
+    padding: 0.75rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.rounded {
+    border-radius: 0.375rem;
+}
+
+.shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.input-bg-transparent input {
+    background-color: transparent;
+}
+
+.focus-border-purple input:focus,
+.focus-border-purple select:focus {
+    border-color: #6b46c1;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(107, 70, 193, 0.5);
+}
+
+.focus-outline input:focus,
+.focus-outline select:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.focus-outline select:focus {
+    outline-offset: 1px;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.mr-3 {
+    margin-right: 0.75rem;
+}
+
+.hover-bg-blue:hover {
+    background-color: #93c5fd;
+}
+
+.hover-bg-red:hover {
+    background-color: #f87171;
+}
+
+.focus-outline input:focus ~ .shadow-outline,
+.focus-outline select:focus ~ .shadow-outline {
+    box-shadow: 0 0 0 3px rgba(118, 169, 250, 0.45);
+}
+
+.shadow-outline {
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.3);
+}
+.delete-button {
+    margin-right: 3px;
+    font-size: 12px;
+    background-color: #ef4444;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button {
+    font-size: 12px;
+    background-color: #3b82f6;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.pagination-container nav {
+    display: inline-flex;
+}
+
+.top-left-button{
+    font-size: 12px;
+    background-color: #3b82f6;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}

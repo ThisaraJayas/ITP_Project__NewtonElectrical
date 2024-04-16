@@ -126,11 +126,11 @@ export default function Register() {
                                         </div>
                                         <div className='inputBox'>
                                             <span className='details'>Password</span>
-                                            <input type='text' placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                            <input type='password' placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} required />
                                         </div>
                                         <div className='inputBox'>
                                             <span className='details'>Confirm Password</span>
-                                            <input type='text' placeholder='confirm your password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                                            <input type='password' placeholder='confirm your password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
                                         </div>
                                     </div>
                                     <div className='genderDetails'>

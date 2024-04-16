@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+
+.homeContainer{
+    width: 100%;
+	height: 100vh;
+	background-image: url(home.png);
+	background-position: center;
+	background-size: cover;
+}
+/* .banner{
+    width: 150%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url(home.png);
+    background-position: center;
+    background-size: cover;
+} */
+
+.bannerSection{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px 50px;
+}
+.bannerText{
+    margin-top: 10%;
+}
+
+.bannerText .title{
+    font-size: 48px;
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 600;
+    color: rgb(1, 0, 61);
+}
+.serviceContainer{
+    background-color: rgb(1, 0, 43);
+    height: auto;
+}
+.service{
+    margin: 2%;
+   cursor: pointer;
+   padding: auto;
+}
+.serviceText{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}

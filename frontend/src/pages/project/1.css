@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+.projectbody {
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ff9147;
+}
+
+.projectprofile {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./qwe.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.text1 {
+  color: #fff;
+  position: absolute;
+  left: 3%;
+  right: 0;
+  text-align: left;
+}
+
+.title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.paragraph {
+  font-size: 20px;
+  color: #fff;
+  width: 30%;
+  height: 60%;
+  top: 20%;
+}
+
+.ongoing_projects,
+.completed_projects {
+  /* Remove absolute positioning */
+}
+
+.text2,
+.text3 {
+  margin-top: 20px;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold; /* Make the font bold */
+}
+
+.projectcard {
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #000137; /* Changed background color */
+}
+
+.projectcard img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.projectcardcontent {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.projectcardcontent h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #4194cb; /* Changed title color */
+  padding-bottom: 10px; /* Added padding */
+}
+
+.projectcardcontent p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff; /* Changed description color to white */
+  transition: color 0.3s ease;
+}
+
+.projectcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.projectcard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  z-index: 1;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectcard:hover::before {
+  opacity: 1;
+}
+
+.projectcard:hover .projectcardcontent h2 {
+  color: #fff; /* Changed title color on hover */
+}
+
+.projectcard:hover .projectcardcontent p {
+  color: #f0f0f0; /* Changed description color on hover */
+}
+.but1{font-size:15px;
+  font-weight:400;
+  border-radius:10px;
+  background-color:#4194cb;
+  width:100%;
+  height:100%;
+  color:#fff;
+}

@@ -1,0 +1,47 @@
+.dashTitle{
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:sans-serif;
+}
+.linksTitle{
+    font-family:sans-serif;
+    margin-top: 5%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.dashcards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 40px 15px 40px 15px;
+    border-radius: 5px;
+    
+  }
+  .dashcards:first-child{
+    background-color: #1976d2;
+  }
+  .dashcards:nth-child(2){
+    background-color: orangered;
+  }
+  .dashcards:nth-child(3){
+    background-color: #1976d2;
+  }
+  .dashcards:nth-child(4){
+    background-color: orangered;
+  }
+  .dashcards:nth-child(5){
+    background-color: #1976d2;
+  }
+  .dashcards:nth-child(6){
+    background-color: orangered;
+  }
+  .dashcardHead h3{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+  }
+  .dashcards:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }

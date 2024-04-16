@@ -4,7 +4,7 @@
     position: relative;
   }
   
-  .userDetails{
+  .userDetail{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -19,7 +19,7 @@
     font-weight: 500;
     margin-bottom: 5px;
   }
-  .userDetails .inputBox input{
+  .userDetail .inputBox input{
     height: 45px;
     width: 100%;
     outline: none;
@@ -29,8 +29,8 @@
     border: 2px solid #ccc;
     transition: all 0.3s ease;
   }
-  .userDetails .inputBox input:focus,
-  .userDetails .inputBox input:valid{
+  .userDetail .inputBox input:focus,
+  .userDetail .inputBox input:valid{
     border-color: rgb(255, 102, 0);
   }
    .roleTitle{

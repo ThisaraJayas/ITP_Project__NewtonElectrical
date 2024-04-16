@@ -24,6 +24,10 @@ const InventoryScheema=new mongoose.Schema({
     availability:{
         type:String,
         default:"Available"
+    },
+    productImage:{
+        type:String,
+        default:"https://www.yiwubazaar.com/resources/assets/images/default-product.jpg"
     }
 },{timestamps: true})
 const Product = mongoose.model('Product',InventoryScheema ) 

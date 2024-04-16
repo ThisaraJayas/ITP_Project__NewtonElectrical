@@ -1,0 +1,107 @@
+.containerprod {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.prosubbtn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    width: 30%;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.prosubbtn:hover {
+    background-color: #0056b3;
+}
+select option {
+    color: #fff; 
+    background-color: #333; 
+}
+select {
+    appearance: none;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+    padding-right: 30px;
+}
+.tableprocontainer {
+    margin-top: 30px;
+  }
+  
+  .tableprocontainer table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tableprocontainer thead {
+    background-color: #ff662a;
+    color: #fff;
+  }
+  
+  .tableprocontainer th{
+    background-color: #ff662a;
+    padding: 10px;
+  }
+  .tableprocontainer  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .tableprocontainer  th {
+    font-weight: bold;
+  }
+  .productDeleteBtn{
+    background-color: #ff0000;
+    color: #fff;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  .productDeleteBtn:hover{
+    background-color: #c20000;
+  }

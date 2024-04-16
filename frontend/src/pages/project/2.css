@@ -1,0 +1,16 @@
+.ongoingTitle{
+    font-size: 35px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+.ongoingProjectName{
+    font-size: 20px;
+}
+.ongoingProjectDesc{
+    font-size: 15px;
+}
+.projectImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain; 
+  }

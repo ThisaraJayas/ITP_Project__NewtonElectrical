@@ -23,6 +23,17 @@ export const getAllJobs = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+//get single job
+export const getAJob = async (req, res) => {
+    const {id}= req.params
+
+    try {
+        const jobs = await Job.findOne({_id:id});
+        res.json(jobs);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 // Controller for updating a job posting
 export const updateJob = async (req, res) => {
