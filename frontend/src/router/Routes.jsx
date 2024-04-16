@@ -35,6 +35,7 @@ import AdminPackage from '../Admin/AdminPackage'
 import Package from '../pages/Package'
 import Appointment from '../pages/appointment'
 import ViewAppointments from '../Admin/viewAppointments'
+import UpdateProduct from '../Admin/components/UpdateProduct'
 
 
 
@@ -70,7 +71,7 @@ export default function PageRoutes() {
       <Route path='/ongoingProject' element={<OngoingProject/>}/>
       <Route path='/previousProject' element={<PreviousProject/>}/>
       <Route path='/admin/projects' element={<AdminProjects/>}/>
-
+      <Route path='/admin/projects/productupdate/:id' element={<UpdateProduct/>}/>
       <Route path='/Careers' element={<Careers/>}/>
       <Route path='/CareerOpenings' element={<CareerOpenings/>}/>
 

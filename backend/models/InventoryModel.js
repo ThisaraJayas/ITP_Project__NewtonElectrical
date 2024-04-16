@@ -3,15 +3,12 @@ import mongoose from "mongoose";
 const InventoryScheema=new mongoose.Schema({
     productTitle:{
         type:String,
-        required: true,
     },
     productDescription:{
         type:String,
-        required:true,
     },
     productPrice: {
         type: String,
-        required: true,
       
     },
     productDiscount:{
@@ -19,7 +16,6 @@ const InventoryScheema=new mongoose.Schema({
     },
     productQty:{
         type:String,
-        required:true,
     },
     availability:{
         type:String,

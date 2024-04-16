@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../adminStyles/ProductManager.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 export default function ProductTable() {
     const [products, setProduct]=useState([])
@@ -48,7 +49,7 @@ console.log(products);
                   <td>{products.productPrice}</td>
                   <td>{products.productQty}</td>
                   <td>{products.productImage}</td>
-                  <td>dd</td>
+                  <td> <Link to={`/admin/projects/productupdate/${products._id}`} className="productUpdateBtn">Update</Link></td>
                   <td><button
                     onClick={() => deleteProduct(products._id)}
                     className="productDeleteBtn"
