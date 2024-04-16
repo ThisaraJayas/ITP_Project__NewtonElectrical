@@ -1,0 +1,62 @@
+/* App.css */
+.h-screen {
+    height: 100vh;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-nowrap {
+    flex-wrap: nowrap;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .bg-blue-600 {
+    background-color: #3b82f6;
+  }
+  
+  .bg-pink-400 {
+    background-color: #f43f5e;
+  }
+  
+  .bg-teal-500 {
+    background-color: #14b8a6;
+  }
+  
+  .text-white {
+    color: #fff;
+  }
+  
+  .space-y-4 > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .flex-none {
+    flex: none;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .max-w-md {
+    max-width: 28rem;
+  }
+  

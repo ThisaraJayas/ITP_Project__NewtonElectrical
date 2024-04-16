@@ -30,7 +30,7 @@ export default function AddJobsTable() {
     axios.post("http://localhost:3000/jobs/add", newJob)
       .then(() => {
         alert("Job added successfully.");
-        navigate('/jobsTable');
+        navigate('/admin/jobsManager');
       })
       .catch((err) => {
         alert(err);

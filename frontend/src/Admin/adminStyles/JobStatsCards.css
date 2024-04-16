@@ -1,0 +1,55 @@
+.stats-cards-container {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto; /* Add horizontal scroll */
+    padding: 20px;
+    gap: 20px; /* Adjust gap space between cards */
+  }
+  
+  .stats-card {
+    flex: 1;
+    max-width: 200px; /* Reduce the size of each card */
+  }
+  
+  .stats-content {
+    height: 150px; /* Adjust height of each card */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .stats-title {
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .stats-info {
+    padding: 10px;
+  }
+  
+  .stats-label {
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  .stats-value {
+    font-size: 24px;
+    color: #fff;
+  }
+  
+  .bg-red-400 {
+    background-color: #fc8181;
+  }
+  
+  .bg-blue-500 {
+    background-color: #4299e1;
+  }
+  
+  .bg-purple-400 {
+    background-color: #9f7aea;
+  }
+  
+  .bg-purple-900 {
+    background-color: #4c1d95;
+  }
+  
