@@ -69,7 +69,6 @@ export default function PageRoutes() {
       <Route path='/admin/product' element={<ProductManager/>}/>
       <Route path='/package' element={<Package/>}/>
       <Route path='/admin/packages' element={<AdminPackage/>}/>
-
     </Routes>
     </UseContextProvider>
     </>
