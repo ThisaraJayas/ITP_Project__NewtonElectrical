@@ -65,10 +65,10 @@ export default function Header() {
           ) : (
             <>
               <div className="mainLoginbtn">
-                <button className="loginBtn font-semibold">Sign Up</button>
+                <Link to={'/register'}><button className="loginBtn font-semibold">Sign Up</button></Link>
               </div>
               <div className="mainRegBtn">
-                <button className="registerBtn font-semibold">Login</button>
+                <Link to={'/login'}><button className="registerBtn font-semibold">Login</button></Link>
               </div>
             </>
           )}
@@ -104,9 +104,10 @@ export default function Header() {
                 </Link>
               </li>
             ))}
-            <button className="btn bg-orange-500 text-white md:ml-8 font-semibold px-4 py-3 rounded-lg duration-500 md:static ">
+            <Link to={'/appointments'}><button className="btn bg-orange-500 text-white md:ml-8 font-semibold px-4 py-3 rounded-lg duration-500 md:static ">
               Schedule Appointment
             </button>
+            </Link>
             <button className="btn bg-blue-600 text-white md:ml-4 font-semibold px-4 py-3 rounded-lg duration-500 md:static">
               Careers
             </button>

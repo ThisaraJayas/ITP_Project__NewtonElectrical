@@ -8,7 +8,7 @@ import AllProjects from '../components/AllProjects'
 
 export default function Project() {
   return (
-    <div className='pt-44'>
+    <div className='pt-22'>
       <Header/>
     <AllProjects/>
       

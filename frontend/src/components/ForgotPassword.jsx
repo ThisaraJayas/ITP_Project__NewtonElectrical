@@ -45,7 +45,7 @@ export default function ForgotPassword() {
   return (
     <>
     <Header/>
-    <div className="">
+    <div className="forgotpassbackground">
     <div className="forgotpassContainer">
       <Paper sx={{ width: '50%', maxWidth: 'none', boxShadow: 16 }} className='forgotpasswordPaper'>
         <h2>Forgot your Password?</h2>

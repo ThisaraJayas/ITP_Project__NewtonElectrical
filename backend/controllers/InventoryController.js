@@ -2,9 +2,9 @@ import Product from "../models/InventoryModel.js"
 
 //insert to database
 export const insertProduct = async(req,res)=>{
-    const {productTitle,productDescription,productPrice,productDiscount,productQty,availability}=req.body
+    const {productTitle,productDescription,productPrice,productDiscount,productQty,availability,productImage}=req.body
 
-    const newProduct = new Product({productTitle,productDescription,productPrice,productDiscount,productQty,availability})
+    const newProduct = new Product({productTitle,productDescription,productPrice,productDiscount,productQty,availability,productImage})
 
     try{
         await newProduct.save()

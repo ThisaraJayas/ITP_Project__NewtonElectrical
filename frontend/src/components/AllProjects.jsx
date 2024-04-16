@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+import ProjectHeader from "./projectHeader";
 
 import { FreeMode, Pagination } from "swiper/modules";
 
@@ -38,6 +39,8 @@ const AllProjects = () => {
         fetchData();
     }, []);
     return (
+<div>
+<ProjectHeader/>
 
       <div className="flex items-center justify-center flex-col h-[1200px]" style={{ background: "#1c77ac" }}> {/* bg :  background color changed to purple */}
       
@@ -131,6 +134,7 @@ const AllProjects = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      </div>
       </div>
       );
     };
