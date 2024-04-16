@@ -69,6 +69,10 @@ export default function Feedback() {
                                         id="firstName"
                                         value={firstName}
                                         onChange={(e)=>setFirstName(e.target.value)}
+                                        onBlur={()=>{ if(firstName.length>10){
+                                            alert('Must be less than 10')
+                                           
+                                        }}}
                                         placeholder="Enter your first name"
                                     required/>
                                 </div>
@@ -92,6 +96,9 @@ export default function Feedback() {
                                         value={email}
                                         onChange={(e)=>setEmail(e.target.value)}
                                         placeholder="Enter your Email"
+                                        onBlur={()=>{ if(!validator.isEmail(email)){
+                                            alert('Invalid Email Address')
+                                        }}}
                                         required />
                                 </div>
                                 <div className='mb-3'>
@@ -103,6 +110,14 @@ export default function Feedback() {
                                         value={contactNumber}
                                         onChange={(e)=>setContactNumber(e.target.value)}
                                         placeholder="Enter your Contact Number"
+                                        onBlur={() => {
+                                            if (!validator.isNumeric(contactNumber)) {
+                                                alert('Number must be only digits');
+                                            }
+                                            if (contactNumber.length !== 10) {
+                                                alert('Phone Number Must be 10 Characters');
+                                            }
+                                        }} 
                                         required/>
                                 </div>
                                 <div className='mb-3'>
