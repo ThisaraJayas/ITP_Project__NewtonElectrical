@@ -9,6 +9,7 @@ import Login from '../pages/Login'
 import Dialogs from '../pages/Dialogs'
 import Home from '../pages/Home'
 import Careers from '../pages/Careers'
+import CareerOpenings from '../pages/CareerOpenings'
 import Profile from '../pages/Profile'
 import UserLocationBarChart from '../Admin/charts/UserLocationBarChart'
 import UserPdf from '../components/UserPdf'
@@ -68,6 +69,7 @@ export default function PageRoutes() {
       <Route path='/previousProject' element={<PreviousProject/>}/>
       <Route path='/admin/projects' element={<AdminProjects/>}/>
       <Route path='/Careers' element={<Careers/>}/>
+      <Route path='/CareerOpenings' element={<CareerOpenings/>}/>
 
     </Routes>
     </UseContextProvider>
