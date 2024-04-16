@@ -1,6 +1,7 @@
 // Careers.js
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import jobImage2 from '../assets/images/job2.png';
@@ -57,6 +58,15 @@ const Careers = () => {
                         <p className="max-w-md" style={{ color: 'rgb(249, 115, 22)' }}>Join Newton Electricals' innovative culture and shine with empowerment!</p>
                     </div>
                 </div>
+                <div className="text-center mt-8">
+                <p className="text-xl font-semibold" style={{ color: 'rgb(37 99 235)' }}>Discover the power of possibility at Newton Electricals</p>
+                {/* Button for Current Openings */}
+                <div className="mb-8"></div>
+                <Link to="/CareerOpenings">
+                    <button className="current-openings-button">Current Openings</button>
+                </Link>
+            </div>
+            <div className="mb-8"></div>
             </div>
             <Footer />
         </>
