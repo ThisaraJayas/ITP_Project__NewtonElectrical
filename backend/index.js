@@ -12,6 +12,7 @@ import packageRouter from './routes/PackageRoute.js'
 import serviceRouter from './routes/ServiceRoute.js'
 import jobRouter from './routes/JobRoute.js';
 import cvRouter from './routes/CVRoute.js';
+import InventoryRouter from './routes/InventoryRoute.js'
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -45,6 +46,7 @@ app.use('/package', packageRouter);
 app.use('/service', serviceRouter);
 app.use('/jobs', jobRouter);
 app.use('/cv', cvRouter);
+app.use('/product',InventoryRouter)
 
 // Example route
 app.get('/hello', (req, res) => {

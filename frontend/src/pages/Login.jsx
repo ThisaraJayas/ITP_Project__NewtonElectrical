@@ -71,8 +71,9 @@ export default function Login() {
                     </div>
                     <div className='logininputBox'>
                       <span className='details'>Password</span>
-                      <input type='text' placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                      <input type='password' placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
+                    <Link to={'/forgot-password'}><h3 className='forgotPassword'>Forgot Password?</h3></Link>
                   </div>
                   <div className='button'>
                     <input type='submit' value='Login' />

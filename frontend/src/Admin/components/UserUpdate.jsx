@@ -25,6 +25,7 @@ export default function UserUpdate({ userId }) {
     const [mobileNumber, setMobileNumber] = useState("");
     const [gender, setGender] = useState("");
     const [userType, setUserType] = useState("Customer");
+    const [district, setDistrict]=useState("")
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,6 +39,7 @@ export default function UserUpdate({ userId }) {
                 setMobileNumber(response.data.user.mobileNumber);
                 setGender(response.data.user.gender);
                 setUserType(response.data.user.userType);
+                setDistrict(response.data.user.district)
             } catch (error) {
                 console.error("Error fetching user details:", error);
             }
@@ -86,7 +88,7 @@ export default function UserUpdate({ userId }) {
                                 <h2>Update Role</h2>
                             </div>
 
-                            <div className="userDetails">
+                            <div className="userDetail">
                                 <div className="inputBox">
                                     <span className="details">First Name</span>
                                     <input
@@ -124,6 +126,15 @@ export default function UserUpdate({ userId }) {
                                     />
                                 </div>
                                 <div className="inputBox">
+                                    <span className="details">District</span>
+                                    <input
+                                        type="text"
+                                        placeholder="Enter your number"
+                                        value={district}
+                                        disabled
+                                    />
+                                </div>
+                                <div className="inputBox">
                                     <span className="details">Gender</span>
                                     <input
                                         type="text"
@@ -132,6 +143,7 @@ export default function UserUpdate({ userId }) {
                                         disabled
                                     />
                                 </div>
+                                
                             </div>
                             <div className="roleDetails">
                                 <input
