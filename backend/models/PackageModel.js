@@ -15,27 +15,49 @@ const packageSchema = new mongoose.Schema({
         required: true,
         
     },      
-    packagePrice:{
+    service1:{
+        type: String,
+        required:true
+    },
+    service2:{
+        type: String,
+        required:true
+    },
+    service3:{
+        type: String
+    },
+    service4:{
+        type: String
+    },
+    service1Price:{
         type:Number,
-        required:true,
-        
+        required:true
+    },
+    service2Price:{
+        type:Number,
+        required:true
+    },
+    service3Price:{
+        type:Number
+    },
+    service4Price:{
+        type:Number
     },
     monthlyPrice:{
         type:Number,
         required:true,
-        
-    },
-    discountedMonthlyPrice:{
-        type:Number,
-        required:true,
-        
     },
     annualPrice:{
         type:Number,
         required:true,
         
     },
-    discountedAnnualPrice:{
+    discountMonthly:{
+        type:Number,
+        required:true,
+        
+    },
+    discountAnnual:{
         type:Number,
         required:true,
         
