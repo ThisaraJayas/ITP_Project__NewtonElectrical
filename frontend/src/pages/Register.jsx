@@ -157,10 +157,16 @@ export default function Register() {
                         placeholder="Enter your number"
                         value={mobileNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
-                        onBlur={()=>{if (!validator.isNumeric(mobileNumber)) {
-                            handleAlert("Phone number must be Digits", "error");
-                            return;
-                          }}}
+                        onBlur={() => {
+                            if (!validator.isNumeric(mobileNumber)) {
+                              handleAlert("Phone number must be digits", "error");
+                              return;
+                            }
+                            if (mobileNumber.length !== 10) {
+                              handleAlert("Phone number must be a 10-digit number", "error");
+                              return;
+                            }
+                          }}
                         required
                       />
                     </div>

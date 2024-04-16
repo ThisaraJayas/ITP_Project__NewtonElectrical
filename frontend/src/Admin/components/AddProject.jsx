@@ -132,6 +132,10 @@ export default function AddProject() {
                     placeholder="Enter project description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                    onBlur={()=>{if (description.length > 500) {
+                      alert('Description must be less than or equal to 500 characters.');
+                      return; 
+                    }}}
                   />
                 </div>
                 <div className="inputBox">
@@ -150,6 +154,9 @@ export default function AddProject() {
                     placeholder="Enter project cost"
                     value={cost}
                     onChange={(e) => setCost(e.target.value)}
+                    onBlur={()=>{if(!validator.isNumeric(cost)){
+                      alert('Cost must be numbers');
+                    }}}
                   />
                 </div>
                 <input type="file" accept="image/*" onChange={onInputChange}></input>
