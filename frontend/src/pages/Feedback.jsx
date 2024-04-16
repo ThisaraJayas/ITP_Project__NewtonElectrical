@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import { UserContext } from '../context/UserContext';
 import  axios  from 'axios';
 import MyFeedback from '../components/feedback/MyFeedback';
+import validator from 'validator'
 
 export default function Feedback() {
     const { userData } = useContext(UserContext)
@@ -17,8 +18,28 @@ export default function Feedback() {
     const [contactNumber, setContactNumber] = useState('')
     const [message, setMessage] = useState('')
 
+   
+
+   
+
     const handleFeedbackSumbit=async(e)=>{
         e.preventDefault()
+
+        if(firstName.length>10){
+            alert('Must be less than 10')
+           
+        }
+
+        if(!validator.isEmail(email)){
+            alert('Invalid Email Address')
+        }
+
+        if(!validator.isNumeric(contactNumber)){
+            alert('Number must be only digits')
+        }
+        if(contactNumber.length!==10){
+            alert('Phone Number Must be 10 Characters')
+        }
         const response = await axios.post('http://localhost:3000/feedbacks/feedback',{
             userId: userData.userId,
             firstName,
@@ -49,7 +70,7 @@ export default function Feedback() {
                                         value={firstName}
                                         onChange={(e)=>setFirstName(e.target.value)}
                                         placeholder="Enter your first name"
-                                    />
+                                    required/>
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="lastName">Last Name</label>
@@ -60,7 +81,7 @@ export default function Feedback() {
                                         value={lastName}
                                         onChange={(e)=>setLastName(e.target.value)}
                                         placeholder="Enter your last name"
-                                    />
+                                        required/>
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="email">Email</label>
@@ -71,7 +92,7 @@ export default function Feedback() {
                                         value={email}
                                         onChange={(e)=>setEmail(e.target.value)}
                                         placeholder="Enter your Email"
-                                    />
+                                        required />
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="cNumber">Contact Number</label>
@@ -82,7 +103,7 @@ export default function Feedback() {
                                         value={contactNumber}
                                         onChange={(e)=>setContactNumber(e.target.value)}
                                         placeholder="Enter your Contact Number"
-                                    />
+                                        required/>
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="message">Message</label>
@@ -93,7 +114,7 @@ export default function Feedback() {
                                         onChange={(e)=>setMessage(e.target.value)}
                                         placeholder="Type your message here"
                                         rows="4"
-                                    />
+                                        required />
                                 </div>
                                 <Stack spacing={1}>
                                     <Rating name="size-large" value={rating} onChange={(event, newRating) => { setRating(newRating) }} size="large" />
