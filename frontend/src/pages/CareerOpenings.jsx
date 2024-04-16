@@ -26,7 +26,7 @@ const CareerOpenings = () => {
     return (
         <>
             <Header />
-            <div className="container">
+            <div className="container mt-20">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {/* Map over the job data and render a Card component for each job */}
                     {jobs.map(job => (
