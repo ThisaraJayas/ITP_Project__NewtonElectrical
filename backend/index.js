@@ -6,23 +6,27 @@ dotenv.config()
 import authRouter from './routes/AuthRoute.js'
 import userRouter from './routes/UserRoute.js'
 import feedbackRouter from './routes/FeedbackRoute.js'
-import projectRouter from './routes/ProjectRoute.js'
+import projectRoutes from './routes/ProjectRoute.js'
 import SheduleRouter from './routes/SheduleRoute.js'
 import packageRouter from './routes/PackageRoute.js'
 import serviceRouter from './routes/ServiceRoute.js'
 import jobRouter from './routes/JobRoute.js';
 import cvRouter from './routes/CVRoute.js';
 
+dotenv.config(); // Load environment variables from .env file
 
-const app = express()
+const app = express();
 
-//middleware
-app.use(express.json())  
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true
-}))
+// Middleware
+app.use(express.json()); // Parse JSON bodies
 
+// CORS configuration
+const corsOptions = {
+    origin: '*', // Your front-end origin
+    credentials: true, // Allow credentials (cookies, authentication)
+    optionsSuccessStatus: 200 // Legacy browsers (IE11, various SmartTVs) choke on 204
+};
+app.use(cors(corsOptions)); // Apply CORS middleware
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_DB).then(()=>{
@@ -31,22 +35,24 @@ mongoose.connect(process.env.MONGO_DB).then(()=>{
     console.log(err);
 })
 
-app.listen(3000, ()=>{
-    console.log("Server Running on Port 3000");
-})
-app.get('/hello',(req,res)=>{
-    res.json('Helloi')
-})
-
 // Routes
-app.use('/auth',authRouter)
-app.use('/user',userRouter)
-app.use('/feedbacks',feedbackRouter)
-app.use('/project',projectRouter)
-app.use('/Shedule',SheduleRouter)
-app.use('/package',packageRouter)
-app.use('/service',serviceRouter)
+app.use('/auth', authRouter);
+app.use('/user', userRouter);
+app.use('/feedbacks', feedbackRouter);
+app.use('/project', projectRoutes);
+app.use('/shedule', SheduleRouter);
+app.use('/package', packageRouter);
+app.use('/service', serviceRouter);
 app.use('/jobs', jobRouter);
 app.use('/cv', cvRouter);
 
+// Example route
+app.get('/hello', (req, res) => {
+    res.json({ message: 'Hello World!' });
+});
 
+// Start the server
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
