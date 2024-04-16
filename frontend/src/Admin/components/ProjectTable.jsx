@@ -51,7 +51,7 @@ export default function ProjectTable() {
             selector: (row) => row.description,
         },
         {
-            name: "Cost",
+            name: "Cost (Rs.)",
             selector: (row) => row.cost,
         },
         {
