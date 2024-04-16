@@ -29,7 +29,8 @@ import AddJobsTable from '../Admin/components/AddJobsTable'
 import AddJobsManager from '../Admin/AddJobsManager'
 import JobUpdateManager from '../Admin/JobUpdateManager'
 import ProductManager from '../Admin/ProductManager'
-
+import AdminPackage from '../Admin/AdminPackage'
+import Package from '../pages/Package'
 
 
 
@@ -66,6 +67,8 @@ export default function PageRoutes() {
       <Route path='/previousProject' element={<PreviousProject/>}/>
       <Route path='/admin/projects' element={<AdminProjects/>}/>
       <Route path='/admin/product' element={<ProductManager/>}/>
+      <Route path='/package' element={<Package/>}/>
+      <Route path='/admin/packages' element={<AdminPackage/>}/>
 
     </Routes>
     </UseContextProvider>
