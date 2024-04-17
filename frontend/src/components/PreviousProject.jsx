@@ -34,7 +34,7 @@ export default function PreviousProject() {
         <CardMedia
             component="img"
             height="100"
-            image="public/uploads/1713002687461Untitled.jpeg"
+            image="public/uploads/Disciplined-project-management-approach.iStock_000045607656_Full.jpg"
             style={{ width: '900px', borderRadius: '10px'}}
             
         />

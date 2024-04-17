@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 router.post('/projects', upload.single('image'), async (req, res) => {
     const imageName = req.file.filename;
     const{title, status, description, duration, cost, image} = req.body
-    const newProject = new Project({title, status, description, duration, cost, image})
+    const newProject = new Project({title, status, description, duration, cost, image:imageName})
 
     try {
         const savedProject = await newProject.save()

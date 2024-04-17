@@ -54,7 +54,7 @@ export const ReadProjectById = async(req,res)=>{
     }catch(error){
         res.status(500).json({message:"Internal Server Error"})
     }
-}
+} 
 
 
 // export const InsertProject = async(req,res)=>{ 
