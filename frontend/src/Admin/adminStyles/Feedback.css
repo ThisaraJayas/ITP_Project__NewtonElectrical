@@ -28,7 +28,7 @@ td {
   padding: 0.65em 1em;
 }
 .disabled td {
-  color: #4F5F64;
+  color: #504f64;
 }
 .tablecontainer tbody tr {
   transition: background 0.25s ease;
@@ -40,7 +40,7 @@ select {
   background-color: #5d838d;
   border: none;
   border-radius: 4px;
-  color: #fff;
+  color: #ffffff;
   font-size: 0.85em;
   padding: 6px 20px !important; 
 } 
