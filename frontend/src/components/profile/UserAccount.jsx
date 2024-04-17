@@ -250,7 +250,6 @@ export default function UserAccount() {
                             <input type='submit' value='Update Password' />
                         </div>
                     </form>
-                
             </Paper>
         </div>
     )

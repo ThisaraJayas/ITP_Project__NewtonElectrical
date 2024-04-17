@@ -91,7 +91,7 @@ export default function Header() {
           </div>
           {/* link items */}
           <ul
-            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static  md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
               open ? "top-12" : "top-[-490px]"
             }`}
           >
@@ -104,12 +104,15 @@ export default function Header() {
                 </Link>
               </li>
             ))}
-            <button className="btn bg-orange-500 text-white md:ml-8 font-semibold px-4 py-3 rounded-lg duration-500 md:static ">
+            <Link to={'/appointments'}><button className="btn bg-orange-500 text-white md:ml-8 font-semibold px-4 py-3 rounded-lg duration-500 md:static ">
               Schedule Appointment
             </button>
+            </Link>
+            <Link to={'/Careers'}>
             <button className="btn bg-blue-600 text-white md:ml-4 font-semibold px-4 py-3 rounded-lg duration-500 md:static">
               Careers
             </button>
+            </Link>
           </ul>
           {/* button */}
         </div>

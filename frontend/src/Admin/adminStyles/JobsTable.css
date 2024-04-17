@@ -189,3 +189,16 @@
     border: none;
     cursor: pointer;
 }
+
+.JobsPdfDownload{
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 12px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-right: 40%;
+}

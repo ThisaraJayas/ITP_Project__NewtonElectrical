@@ -105,10 +105,10 @@ export default function User() {
                 </div>
             </div>
             
-            {/* <div className='flex justify-between mb-5'>
+            <div className='flex justify-between mb-5'>
                 <UserGenderPieChart/>
                 <UserLocationBarChart/>
-            </div> */}
+            </div>
             
             <UserTable/>
         </div>

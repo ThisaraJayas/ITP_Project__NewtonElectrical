@@ -1,0 +1,80 @@
+/* Careers.css */
+.h-screen {
+    height: 100vh;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #fff;
+}
+
+.space-y-4 > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.flex-none {
+    flex: none;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.max-w-md {
+    max-width: 28rem;
+}
+.slide-image {
+    max-width: 100%;
+    height:80%;
+}
+/* Careers.css */
+.h-screen {
+    height: calc(100vh - 120px); /* Adjust the height of the slider to leave space for header and footer */
+}
+
+.mt-8 {
+    margin-top: 2rem; /* Adjust the margin-top as needed */
+}
+/* Careers.css */
+.current-openings-button {
+    background-color:rgb(37 99 235);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.current-openings-button:hover {
+    background-color: #e57373;
+}
+
+.footer {
+    margin-top: 20px; 
+}

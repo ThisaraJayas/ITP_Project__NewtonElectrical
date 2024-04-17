@@ -1,0 +1,65 @@
+/* App.css */
+
+/* Style for the grid container */
+.grid {
+  /* Center the grid items horizontally */
+  justify-content: center;
+}
+
+/* Style for each card */
+.bg-white {
+  /* Add shadow to the cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Style for the banner image */
+.rounded-lg {
+  /* Add rounded corners to the images */
+  border-radius: 0.5rem;
+}
+
+/* Style for the tag */
+.text-indigo-500 {
+  /* Change tag color to indigo */
+  color: #4f46e5;
+}
+
+/* Style for the title */
+.font-semibold {
+  /* Make the title bold */
+  font-weight: 600;
+}
+
+/* Style for the author */
+.text-gray-900 {
+  /* Change author name color to dark gray */
+  color: #374151;
+}
+
+/* Style for the author's profile photo */
+.rounded-full {
+  /* Make the profile photo round */
+  border-radius: 50%;
+}
+/* CareerOpenings.css */
+.container {
+  padding-top: 80px; /* Adjust as needed */
+  padding-bottom: 20px; /* Adjust as needed */
+}
+/* Card.css */
+.upload-cv-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-cv-button:hover {
+  background-color: #45a049;
+}

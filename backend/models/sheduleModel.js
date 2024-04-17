@@ -1,52 +1,24 @@
 import mongoose from "mongoose";
-const sheduleSchema = new mongoose.Schema({
-    service:{
-        type:String,
-        required:true,
-    },
-    
-    serviceDetail:{
-        type:String,
-        required:true,
-    },
-    
-    description:{
-        type:String,
-        required:true,
-    },
-    
-    firstName:{
-        type:String,
-        required:true,
-    },
-    lastName:{
-        type:String,
-        required:true,
-    },
-    address:{
-        type:String,
-        required:true,
-    },
-    city:{
-        type:String,
-        required:true,
-    },
-    province:{
-        type:String,
-        required:true,
-    },
 
-    zipcode:{
-        type:String,
-    },
-    date:{
-        type:String,
-    },
-    timeslot:{
-        type:String,
-        required:true,
-    },
+const appointmentSchema = new mongoose.Schema({
+    select1: String,
+    select2: String,
+    description: String,
+    firstName: String,
+    lastName: String,
+    address: String,
+    city: String,
+    province: String,
+    zipcode: String,
+    contactNum: String,
+    ownProperty: Boolean,
+    timeSlot: Date,
+    status: {
+        type: String,
+        default: "pending"
+    }
+});
 
-},{timestamps: true})
-const Shedule = mongoose.model('Shedule',sheduleSchema) 
-export default Shedule
+const Appointment = mongoose.model('Appointment', appointmentSchema);
+
+export default Appointment;

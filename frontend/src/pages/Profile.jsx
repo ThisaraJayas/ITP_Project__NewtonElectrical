@@ -19,11 +19,13 @@ export default function Profile() {
     return (
         <>
         <Header/>
-        <div className='pt-20 pl-6 flex lg:ml-4 lg:mr-16 sm:mx-4'>
+        <div className='userAccountContainer'>
+        <div className='pt-20 pl-6 flex lg:ml-4 lg:mr-16 sm:mx-4 '>
             <ProfileMenu />
             <div className="flex-1">
                 <UserAccount />
             </div>
+        </div>
         </div>
         <Footer/>
         </>
