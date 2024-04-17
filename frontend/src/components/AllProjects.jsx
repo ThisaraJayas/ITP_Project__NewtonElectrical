@@ -42,7 +42,7 @@ const AllProjects = () => {
 <div>
 <ProjectHeader/>
 
-      <div className="flex items-center justify-center flex-col h-[1200px]" style={{ background: "#1c77ac" }}> {/* bg :  background color changed to purple */}
+      <div className="flex items-center justify-center flex-col h-[1200px]" style={{ background: "#1c77ac" }}> {}
       
       <h1 className="text-4xl text-white font-bold" style={{marginBottom: "50px"}}>Ongoing Projects</h1>
     
