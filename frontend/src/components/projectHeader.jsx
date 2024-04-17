@@ -40,7 +40,7 @@ export default function ProjectHeader() {
     <div>
       <Card
       style={{
-        backgroundImage: 'url(public/uploads/17129988351387.jpg)', // Replace with your actual image URL
+        backgroundImage: 'url(public/uploads/Project-Management-Banner-c.png)', 
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -54,11 +54,10 @@ export default function ProjectHeader() {
     >
       <CardContent style={{alignItems:"center"}}>
         <Typography variant="h4" gutterBottom style={{textAlign:"center"}}>
-          LOREM IPSUM
+          
         </Typography>
         <Typography variant="body1" style={{textAlign:"center"}}>
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-          galley of type and scrambled it to make a type specimen book.
+          
         </Typography>
       </CardContent>
       <div style={{ backgroundColor: 'navy', color: 'white', padding: '10px' }}>
