@@ -175,11 +175,19 @@ const Form1 = ({ data, handleChange }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="zipcode">Zip Code:</label>
-                    <input type="text" id="zipcode" name="zipcode" value={data.zipcode} onChange={handleChange} />
+                    <input type="text" id="zipcode" name="zipcode"
+                    onBlur={()=>{
+                        if (zipcode.length !== 4) {
+                            alert('Zip Must be 4 Characters');
+                        }
+                    }} value={data.zipcode} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="mobile">contact number:</label>
-                    <input type="text" id="contactNum" name="contactNum" value={data.contactNum} onChange={handleChange} />
+                    <input type="text" id="contactNum" name="contactNum"
+                    onBlur={()=>{if (contactNum.length !== 10) {
+                        alert('Phone Number Must be 10 Characters');
+                    }}} value={data.contactNum} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="ownProperty">I own this residential property:</label>
