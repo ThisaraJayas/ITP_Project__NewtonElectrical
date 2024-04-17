@@ -1,0 +1,79 @@
+/* Simple and clean table styles */
+.appointments-table {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-x: auto; /* Add horizontal scroll for small screens */
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    filter: brightness(0.9); /* Slightly darken the button on hover */
+}
+
+.approve-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #008CBA;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Title{
+    margin-top: 70px;
+    font-size: 32px;
+    height: 50px;
+    width: 300px;
+    background-color: rgb(255, 123, 0);
+    color: white;
+    margin-left: 500px;
+    border-radius: 45px;
+}

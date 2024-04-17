@@ -63,3 +63,28 @@ export const deleteAppointment = async (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     }
 };
+
+
+//approve and cancel
+export const approveAppointment = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const appointment = await Appointment.findByIdAndUpdate(id, { status: 'approved' }, { new: true });
+      res.json(appointment);
+    } catch (error) {
+      console.error('Error approving appointment:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };
+  
+  // Controller to cancel an appointment
+  export const cancelAppointment = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const appointment = await Appointment.findByIdAndUpdate(id, { status: 'canceled' }, { new: true });
+      res.json(appointment);
+    } catch (error) {
+      console.error('Error canceling appointment:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };

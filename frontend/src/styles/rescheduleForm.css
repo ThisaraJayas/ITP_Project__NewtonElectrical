@@ -1,0 +1,56 @@
+.reschedule-form-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin-bottom: 40px;
+    margin-left: 400px;
+
+}
+
+.reschedule-form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons .approve-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.buttons .cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
