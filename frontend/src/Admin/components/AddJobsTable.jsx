@@ -36,7 +36,6 @@ export default function AddJobsTable() {
         alert(err);
       });
   }
-
   return (
     <div className="flex flex-wrap  w-full content-center justify-center bg-gray-200 py-2">
       <div className="flex shadow-md">
@@ -44,7 +43,6 @@ export default function AddJobsTable() {
           <div className="w-72" style={{ width: '45rem' }}>
             <h1 className="text-3xl mt-5 font-semibold mb-2">Job Posting</h1>
             <small className="text-lg text-gray-400 mb-4">Please fill in the details</small>
-
             <form onSubmit={sendData} className="mt-4">
               <div className="flex justify-between mb-6">
                 <div className="mr-4 w-1/2">
