@@ -60,14 +60,7 @@ export default function ProjectHeader() {
           
         </Typography>
       </CardContent>
-      <div style={{ backgroundColor: 'navy', color: 'white', padding: '10px' }}>
-      <span style={{ marginRight: '50px' }}>
-        {completedProjects} Completed Projects
-      </span>
-      <span>
-        {ongoingProjects} Ongoing Projects
-      </span>
-    </div>
+      
     </Card>
 
     
