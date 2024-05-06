@@ -2,61 +2,93 @@ import React, { useContext, useState } from 'react';
 import '../styles/feedback.css';
 import Header from '../components/Header';
 import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
 import Footer from '../components/Footer';
 import { UserContext } from '../context/UserContext';
-import  axios  from 'axios';
+import axios from 'axios';
+import validator from 'validator';
 import MyFeedback from '../components/feedback/MyFeedback';
-import validator from 'validator'
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 export default function Feedback() {
-    const { userData } = useContext(UserContext)
-    const [rating, setRating] = useState(0)
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [email, setEmail] = useState('')
-    const [contactNumber, setContactNumber] = useState('')
-    const [message, setMessage] = useState('')
+    const { userData } = useContext(UserContext);
+    const [rating, setRating] = useState(0);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [contactNumber, setContactNumber] = useState('');
+    const [message, setMessage] = useState('');
+    const [alertMessage, setAlertMessage] = useState('');
+    const [alertSeverity, setAlertSeverity] = useState('');
 
-   
+    const handleAlert = (message, severity) => {
+        setAlertMessage(message);
+        setAlertSeverity(severity);
+    };
 
-   
-
-    const handleFeedbackSumbit=async(e)=>{
-        e.preventDefault()
-
-        if(firstName.length>10){
-            alert('Must be less than 10')
-           
+    const handleFirstNameChange = (e) => {
+        setFirstName(e.target.value);
+        if (e.target.value.length > 10) {
+            handleAlert('First Name must be less than 10 characters', 'error');
+        } else {
+            handleAlert('', ''); 
         }
+    };
 
-        if(!validator.isEmail(email)){
-            alert('Invalid Email Address')
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+        if (!validator.isEmail(e.target.value)) {
+            handleAlert('Invalid Email Address', 'error');
+        } else {
+            handleAlert('', ''); 
         }
+    };
 
-        if(!validator.isNumeric(contactNumber)){
-            alert('Number must be only digits')
+    const handleContactNumberChange = (e) => {
+        setContactNumber(e.target.value);
+        if (!validator.isNumeric(e.target.value) || e.target.value.length !== 10) {
+            handleAlert('Contact Number must be 10 digits', 'error');
+        } else {
+            handleAlert('', ''); 
         }
-        if(contactNumber.length!==10){
-            alert('Phone Number Must be 10 Characters')
+    };
+
+    const handleFeedbackSumbit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:3000/feedbacks/feedback', {
+                userId: userData.userId,
+                firstName,
+                lastName,
+                email,
+                contactNumber,
+                feedback: message,
+                rating
+            });
+            console.log(response);
+            handleAlert('Feedback submitted successfully', 'success');
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+            handleAlert('An error occurred while submitting feedback', 'error');
         }
-        const response = await axios.post('http://localhost:3000/feedbacks/feedback',{
-            userId: userData.userId,
-            firstName,
-            lastName,
-            email,
-            contactNumber,
-            feedback:message,
-            rating
-        })
-        console.log(response);
-        window.location.reload()
-    }
+    };
 
     return (
         <>
             <Header />
             <div className='pt-24 pb-9'>
+                <div className='ml-36 mr-36 mb-8'>
+                {alertMessage && (
+                    <Stack sx={{ width: '100%' }} spacing={2}>
+                        <Alert variant="filled" severity={alertSeverity}>
+                            {alertMessage}
+                        </Alert>
+                    </Stack>
+                )}
+                </div>
+                
                 <form onSubmit={handleFeedbackSumbit}>
                     <div className="page flex justify-center items-center">
                         <div className="input-container">
@@ -68,13 +100,10 @@ export default function Feedback() {
                                         className="textfield"
                                         id="firstName"
                                         value={firstName}
-                                        onChange={(e)=>setFirstName(e.target.value)}
-                                        onBlur={()=>{ if(firstName.length>10){
-                                            alert('Must be less than 10')
-                                           
-                                        }}}
+                                        onChange={handleFirstNameChange}
                                         placeholder="Enter your first name"
-                                    required/>
+                                        required
+                                    />
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="lastName">Last Name</label>
@@ -83,9 +112,10 @@ export default function Feedback() {
                                         className="textfield"
                                         id="lastName"
                                         value={lastName}
-                                        onChange={(e)=>setLastName(e.target.value)}
+                                        onChange={(e) => setLastName(e.target.value)}
                                         placeholder="Enter your last name"
-                                        required/>
+                                        required
+                                    />
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="email">Email</label>
@@ -94,12 +124,10 @@ export default function Feedback() {
                                         className="textfield"
                                         id="email"
                                         value={email}
-                                        onChange={(e)=>setEmail(e.target.value)}
+                                        onChange={handleEmailChange}
                                         placeholder="Enter your Email"
-                                        onBlur={()=>{ if(!validator.isEmail(email)){
-                                            alert('Invalid Email Address')
-                                        }}}
-                                        required />
+                                        required
+                                    />
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="cNumber">Contact Number</label>
@@ -108,17 +136,10 @@ export default function Feedback() {
                                         className="textfield"
                                         id="cNumber"
                                         value={contactNumber}
-                                        onChange={(e)=>setContactNumber(e.target.value)}
+                                        onChange={handleContactNumberChange}
                                         placeholder="Enter your Contact Number"
-                                        onBlur={() => {
-                                            if (!validator.isNumeric(contactNumber)) {
-                                                alert('Number must be only digits');
-                                            }
-                                            if (contactNumber.length !== 10) {
-                                                alert('Phone Number Must be 10 Characters');
-                                            }
-                                        }} 
-                                        required/>
+                                        required
+                                    />
                                 </div>
                                 <div className='mb-3'>
                                     <label className="block mb-2" htmlFor="message">Message</label>
@@ -126,10 +147,11 @@ export default function Feedback() {
                                         className="textfield"
                                         id="message"
                                         value={message}
-                                        onChange={(e)=>setMessage(e.target.value)}
+                                        onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Type your message here"
                                         rows="4"
-                                        required />
+                                        required
+                                    />
                                 </div>
                                 <Stack spacing={1}>
                                     <Rating name="size-large" value={rating} onChange={(event, newRating) => { setRating(newRating) }} size="large" />
@@ -140,7 +162,6 @@ export default function Feedback() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </form>
             </div>

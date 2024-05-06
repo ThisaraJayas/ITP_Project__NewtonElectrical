@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth'
 import { app } from '../firebase'
 import axios from 'axios'
+import { UserContext } from '../context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function OAuth() {
+    const {setUserData} = useContext(UserContext)
+    const navigate = useNavigate()
 
     const handleGoogleClick = async()=>{
         try{
@@ -17,6 +21,11 @@ export default function OAuth() {
                 avatar: result.user.photoURL
             })
             console.log(response);
+            if(response.status==200){
+                setUserData(response.data.user)
+                navigate('/')
+            }
+
 
         }catch(error){
             console.log(error);
@@ -28,7 +37,7 @@ export default function OAuth() {
                 <button
                     type="button"
                     onClick={handleGoogleClick}
-                    class="relative inline-flex items-center justify-center w-full px-3 py-3 text-base font-semibold text-white transition-all duration-200 bg-rose-500  border-2 border-white rounded-md hover:bg-rose-600 focus:bg-rose-600 hover:text-white focus:text-white focus:outline-none"
+                    class="relative inline-flex items-center justify-center w-full px-3 py-3 text-base font-semibold text-white transition-all duration-200 bg-red-600  border-2 border-white rounded-md hover:bg-rose-600 focus:bg-rose-600 hover:text-white focus:text-white focus:outline-none"
                 >
                     <div class="absolute inset-y-0 left-0 p-4">
                         <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

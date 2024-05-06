@@ -9,6 +9,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import OAuth from "../components/OAuth";
+import Divider from '@mui/material/Divider';
+
 
 const passwordSchema = new PasswordValidator();
 passwordSchema
@@ -242,6 +244,9 @@ export default function Register() {
                   <Link to={"/login"}> Log in</Link>
                 </span>
                   </h3>
+                  <div className="mt-6 mb-6">
+                  <Divider component="" />
+                  </div>
                   <OAuth/>
                 </form>
               </div>
