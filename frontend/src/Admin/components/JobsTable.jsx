@@ -121,7 +121,6 @@ export default function JobsTable() {
             </Page>
         </Document>
     );
-
     return (
         <div><div className='mb-8 mt-5'>
         <PDFDownloadLink document={PDFDocument} fileName="jobs-list.pdf">
