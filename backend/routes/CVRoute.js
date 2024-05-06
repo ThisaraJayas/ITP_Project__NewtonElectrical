@@ -10,7 +10,7 @@ const router = express.Router();
 // Route for uploading CV
 router.post('/upload', uploadCV);
 
-router.get('/', getAllCVs);
+router.get('/getcvs', getAllCVs);
 
 router.put('/:id', updateCVStatus);
 

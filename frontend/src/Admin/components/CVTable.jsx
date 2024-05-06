@@ -15,7 +15,7 @@ const CVTable = () => {
     useEffect(() => {
         const fetchCVs = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/cvs');
+                const response = await axios.get('http://localhost:3000/cv/getcvs');
                 setCVs(response.data);
             } catch (error) {
                 setError(error.message);
