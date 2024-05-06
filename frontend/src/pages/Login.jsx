@@ -85,8 +85,9 @@ export default function Login() {
                   <Divider component="" />
                   </div>
                   
-                  <OAuth/>
+                 
                 </form>
+                <OAuth/>
               </div>
             </div>
           </div>

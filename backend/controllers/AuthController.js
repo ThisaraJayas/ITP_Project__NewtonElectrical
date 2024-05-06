@@ -29,15 +29,16 @@ export const register = async(req,res)=>{
 }
 
 export const GoogleRegister = async(req,res)=>{
-    const {firstName,email,avatar} = req.body
+    const {name,email,avatar} = req.body
     try{
         const user = await User.findOne({email:email})
         if(user){
             setTokenCookie(res,user._id,user.email)
             res.status(200).json({user})
         }else{
+            const [firstName, ...lastName] = name.split(" ");
             const generateedPassword=Math.random().toString(36).slice(-8)+ Math.random().toString(36).slice(-8)
-            const newUser = new User({firstName,email,avatar,password:generateedPassword})
+            const newUser = new User({firstName,lastName: lastName.join(" "),email,avatar,password:generateedPassword})
             await newUser.save()
             setTokenCookie(res,newUser._id,newUser.email)
             res.status(200).json({newUser})

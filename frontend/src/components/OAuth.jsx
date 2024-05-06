@@ -16,7 +16,7 @@ export default function OAuth() {
             const result = await signInWithPopup(auth,provider)
             console.log(result);
             const response = await axios.post('http://localhost:3000/auth/googleregister',{
-                firstName: result.user.displayName,
+                name: result.user.displayName,
                 email: result.user.email,
                 avatar: result.user.photoURL
             })
