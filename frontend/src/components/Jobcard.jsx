@@ -50,19 +50,6 @@ const Card = ({ job }) => {
         }
       };
 
-    const handleCvUpload = async (image) => {
-        try {
-          const storage = getStorage(app);
-          const fileName = new Date().getTime() + image.name;
-          const storageRef = ref(storage, `products/${fileName}`);
-          const uploadTask = uploadBytesResumable(storageRef, image);
-          await uploadTask;
-          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-          return downloadURL; 
-        } catch (error) {
-          console.log(error);
-        }
-      };
     return (
         <div className="md:p-8 p-2 bg-gray-200 card-container">
             {/* Department */}
