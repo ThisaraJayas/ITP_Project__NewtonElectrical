@@ -31,7 +31,15 @@ export const updateCVStatus = async (req, res) => {
         const { id } = req.params;
         const { status } = req.body;
         const updatedCV = await CV.findByIdAndUpdate(id, { status }, { new: true });
+
+       // Ensure the CV exists
+       if (!updatedCV) {
+         return res.status(404).json({ error: "CV not found" });
+       }
+
         res.status(200).json(updatedCV);
+
+
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
