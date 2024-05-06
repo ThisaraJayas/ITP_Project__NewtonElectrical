@@ -5,26 +5,21 @@ import jsPDF from "jspdf";
 import "../adminStyles/Feedback.css";
 
 export default function Feedback() {
-  const [feedbacks, setFeedbacks] = useState([]);
+  const [feedback, setFeedbacks] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredFeedbacks, setFilteredFeedbacks] = useState([]);
   const pdfRef = useRef();
 
   useEffect(() => {
     const fetchFeedback = async () => {
       try {
-        let url = "http://localhost:3000/feedbacks/feedback";
-        if (searchQuery) {
-          url += `?search=${searchQuery}`;
-        }
-        const response = await axios.get(url);
+        const response = await axios.get("http://localhost:3000/feedbacks/feedback");
         setFeedbacks(response.data.feedbacks);
       } catch (error) {
         console.log(error);
       }
     };
     fetchFeedback();
-  }, [searchQuery]);
+  }, []);
 
   const deleteFeedback = async (feedbackId) => {
     try {
@@ -40,7 +35,7 @@ export default function Feedback() {
     const pdf = new jsPDF('p', 'pt', 'letter');
 
     html2canvas(input, { scale: 2 }).then((canvas) => {
-      const imgWidth = 612; 
+      const imgWidth = 612; // 8.5in * 72 (1in = 72pt)
       const imgHeight = canvas.height * imgWidth / canvas.width;
 
       let pdfHeight = imgHeight;
@@ -48,7 +43,7 @@ export default function Feedback() {
 
       const renderPage = () => {
         pdf.addImage(canvas, 'PNG', 0, position, imgWidth, imgHeight);
-        pdfHeight -= 841.89; 
+        pdfHeight -= 841.89; // 841.89pt = 11in * 72pt/in
         position -= 841.89;
 
         if (pdfHeight > 0) {
@@ -63,19 +58,16 @@ export default function Feedback() {
     });
   };
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
-
-  useEffect(() => {
-    const filtered = feedbacks.filter((feedbackItem) =>
-      feedbackItem.feedback.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredFeedbacks(filtered);
-  }, [feedbacks, searchQuery]);
+  // Function to filter feedback based on search query
+  const filteredFeedback = feedback.filter(feedbackItem =>
+    Object.values(feedbackItem).some(val =>
+      val.toString().toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
 
   return (
     <div className="container pt-8 pl-8">
+     
       <div className="flex justify-between">
         <div>
         <button onClick={downloadPdf} className="downloadPdfBtn">
@@ -84,10 +76,11 @@ export default function Feedback() {
         </div>
       
       <div className="search-container w-56">
-        <input
+      <input
           type="text"
-          placeholder="Search feedback..."
+          placeholder="Search..."
           value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
       </div>
@@ -107,7 +100,7 @@ export default function Feedback() {
             </tr>
           </thead>
           <tbody>
-            {filteredFeedbacks.map((feedbackItem, index) => (
+            {filteredFeedback.map((feedbackItem, index) => (
               <tr key={index}>
                 <td>{feedbackItem.feedbackId}</td>
                 <td>{feedbackItem.userId}</td>
