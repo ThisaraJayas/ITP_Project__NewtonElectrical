@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import'../styles/CareerOpenings.css'
 import Card from '../components/Jobcard'; // Make sure to adjust the path if necessary
 
 // Define the CareerOpenings component
