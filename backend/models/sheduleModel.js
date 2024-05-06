@@ -15,8 +15,9 @@ const appointmentSchema = new mongoose.Schema({
     timeSlot: Date,
     status: {
         type: String,
-        default: "pending"
-    }
+        enum: ['pending', 'approved', 'canceled'], // Add more status options if needed
+        default: 'pending'
+      }
 });
 
 const Appointment = mongoose.model('Appointment', appointmentSchema);

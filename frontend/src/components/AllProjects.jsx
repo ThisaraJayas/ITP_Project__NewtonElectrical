@@ -21,11 +21,15 @@ import {
     RxRocket,
     RxAccessibility,
   } from "react-icons/rx";
+import { Button } from "@mui/material";
 
+  
 
 const AllProjects = () => {
 
     const [records, setRecords] = useState([]);
+    const [completedProjects, setCompletedProjects] = useState(0);
+    const [ongoingProjects, setOngoingProjects] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,11 +42,33 @@ const AllProjects = () => {
         };
         fetchData();
     }, []);
+
+
+    useEffect(() => {
+      records.forEach((record) => {
+          if (record.status === 'Previous') {
+              setCompletedProjects((prev) => prev + 1);
+          } else if (record.status === 'Ongoing') {
+              setOngoingProjects((prev) => prev + 1);
+          }
+      });
+  }, [records]);
+
+
     return (
 <div>
 <ProjectHeader/>
 
-      <div className="flex items-center justify-center flex-col h-[1200px]" style={{ background: "#1c77ac" }}> {/* bg :  background color changed to purple */}
+      <div className="flex items-center justify-center flex-col h-[1200px]" style={{ background: "#1c77ac" }}> {}
+
+      <div style={{marginLeft: "20px", backgroundColor: 'navy', color: 'white', padding: '30px', width: "500px"}}>
+      <span style={{ marginRight: '130px' }}>
+        {completedProjects} Completed Projects
+      </span>
+      <span>
+        {ongoingProjects} Ongoing Projects
+      </span>
+    </div>
       
       <h1 className="text-4xl text-white font-bold" style={{marginBottom: "50px"}}>Ongoing Projects</h1>
     
@@ -77,16 +103,20 @@ const AllProjects = () => {
                 <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
                 <div className="relative flex flex-col gap-3">
                   <RxCrop className="text-blue-600 group-hover:text-blue-400 w-[35px] h-[32px]"/>
-                  <h1 className="text-xl lg:text-2xl">{item.title} </h1>
-                  <p className="lg:text-[18px]">{item.description} </p>
+                  {/* <h1 className="text-xl lg:text-2xl">{item.title} </h1> */}
+                  {/* <p className="lg:text-[18px]">{item.description} </p> */}
                 </div>
-                <RxArrowTopRight
+                <Button style={{ backgroundBlendMode: "inherit",color: 'white', padding: '8px 16px', borderRadius: '4px', textAlign: 'center', textDecoration: 'none', display: 'inline-block' }}>
+                <h1 className="text-xl lg:text-2xl">{item.title} </h1>
+                </Button>
+
+                {/* <RxArrowTopRight
                   className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-blue-500 group-hover:rotate-45 duration-100"
-                />
+                /> */}
               </div>
             </Link>
           </SwiperSlide>
-
+ 
         ))}
       </Swiper>
 
@@ -123,12 +153,16 @@ const AllProjects = () => {
                 <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
                 <div className="relative flex flex-col gap-3">
                   <RxCrop className="text-blue-600 group-hover:text-blue-400 w-[32px] h-[32px]" />
-                  <h1 className="text-xl lg:text-2xl">{item.title} </h1>
-                  <p className="lg:text-[18px]">{item.description} </p>
+                  {/* <h1 className="text-xl lg:text-2xl">{item.title} </h1>
+                  <p className="lg:text-[18px]">{item.description} </p> */}
                 </div>
-                <RxArrowTopRight
+                <Button style={{ backgroundBlendMode: "inherit",color: 'white', padding: '8px 16px', borderRadius: '4px', textAlign: 'center', textDecoration: 'none', display: 'inline-block' }}>
+                <h1 className="text-xl lg:text-2xl">{item.title} </h1>
+                </Button>
+
+                {/* <RxArrowTopRight
                   className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-blue-500 group-hover:rotate-45 duration-100"
-                />
+                /> */}
               </div>
             </Link>
           </SwiperSlide>

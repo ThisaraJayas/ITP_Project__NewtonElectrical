@@ -5,6 +5,8 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import "../styles/home.css";
 import { BsSnow } from "react-icons/bs";
+import FAQSection from '../components/FAQSection'
+import Testimonial from '../components/Testimonial'
 
 export default function Home() {
   const { userData } = useContext(UserContext)
@@ -87,6 +89,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <FAQSection/>
+      <Testimonial/>
       <Footer />
     </>
   )

@@ -118,9 +118,14 @@ export default function ProjectTable() {
 
     return (
         <div className='mainTable'>
-            <div className='text-right mb-4'>
-                <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
-                <PDFDownloadLink document={PDFDocument} fileName="project-table.pdf">
+            <div className='text-right mb-4 mt-6'>
+                <div className='flex justify-between'>
+                    <div className=' w-64'>
+                    <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
+
+                    </div>
+                    <div className=''>
+                    <PDFDownloadLink document={PDFDocument} fileName="project-table.pdf">
     {({ blob, url, loading, error }) => (
         <button
             style={{
@@ -138,6 +143,9 @@ export default function ProjectTable() {
         </button>
     )}
 </PDFDownloadLink>
+                    </div>
+                </div>
+                
 
             </div>
             <DataTable

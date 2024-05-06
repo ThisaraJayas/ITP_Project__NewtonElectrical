@@ -6,6 +6,7 @@ import "../adminStyles/Feedback.css";
 
 export default function Feedback() {
   const [feedback, setFeedbacks] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const pdfRef = useRef();
 
   useEffect(() => {
@@ -57,11 +58,33 @@ export default function Feedback() {
     });
   };
 
+  // Function to filter feedback based on search query
+  const filteredFeedback = feedback.filter(feedbackItem =>
+    Object.values(feedbackItem).some(val =>
+      val.toString().toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  );
+
   return (
     <div className="container pt-8 pl-8">
-      <button onClick={downloadPdf} className="downloadPdfBtn">
+     
+      <div className="flex justify-between">
+        <div>
+        <button onClick={downloadPdf} className="downloadPdfBtn">
         Download PDF
       </button>
+        </div>
+      
+      <div className="search-container w-56">
+      <input
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+      </div>
+      
       <div className="tablefeedbackcontainer" ref={pdfRef}>
         <table>
           <thead>
@@ -77,7 +100,7 @@ export default function Feedback() {
             </tr>
           </thead>
           <tbody>
-            {feedback.map((feedbackItem, index) => (
+            {filteredFeedback.map((feedbackItem, index) => (
               <tr key={index}>
                 <td>{feedbackItem.feedbackId}</td>
                 <td>{feedbackItem.userId}</td>
@@ -99,7 +122,6 @@ export default function Feedback() {
           </tbody>
         </table>
       </div>
-      
     </div>
   );
 }

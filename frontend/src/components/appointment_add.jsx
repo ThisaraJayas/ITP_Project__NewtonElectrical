@@ -47,18 +47,39 @@ const AppointmentForms = () => {
     };
 
     const sendDataToDatabase = () => {
+        // Check if either select1 or select2 is 'none'
+        if (formData.select1 === 'none' && formData.select2 === 'none') {
+            console.log('No option selected. Not sending data to the database.');
+            return; // Exit the function without sending data
+        }
+    
         axios.post('http://localhost:3000/shedule/', formData)
             .then(response => {
                 console.log('Data sent successfully:', response.data);
                 setSuccessMessage('Appointment confirmed successfully!');
-                // Optionally, you can reset the form data here
+                // Reset the form data
+                setFormData({
+                    select1: '',
+                    select2: '',
+                    description: '',
+                    firstName: '',
+                    lastName: '',
+                    address: '',
+                    city: '',
+                    province: '',
+                    zipcode: '',
+                    contactNum: '',
+                    ownProperty: false,
+                    timeSlot: new Date()
+                });
+                // Send the user back to the first form
+                setStep(1);
             })
             .catch(error => {
                 console.error('Error sending data:', error);
                 // Optionally, you can show an error message to the user here
             });
     };
-
     return (
         <div className="centered-container">
             {step === 1 && <Form1 data={formData} handleChange={handleChange} />}
@@ -77,67 +98,55 @@ const AppointmentForms = () => {
     );
 };
 
-    const Form1 = ({ data, handleChange }) => {
-        const [readOnlySelect1, setReadOnlySelect1] = useState(false);
-        const [readOnlySelect2, setReadOnlySelect2] = useState(false);
-    
-        const handleSelect1Change = (e) => {
-            const { value } = e.target;
-            handleChange({ target: { name: 'select1', value } });
-            setReadOnlySelect2(true); // Make select2 readonly
-            setReadOnlySelect1(false); // Make select1 editable
-        };
-    
-        const handleSelect2Change = (e) => {
-            const { value } = e.target;
-            handleChange({ target: { name: 'select2', value } });
-            setReadOnlySelect1(true); // Make select1 readonly
-            setReadOnlySelect2(false); // Make select2 editable
-        };
-    
-        return (
-            <form className="form">
-                
-                <div className="form-group">
-                    <label htmlFor="select1" style={{fontSize:'32px'}}>Electrical:</label>
-                    <select
-                        id="select1"
-                        name="select1"
-                        value={data.select1}
-                        onChange={handleSelect1Change}
-                        disabled={readOnlySelect1}
-                    >
-                        <option value='powerIssue'>power issue</option>
-                        <option value='switch/outlet'>switch/outlet</option>
-                        <option value='rewiring'>rewiring</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="select2" style={{fontSize:'32px'}}>Cooling:</label>
-                    <select
-                        id="select2"
-                        name="select2"
-                        value={data.select2}
-                        onChange={handleSelect2Change}
-                        disabled={readOnlySelect2}
-                    >
-                        <option value='Air cooling improvement'>Air cooling improvement</option>
-                        <option value='No cooling'>No cooling</option>
-                        <option value='maintenance'>maintenance</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="description" style={{fontSize:'32px'}}>Description:</label>
-                    <textarea
-                        id="description"
-                        name="description"
-                        value={data.description}
-                        onChange={handleChange}
-                    ></textarea>
-                </div>
-            </form>
-        );
+const Form1 = ({ data, handleChange }) => {
+    const handleSelectChange = (e) => {
+        const { name, value } = e.target;
+        handleChange({ target: { name, value } });
     };
+
+    return (
+        <form className="form">
+            <div className="form-group">
+                <label htmlFor="select1" style={{ fontSize: '32px' }}>Electrical:</label>
+                <select
+                    id="select1"
+                    name="select1"
+                    value={data.select1}
+                    onChange={handleSelectChange}
+                >
+                    <option value='none'>none</option>
+                    <option value='powerIssue'>power issue</option>
+                    <option value='switch/outlet'>switch/outlet</option>
+                    <option value='rewiring'>rewiring</option>
+                </select>
+            </div>
+            <div className="form-group">
+                <label htmlFor="select2" style={{ fontSize: '32px' }}>Cooling:</label>
+                <select
+                    id="select2"
+                    name="select2"
+                    value={data.select2}
+                    onChange={handleSelectChange}
+                >
+                    <option value='none'>none</option>
+                    <option value='Air cooling improvement'>Air cooling improvement</option>
+                    <option value='No cooling'>No cooling</option>
+                    <option value='maintenance'>maintenance</option>
+                </select>
+            </div>
+            <div className="form-group">
+                <label htmlFor="description" style={{ fontSize: '32px' }}>Description:</label>
+                <textarea
+                    id="description"
+                    name="description"
+                    value={data.description}
+                    onChange={handleChange}
+                ></textarea>
+            </div>
+        </form>
+    );
+};
+
 
 
     const Form2 = ({ data, handleChange }) => {
@@ -166,11 +175,19 @@ const AppointmentForms = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="zipcode">Zip Code:</label>
-                    <input type="text" id="zipcode" name="zipcode" value={data.zipcode} onChange={handleChange} />
+                    <input type="text" id="zipcode" name="zipcode"
+                    onBlur={()=>{
+                        if (zipcode.length !== 4) {
+                            alert('Zip Must be 4 Characters');
+                        }
+                    }} value={data.zipcode} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="mobile">contact number:</label>
-                    <input type="text" id="contactNum" name="contactNum" value={data.contactNum} onChange={handleChange} />
+                    <input type="text" id="contactNum" name="contactNum"
+                    onBlur={()=>{if (contactNum.length !== 10) {
+                        alert('Phone Number Must be 10 Characters');
+                    }}} value={data.contactNum} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="ownProperty">I own this residential property:</label>

@@ -23,6 +23,9 @@ const projectSchema = new mongoose.Schema({
     cost:{
         type:String,
     },
+    image:{
+        type:String,
+    },
 
 },{timestamps: true})
 const Project = mongoose.model('Project',projectSchema) 

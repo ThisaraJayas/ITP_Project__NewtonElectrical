@@ -35,7 +35,7 @@ export const ReadProject = async(req,res)=>{
 export const DeleteProject = async(req,res)=>{
     const {id}=req.params
     try{
-       const deleteProject = await Project.deleteOne()
+       const deleteProject = await Project.deleteOne({_id:id})
        res.status(200).json({message:"Delete Succesfull"})
     }catch{
         res.status(500).json({message:"Delete Unsuccesfull"})
@@ -54,7 +54,7 @@ export const ReadProjectById = async(req,res)=>{
     }catch(error){
         res.status(500).json({message:"Internal Server Error"})
     }
-}
+} 
 
 
 // export const InsertProject = async(req,res)=>{ 

@@ -16,6 +16,7 @@ export default function Header() {
     { name: "PROJECTS", link: "/projects" },
     { name: "FEEDBACKS", link: "/feedback" },
     { name: "ABOUT", link: "/" },
+    { name: "MyBooking", link: "/viewMyAppointments" },
   ];
   const [open, setOpen] = useState(false);
   const { userData, setUserData } = useContext(UserContext);
