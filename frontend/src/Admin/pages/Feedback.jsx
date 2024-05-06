@@ -40,7 +40,7 @@ export default function Feedback() {
     const pdf = new jsPDF('p', 'pt', 'letter');
 
     html2canvas(input, { scale: 2 }).then((canvas) => {
-      const imgWidth = 612; // 8.5in * 72 (1in = 72pt)
+      const imgWidth = 612; 
       const imgHeight = canvas.height * imgWidth / canvas.width;
 
       let pdfHeight = imgHeight;
@@ -48,7 +48,7 @@ export default function Feedback() {
 
       const renderPage = () => {
         pdf.addImage(canvas, 'PNG', 0, position, imgWidth, imgHeight);
-        pdfHeight -= 841.89; // 841.89pt = 11in * 72pt/in
+        pdfHeight -= 841.89; 
         position -= 841.89;
 
         if (pdfHeight > 0) {
