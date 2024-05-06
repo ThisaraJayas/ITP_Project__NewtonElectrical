@@ -20,13 +20,13 @@ const theme = createTheme({
     },
   },
 });
-export default function DeleteProject({ _id }) {
+export default function DeleteProject({projectId}) {
   const [open, setOpen] = React.useState(false);
 
   const handleDelete = async (e) => {
     e.preventDefault()
     try {
-      axios.delete(`http://localhost:3000/project/projects/${_id}`)
+      axios.delete(`http://localhost:3000/project/projects/${projectId}`)
         .then(res => { console.log(res), window.location.reload() })
         .catch(err => console.log(err))
     } catch (error) {
@@ -42,6 +42,8 @@ export default function DeleteProject({ _id }) {
     setOpen(false);
   };
 
+  console.log(projectId)
+
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
@@ -51,7 +53,7 @@ export default function DeleteProject({ _id }) {
           className="roleBtn"
           onClick={handleClickOpen}
         >
-          Delete
+          Delete 
         </Button>
       </ThemeProvider>
       <Dialog
@@ -66,7 +68,7 @@ export default function DeleteProject({ _id }) {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Deleting this project will permanently remove all associated
+              Project ID {projectId} Deleting this project will permanently remove all associated
               data and access rights from the system.
               Are you absolutely certain you want to proceed with this action?
             </DialogContentText>
