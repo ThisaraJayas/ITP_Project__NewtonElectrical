@@ -8,6 +8,7 @@ import Stack from "@mui/material/Stack";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import OAuth from "../components/OAuth";
 
 const passwordSchema = new PasswordValidator();
 passwordSchema
@@ -235,14 +236,16 @@ export default function Register() {
                   <div className="button">
                     <input type="submit" value="Register" />
                   </div>
-                </form>
-              </div>
-              <h3 className="haveAccount">
+                  <h3 className="haveAccount">
                 Already have an account?
                 <span>
                   <Link to={"/login"}> Log in</Link>
                 </span>
-              </h3>
+                  </h3>
+                  <OAuth/>
+                </form>
+              </div>
+             
             </div>
           </div>
         </div>
