@@ -37,6 +37,7 @@ import Appointment from '../pages/appointment'
 import ViewAppointment from '../pages/viewAppointment'
 import UpdateProduct from '../Admin/components/UpdateProduct'
 import Appointments from '../Admin/components/appointments'
+import CVTable from '../Admin/components/CVTable'
 
 
 
@@ -61,6 +62,7 @@ export default function PageRoutes() {
       <Route path='/myfeedback' element={<MyFeedback/>}/>
       <Route path='/jobsTable' element={<JobsTable/>}/>
       <Route path='/admin/jobsManager/edit/:id' element={<JobUpdateManager/>}/>
+      <Route path='/admin/jobsManager/CVTable' element={<CVTable/>}/>
       {/* <Route path='/ongoingproject' element={<OngoingProject/>}/> */}
       <Route path='/store' element={<Store/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>

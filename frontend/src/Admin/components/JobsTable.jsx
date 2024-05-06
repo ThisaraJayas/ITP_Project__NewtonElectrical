@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { PDFDownloadLink, Page, Text, View, Document } from '@react-pdf/renderer';
 import '../adminStyles/JobsTable.css';
+
+
+
 
 export default function JobsTable() {
     const [jobs, setJobs] = useState([]);
@@ -121,43 +124,47 @@ export default function JobsTable() {
             </Page>
         </Document>
     );
+
     return (
-        <div><div className='mb-8 mt-5'>
-        <PDFDownloadLink document={PDFDocument} fileName="jobs-list.pdf">
-            {({ blob, url, loading, error }) => (
-                <button className="JobsPdfDownload">
-                    {'Download PDF'}
-                </button>
-            )}
-        </PDFDownloadLink>
-        </div>
-        <div className="text-gray-900 bg-gray-200">
-            
-            <div className="p-4 flex justify-between items-center">
-                <h1 className="text-3xl">Jobs</h1>
-                
-                <div className="flex items-center">
-                    <div className="ml-4">
-                        <Link to="/admin/jobsManager/addsjob" className="top-left-button">Add a Job</Link>
-                    </div>
-                    <div className="ml-4">
-                        <input className='searchbox px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500' type='text' placeholder='Search..' onChange={handleFilter} />
+        <div>
+            <div className='mb-8 mt-5'>
+                <PDFDownloadLink document={PDFDocument} fileName="jobs-list.pdf">
+                    {({ blob, url, loading, error }) => (
+                        <button className="JobsPdfDownload">
+                            {'Download PDF'}
+                        </button>
+                    )}
+                </PDFDownloadLink>
+                <Link to="../admin/jobsManager/CVTable">
+                    <button className="ViewCVsButton">
+                        {'View CVs'}
+                    </button>
+                </Link>
+            </div>
+            <div className="text-gray-900 bg-gray-200">
+                <div className="p-4 flex justify-between items-center">
+                    <h1 className="text-3xl">Jobs</h1>
+                    <div className="flex items-center">
+                        <div className="ml-4">
+                            <Link to="/admin/jobsManager/addsjob" className="top-left-button">Add a Job</Link>
+                        </div>
+                        <div className="ml-4">
+                            <input className='searchbox px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500' type='text' placeholder='Search..' onChange={handleFilter} />
+                        </div>
                     </div>
                 </div>
+                <div className="px-3 py-4">
+                    <DataTable
+                        columns={columns}
+                        data={filteredJobs}
+                        pagination
+                        paginationPerPage={10}
+                        paginationRowsPerPageOptions={[10, 20, 30]}
+                        striped
+                        highlightOnHover
+                    />
+                </div>
             </div>
-            <div className="px-3 py-4">
-                
-                <DataTable
-                    columns={columns}
-                    data={filteredJobs}
-                    pagination
-                    paginationPerPage={10}
-                    paginationRowsPerPageOptions={[10, 20, 30]}
-                    striped
-                    highlightOnHover
-                />
-            </div>
-        </div>
         </div>
     );
 }

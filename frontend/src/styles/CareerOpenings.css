@@ -64,3 +64,22 @@
 .upload-cv-button:hover {
   background-color: #45a049;
 }
+
+.container {
+  margin-left: auto; /* Center the container */
+  margin-right: auto; /* Center the container */
+  max-width: 1200px; /* Set maximum width for the container */
+}
+
+.container-padding {
+  padding-left: 20px; /* Add left padding */
+  padding-right: 20px; /* Add right padding */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container-padding {
+    padding-left: 10px; /* Reduce left padding for smaller screens */
+    padding-right: 10px; /* Reduce right padding for smaller screens */
+  }
+}
