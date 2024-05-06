@@ -26,7 +26,7 @@ export default function DeleteProject({projectId}) {
   const handleDelete = async (e) => {
     e.preventDefault()
     try {
-      axios.delete(`http://localhost:3000/project/projects/${projectId}`)
+      await axios.delete(`http://localhost:3000/project/projects/${projectId}`)
         .then(res => { console.log(res), window.location.reload() })
         .catch(err => console.log(err))
     } catch (error) {
