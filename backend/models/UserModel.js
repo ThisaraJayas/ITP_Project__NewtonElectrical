@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     mobileNumber:{
         type:String,
-        unique:true,
+        // unique:true,
     },
     address:{
         type:String,
