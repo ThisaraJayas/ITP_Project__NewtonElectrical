@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import  axios  from 'axios';
 import Header from '../Header';
 import Footer from '../Footer';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 export default function UpdateFeedback() {
     const [rating, setRating] = useState(0)
     const [firstName, setFirstName] = useState('')
@@ -15,6 +15,7 @@ export default function UpdateFeedback() {
     const [message, setMessage] = useState('')
     const {id}=useParams()
     console.log(firstName);
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const fetchFeedback = async()=>{
@@ -46,7 +47,7 @@ export default function UpdateFeedback() {
             rating
         })
         console.log(response);
-        window.location.reload()
+        navigate('/feedback')
     }
   return (
     <>
