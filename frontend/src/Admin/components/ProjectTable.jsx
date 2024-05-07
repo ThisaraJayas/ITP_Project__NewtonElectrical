@@ -122,10 +122,10 @@ export default function ProjectTable() {
         <div className='mainTable'>
             <div className='text-right mb-4 mt-6'>
                 <div className='flex justify-between'>
-                    <div className='w-80'>
+                    <div className='w-96'>
                         <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
                     </div>
-                    <div className='w-96'>
+                    <div className='w-64'>
                         <PDFDownloadLink document={PDFDocument} fileName="project-table.pdf">
                             {({ blob, url, loading, error }) => (
                                 <button
