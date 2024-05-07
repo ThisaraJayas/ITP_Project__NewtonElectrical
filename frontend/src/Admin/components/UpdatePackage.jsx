@@ -40,9 +40,16 @@ export default function UpdatePackage({ package_id }) {
   const [monthlyPrice, setMonthlyPrice] = useState("")
   const [annualPrice, setAnnualPrice] = useState("")
 
-  const [discountMonthly, setDiscountMonthly] = useState("")
-  const [discountAnnual, setDiscountAnnual] = useState("")
+  const [discountMonthly, setDiscountMonthly] = useState(1)
+  const [discountAnnual, setDiscountAnnual] = useState(1)
 
+
+  useEffect(() => {
+    // Recalculate annual price when monthly price changes
+    if (monthlyPrice) {
+      setAnnualPrice(parseFloat(monthlyPrice) * 12);
+    }
+  }, [monthlyPrice]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -175,7 +182,7 @@ const handleUpdate = async (e) => {
                       onChange={(e) => setService1(e.target.value)}
                     />
                     <input
-                      type="text"
+                      type="number"
                       placeholder="Enter service price"
                       value={service1Price}
                       onChange={(e) => setService1Price(e.target.value)}
@@ -190,7 +197,7 @@ const handleUpdate = async (e) => {
                       onChange={(e) => setService2(e.target.value)}
                     />
                     <input
-                      type="text"
+                      type="number"
                       placeholder="Enter service price"
                       value={service2Price}
                       onChange={(e) => setService2Price(e.target.value)}
@@ -205,7 +212,7 @@ const handleUpdate = async (e) => {
                       onChange={(e) => setService3(e.target.value)}
                     />
                     <input
-                      type="text"
+                      type="number"
                       placeholder="Enter service price"
                       value={service3Price}
                       onChange={(e) => setService3Price(e.target.value)}
@@ -220,7 +227,7 @@ const handleUpdate = async (e) => {
                       onChange={(e) => setService4(e.target.value)}
                     />
                     <input
-                      type="text"
+                      type="number"
                       placeholder="Enter service price"
                       value={service4Price}
                       onChange={(e) => setService4Price(e.target.value)}
@@ -231,7 +238,7 @@ const handleUpdate = async (e) => {
                 <div className="inputBox">
                   <span className="details">Monthly Price</span>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Enter monthly price"
                     value={monthlyPrice}
                     onChange={(e) => setMonthlyPrice(e.target.value)}
@@ -240,13 +247,13 @@ const handleUpdate = async (e) => {
                 <div className="inputBox">
                   <span className="details">Annual Price</span>
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Enter annual price"
                     value={annualPrice}
-                    onChange={(e) => setAnnualPrice(e.target.value)}
+                    readOnly
                   />
                 </div>
-                <div className="inputBox">
+                {/* <div className="inputBox">
                   <span className="details">Discount Monthly</span>
                   <input
                     type="text"
@@ -263,7 +270,7 @@ const handleUpdate = async (e) => {
                     value={discountAnnual}
                     onChange={(e) => setDiscountAnnual(e.target.value)}
                   />
-                </div>
+                </div> */}
               </div>
             </DialogContent>
             <DialogActions style={{ marginBottom: "10%" }}>
@@ -274,88 +281,6 @@ const handleUpdate = async (e) => {
             </DialogActions>
           </form>
         </div>
-        {/* <div className="formContent">
-          <form onSubmit={handleUpdate}>
-            <DialogContent>
-              <div className="title">
-                <h2>Update Project</h2>
-              </div>
-
-              <div className="projectDetails">
-                <div className="inputBox">
-                  <span className="details">Title</span>
-                  <input
-                    type="text"
-                    placeholder="Enter project title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                </div>
-                <div className="inputBox">
-                  <span className="details">Status</span>
-                  <RadioGroup
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                    row
-                  >
-                    <FormControlLabel
-                      value="Ongoing"
-                      control={<Radio />}
-                      label="Ongoing"
-                    />
-                    <FormControlLabel
-                      value="Previous"
-                      control={<Radio />}
-                      label="Previous"
-                    />
-                  </RadioGroup>
-                </div>
-                <div className="inputBox">
-                  <span className="details">Description</span>
-                  <input
-                    type="text"
-                    placeholder="Enter project description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                </div>
-                <div className="inputBox">
-                  <span className="details">Duration</span>
-                  <input
-                    type="text"
-                    placeholder="Enter project duration"
-                    value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
-                  />
-                </div>
-                <div className="inputBox">
-                  <span className="details">Cost</span>
-                  <input
-                    type="text"
-                    placeholder="Enter project cost"
-                    value={cost}
-                    onChange={(e) => setCost(e.target.value)}
-                  />
-                </div>
-              </div>
-            </DialogContent>
-            <DialogActions style={{ marginBottom: "3%", width:"500px" }}>
-              <Button
-                variant="contained"
-                style={{ width: "20%", maxHeight: "50px" }}
-                type="submit"
-              >
-                Update
-              </Button>
-              <Button
-                style={{ width: "15%", maxHeight: "40px" }}
-                onClick={handleClose}
-              >
-                Cancel
-              </Button>
-            </DialogActions>
-          </form>
-        </div> */}
       </Dialog>
     </React.Fragment>
   );

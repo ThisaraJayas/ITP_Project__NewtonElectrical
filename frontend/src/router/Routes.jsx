@@ -32,12 +32,13 @@ import AddJobsManager from '../Admin/AddJobsManager'
 import JobUpdateManager from '../Admin/JobUpdateManager'
 import ProductManager from '../Admin/ProductManager'
 import AdminPackage from '../Admin/AdminPackage'
-import Package from '../pages/Package'
+// import Package from '../pages/Package'
 import Appointment from '../pages/appointment'
 import ViewAppointment from '../pages/viewAppointment'
 import UpdateProduct from '../Admin/components/UpdateProduct'
 import Appointments from '../Admin/components/appointments'
 import CVTable from '../Admin/components/CVTable'
+import Package from '../pages/Package'
 
 
 
@@ -80,6 +81,7 @@ export default function PageRoutes() {
 
 
       <Route path='/admin/product' element={<ProductManager/>}/>
+      {/* <Route path='/package' element={<Package/>}/> */}
       <Route path='/package' element={<Package/>}/>
       <Route path='/admin/packages' element={<AdminPackage/>}/>
       <Route path='/viewMyAppointments' element={<ViewAppointment/>}/>
