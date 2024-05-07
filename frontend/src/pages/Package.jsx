@@ -73,9 +73,9 @@ export default function Package() {
                   {/* <UpdatePackage projectId={item._id} /> */}
                   
                 </div>
-                <RxArrowTopRight
+                {/* <RxArrowTopRight
                   className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-black-500 group-hover:rotate-45 duration-100"
-                />
+                /> */}
               </div>
             
           </SwiperSlide>

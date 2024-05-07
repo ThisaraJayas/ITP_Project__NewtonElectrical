@@ -128,18 +128,26 @@ export default function JobsTable() {
     return (
         <div>
             <div className='mb-8 mt-5'>
-                <PDFDownloadLink document={PDFDocument} fileName="jobs-list.pdf">
+                <div className='flex justify-between'>
+                    <div className=''>
+                    <PDFDownloadLink document={PDFDocument} fileName="jobs-list.pdf">
                     {({ blob, url, loading, error }) => (
                         <button className="JobsPdfDownload">
-                            {'Download PDF'}
+                            {'Download.PDF'}
                         </button>
                     )}
                 </PDFDownloadLink>
-                <Link to="../admin/jobsManager/CVTable">
+                    </div>
+                    <div className='mr-6'>
+                    <Link to="../admin/jobsManager/CVTable">
                     <button className="ViewCVsButton">
-                        {'View CVs'}
+                        {'View.CVs'}
                     </button>
                 </Link>
+                    </div>
+                </div>
+                
+                
             </div>
             <div className="text-gray-900 bg-gray-200">
                 <div className="p-4 flex justify-between items-center">

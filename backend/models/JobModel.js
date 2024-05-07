@@ -12,7 +12,6 @@ const jobSchema = new mongoose.Schema({
     requirements:{ type: String},
     postedBy:{ type: String, required: true },
     postedDate:{ type: Date, default:Date.now },
-
     // Add other fields as needed for job postings
 
 });

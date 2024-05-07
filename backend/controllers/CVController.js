@@ -6,7 +6,13 @@ import CV from '../models/CVModel.js';
 export const uploadCV = async (req, res) => {
     try {
         const { userId, JobTitle, jobCv } = req.body;
-        // const fileUrl = req.file.path; // Assuming multer saves file to 'uploads/' directory
+
+        // Check if the user already uploaded a CV for this job
+        const existingCV = await CV.findOne({ userId, JobTitle });
+        if (existingCV) {
+            return res.status(400).json({ error: "You have already uploaded a CV for this job" });
+        }
+
         const newCV = new CV({ userId, JobTitle, jobCv });
         const savedCV = await newCV.save();
         res.status(201).json(savedCV);
@@ -31,9 +37,31 @@ export const updateCVStatus = async (req, res) => {
         const { id } = req.params;
         const { status } = req.body;
         const updatedCV = await CV.findByIdAndUpdate(id, { status }, { new: true });
+
+        // Ensure the CV exists
+        if (!updatedCV) {
+            return res.status(404).json({ error: "CV not found" });
+        }
+
         res.status(200).json(updatedCV);
+
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
+// Check if user has already uploaded a CV for a specific job
+export const checkUploadedCV = async (req, res) => {
+    try {
+        const { userId, JobTitle } = req.params;
+
+        const existingCV = await CV.findOne({ userId, JobTitle });
+        if (existingCV) {
+            return res.status(200).json({ exists: true });
+        } else {
+            return res.status(200).json({ exists: false });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
