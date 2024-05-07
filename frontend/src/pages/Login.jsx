@@ -7,6 +7,8 @@ import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { UserContext } from "../context/UserContext";
 import Footer from "../components/Footer";
+import OAuth from "../components/OAuth";
+import Divider from '@mui/material/Divider';
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -78,8 +80,14 @@ export default function Login() {
                   <div className='button'>
                     <input type='submit' value='Login' />
                   </div>
+                  <h3 className='haveAccount'>Don't have an account?<span><Link to={'/register'}> Sign up</Link></span></h3>
+                  <div className="mt-6 mb-6">
+                  <Divider component="" />
+                  </div>
+                  
+                 
                 </form>
-                <h3 className='haveAccount'>Don't have an account?<span><Link to={'/register'}> Sign up</Link></span></h3>
+                <OAuth/>
               </div>
             </div>
           </div>

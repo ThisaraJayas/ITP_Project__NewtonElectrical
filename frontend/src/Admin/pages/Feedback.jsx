@@ -3,6 +3,7 @@ import axios from "axios";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "../adminStyles/Feedback.css";
+import FeedbackStarBarChart from "../charts/FeedbackStarBarChart";
 
 export default function Feedback() {
   const [feedback, setFeedbacks] = useState([]);
@@ -67,7 +68,7 @@ export default function Feedback() {
 
   return (
     <div className="container pt-8 pl-8">
-     
+     <FeedbackStarBarChart/>
       <div className="flex justify-between">
         <div>
         <button onClick={downloadPdf} className="downloadPdfBtn">

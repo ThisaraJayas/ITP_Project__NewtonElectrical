@@ -48,7 +48,7 @@ const ViewAppointments = () => {
         }
     };
     
-    
+    //validation
     const handleDelete = async (id) => {
         try {
             const confirmDelete = window.confirm('Are you sure you want to delete this appointment?');

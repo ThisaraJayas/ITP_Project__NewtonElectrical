@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import axios from 'axios';
-import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import ProjectUpdate from './ProjectUpdate';
 import DeleteProject from './DeleteProject';
+import axios from 'axios';
+import { PDFDownloadLink, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
 // Define styles for PDF document
 const styles = StyleSheet.create({
@@ -67,28 +67,30 @@ export default function ProjectTable() {
     ];
 
     const [records, setRecords] = useState([]);
+    const [filteredRecords, setFilteredRecords] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/project/projects');
-                setRecords(response.data.readProject);
-            } catch (error) {
-                console.error('Error fetching project data:', error);
-            }
-        };
         fetchData();
     }, []);
 
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/project/projects');
+            setRecords(response.data.readProject);
+            setFilteredRecords(response.data.readProject);
+        } catch (error) {
+            console.error('Error fetching project data:', error);
+        }
+    }
+
     function handleFilter(event) {
-        const newData = records.filter(row => {
-            return (
-                row.title.toLowerCase().includes(event.target.value.toLowerCase()) ||
-                row.status.toLowerCase().includes(event.target.value.toLowerCase()) ||
-                row.duration.toLowerCase().includes(event.target.value.toLowerCase())
-            );
-        });
-        setRecords(newData);
+        const value = event.target.value.toLowerCase();
+        const newData = records.filter(row => 
+            Object.values(row).some(val => 
+                typeof val === 'string' && val.toLowerCase().includes(value)
+            )
+        );
+        setFilteredRecords(newData);
     }
 
     // Render PDF document content using react-pdf
@@ -103,7 +105,7 @@ export default function ProjectTable() {
                         <Text style={styles.tableCell}>Description</Text>
                         <Text style={styles.tableCell}>Cost</Text>
                     </View>
-                    {records.map(row => (
+                    {filteredRecords.map(row => (
                         <View key={row._id} style={styles.tableRow}>
                             <Text style={styles.tableCell}>{row.title}</Text>
                             <Text style={styles.tableCell}>{row.status}</Text>
@@ -121,40 +123,36 @@ export default function ProjectTable() {
             <div className='text-right mb-4 mt-6'>
                 <div className='flex justify-between'>
                     <div className=' w-64'>
-                    <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
-
+                        <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
                     </div>
                     <div className=''>
-                    <PDFDownloadLink document={PDFDocument} fileName="project-table.pdf">
-    {({ blob, url, loading, error }) => (
-        <button
-            style={{
-                padding: '10px 20px',
-                backgroundColor: '#007bff',        
-                marginLeft: '100px',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                textDecoration: 'none',
-            }}
-        >
-            {loading ? 'Loading document...' : 'Download PDF'}
-        </button>
-    )}
-</PDFDownloadLink>
+                        <PDFDownloadLink document={PDFDocument} fileName="project-table.pdf">
+                            {({ blob, url, loading, error }) => (
+                                <button
+                                    style={{
+                                        padding: '10px 20px',
+                                        backgroundColor: '#007bff',        
+                                        marginLeft: '100px',
+                                        color: '#fff',
+                                        border: 'none',
+                                        borderRadius: '5px',
+                                        cursor: 'pointer',
+                                        textDecoration: 'none',
+                                    }}
+                                >
+                                    {loading ? 'Loading document...' : 'Download PDF'}
+                                </button>
+                            )}
+                        </PDFDownloadLink>
                     </div>
                 </div>
-                
-
             </div>
             <DataTable
                 columns={columns}
-                data={records}
+                data={filteredRecords}
                 fixedHeader
                 pagination
             />
         </div>
     );
 }
-

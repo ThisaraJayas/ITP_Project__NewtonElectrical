@@ -21,7 +21,7 @@ const Card = ({ job }) => {
             if (productImage) {
               imageUrl = await handleCvImageUpload(productImage);
             }
-            const response = await axios.post('http://localhost:3000/cv/upload',{
+            const response = await axios.post('http://localhost:3000/cvs/upload',{
                 userId: userData.userId,
                 JobTitle: job.title,
                 jobCv: imageUrl,
