@@ -37,6 +37,9 @@
   .dashcards:nth-child(6){
     background-color: orangered;
   }
+  .dashcards:nth-child(6){
+    background-color: #1976d2;
+  }
   .dashcardHead h3{
     font-size: 30px;
     font-weight: bold;

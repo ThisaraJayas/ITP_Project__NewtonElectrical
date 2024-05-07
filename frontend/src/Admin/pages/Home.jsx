@@ -21,26 +21,41 @@ export default function Home() {
         </div>
       </div>
       </Link>
+      <Link  to={'/admin/product'}>
       <div className="dashcards">
         <div className="dashcardHead">
           <h3>Products</h3>
         </div>
       </div>
+      </Link>
+      <Link  to={'/admin/jobsManager'}>
       <div className="dashcards">
         <div className="dashcardHead">
           <h3>Jobs</h3>
         </div>
       </div>
+      </Link>
+      <Link  to={'/admin/feedback'}>
       <div className="dashcards">
         <div className="dashcardHead">
           <h3>Feedbacks</h3>
         </div>
       </div>
+      </Link>
+      <Link  to={'/admin/packages'}>
+      <div className="dashcards">
+        <div className="dashcardHead">
+          <h3>Packages</h3>
+        </div>
+      </div>
+      </Link>
+      <Link  to={'/admin/appointments'}>
       <div className="dashcards">
         <div className="dashcardHead">
           <h3>Appoinments</h3>
         </div>
       </div>
+      </Link>
       </div>
       
     </div>
