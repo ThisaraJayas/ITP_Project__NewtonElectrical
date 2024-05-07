@@ -78,8 +78,6 @@ export default function PageRoutes() {
       <Route path='/admin/projects/productupdate/:id' element={<UpdateProduct/>}/>
       <Route path='/Careers' element={<Careers/>}/>
       <Route path='/CareerOpenings' element={<CareerOpenings/>}/>
-
-
       <Route path='/admin/product' element={<ProductManager/>}/>
       {/* <Route path='/package' element={<Package/>}/> */}
       <Route path='/package' element={<Package/>}/>
