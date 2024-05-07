@@ -19,6 +19,7 @@ router.put('/edit/:id', updateJob);
 // Route for deleting a job posting
 router.delete('/delete/:id', deleteJob);
 
+
 export default router;
 
 
