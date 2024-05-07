@@ -96,7 +96,7 @@ const Appointments = () => {
                             <th>Selected Options</th>
                             <th>Time Slot</th>
                             <th>Address</th>
-                            <th>Price</th>
+                            <th>Price(LKR)</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -105,10 +105,10 @@ const Appointments = () => {
                     <tbody>
                     {filteredAppointments.map(appointment => (
                             <tr key={appointment._id}>
-                                <td>{appointment.select1}/{appointment.select2}</td>
+                                <td>{appointment.select1}</td>
                                 <td>{appointment.timeSlot}</td>
                                 <td>{appointment.address}</td>
-                                <td>Rs 15000</td>
+                                <td>{appointment.select2}.00</td>
                                 <td>{appointment.description}</td>
                                 <td>{appointment.status}</td>
                                 <td>

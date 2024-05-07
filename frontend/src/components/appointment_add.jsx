@@ -121,18 +121,70 @@ const Form1 = ({ data, handleChange }) => {
                 </select>
             </div>
             <div className="form-group">
-                <label htmlFor="select2" style={{ fontSize: '32px' }}>Cooling:</label>
-                <select
+                <label htmlFor="select2" style={{ fontSize: '32px' }}>Rooms:</label>
+                
+                {/* none */}
+                {data.select1 == 'none' || data.select1 == '' ? (
+                    <select
                     id="select2"
                     name="select2"
                     value={data.select2}
                     onChange={handleSelectChange}
-                >
-                    <option value='none'>none</option>
-                    <option value='Air cooling improvement'>Air cooling improvement</option>
-                    <option value='No cooling'>No cooling</option>
-                    <option value='maintenance'>maintenance</option>
-                </select>
+                    >
+                        <option value='none'>none</option>
+                    </select>
+                ) : ""}
+
+                {/* powerIssue prices */}
+                {data.select1 == 'powerIssue'? (
+                    <select
+                    id="select2"
+                    name="select2"
+                    value={data.select2}
+                    onChange={handleSelectChange}
+                    >
+                        <option value='none'>none</option>
+                        <option value='1250'>1 Room</option>
+                        <option value='2500'>2 Rooms</option>
+                        <option value='5000'>3 Rooms</option>
+                        <option value='10000'>4 Rooms</option>
+                        <option value='15000'>5 Rooms</option>
+                    </select>
+                ) : ""}
+
+                {/* switch/outlet prices */}
+                {data.select1 == 'switch/outlet'? (
+                    <select
+                    id="select2"
+                    name="select2"
+                    value={data.select2}
+                    onChange={handleSelectChange}
+                    >
+                        <option value='none'>none</option>
+                        <option value='5000'>1 Room</option>
+                        <option value='7500'>2 Rooms</option>
+                        <option value='10000'>3 Rooms</option>
+                        <option value='12500'>4 Rooms</option>
+                        <option value='15000'>5 Rooms</option>
+                    </select>
+                ) : ""}
+
+                {/* rewiring prices */}
+                {data.select1 == 'rewiring'? (
+                    <select
+                    id="select2"
+                    name="select2"
+                    value={data.select2}
+                    onChange={handleSelectChange}
+                    >
+                        <option value='none'>none</option>
+                        <option value='25000'>1 Room</option>
+                        <option value='35000'>2 Rooms</option>
+                        <option value='45000'>3 Rooms</option>
+                        <option value='55000'>4 Rooms</option>
+                        <option value='65000'>5 Rooms</option>
+                    </select>
+                ) : ""}
             </div>
             <div className="form-group">
                 <label htmlFor="description" style={{ fontSize: '32px' }}>Description:</label>
@@ -176,12 +228,20 @@ const Form1 = ({ data, handleChange }) => {
                 <div className="form-group">
                     <label htmlFor="zipcode">Zip Code:</label>
                     <input type="text" id="zipcode" name="zipcode"
-                    value={data.zipcode} onChange={handleChange} />
+                    onBlur={()=>{
+                        if (zipcode.length !== 4) {
+                            // alert('Zip Must be 4 Characters');
+                        }
+                    }} value={data.zipcode} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="mobile">contact number:</label>
                     <input type="text" id="contactNum" name="contactNum"
-                     value={data.contactNum} onChange={handleChange} />
+                    onBlur={()=>{
+                        if (contactNum.length !== 10) {
+                        // alert('Phone Number Must be 10 Characters');
+                        }
+                    }} value={data.contactNum} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="ownProperty">I own this residential property:</label>
@@ -249,7 +309,7 @@ const Form3 = ({ data, handleChange }) => {
                         <br/>
                         <h3><b>CITY-  {data.city}</b></h3>
                         <br/>
-                        <h3><b>PRICE-  Rs 15000</b></h3>
+                        <h3><b>PRICE-  Rs {data.select2}.00</b></h3>
                         </div>  
                     </div>
                 </div>

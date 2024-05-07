@@ -48,7 +48,7 @@ const ViewAppointments = () => {
         }
     };
     
-    //validation
+    
     const handleDelete = async (id) => {
         try {
             const confirmDelete = window.confirm('Are you sure you want to delete this appointment?');
@@ -91,7 +91,7 @@ const ViewAppointments = () => {
                             <th>Selected Options</th>
                             <th>Time Slot</th>
                             <th>Address</th>
-                            <th>Price</th>
+                            <th>(LKR)</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -108,10 +108,10 @@ const ViewAppointments = () => {
                                     />
                                 ) : (
                                     <>
-                                        <td>{appointment.select1}/{appointment.select2}</td>
+                                        <td>{appointment.select1}</td>
                                         <td>{appointment.timeSlot}</td>
                                         <td>{appointment.address}</td>
-                                        <td>Rs 15000</td>
+                                        <td>{appointment.select2}.00</td>
                                         <td>{appointment.description}</td>
                                         <td>{appointment.status}</td>
                                         <td>
