@@ -5,10 +5,10 @@ import CompletedJobs from '../models/CompletedJobsModel.js';
 // Controller for getting the completed jobs count
 export const getCompletedJobsCount = async (req, res) => {
     try {
-        const countData = await CompletedJobs.findOne({});
+        const countData = await CompletedJobs.findOne();
         if (!countData) {
             // If count data doesn't exist, create it with initial count 0
-            const newCountData = new CompletedJobs({});
+            const newCountData = new CompletedJobs(0);
             await newCountData.save();
             res.status(200).json({ completedJobsCount: 0 });
         } else {

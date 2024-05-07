@@ -20,7 +20,7 @@ const StatsCards = () => {
       const jobResponse = await axios.get('http://localhost:3000/jobs/read');
       const allJobs = jobResponse.data;
       const postedJobs = allJobs.length;
-
+      console.log(postedJobs);
       // Fetch all CVs
       const cvResponse = await axios.get('http://localhost:3000/cv/getcvs');
       const allCVs = cvResponse.data;
@@ -28,17 +28,19 @@ const StatsCards = () => {
       // Get count of accepted and rejected jobs
       const assignedJobs = allCVs.filter(cv => cv.status === 'accepted').length;
       const rejectedJobs = allCVs.filter(cv => cv.status === 'rejected').length;
+      console.log(assignedJobs);
+      console.log(rejectedJobs);
 
       // Fetch the completed jobs count from the backend
-      const completedJobsResponse = await axios.get('http://localhost:3000/completedjobs/count');
-      const completedJobsCount = completedJobsResponse.data.completedJobsCount;
+      // const completedJobsResponse = await axios.get('http://localhost:3000/completedjobs/count');
+      // const completedJobsCount = completedJobsResponse.data.completedJobsCount;
 
       // Update the state with fetched data
       setStatsData({
         postedJobs,
         assignedJobs,
         rejectedJobs,
-        completedJobs: completedJobsCount
+        completedJobs: 0
       });
     } catch (error) {
       console.log(error);
