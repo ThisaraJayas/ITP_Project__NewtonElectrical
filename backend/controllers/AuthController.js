@@ -38,12 +38,13 @@ export const GoogleRegister = async(req,res)=>{
         }else{
             const [firstName, ...lastName] = name.split(" ");
             const generateedPassword=Math.random().toString(36).slice(-8)+ Math.random().toString(36).slice(-8)
-            const newUser = new User({firstName,lastName: lastName.join(" "),email,avatar,password:generateedPassword})
-            await newUser.save()
-            setTokenCookie(res,newUser._id,newUser.email)
-            res.status(200).json({newUser})
+            const user = new User({firstName,lastName: lastName.join(" "),email,avatar,password:generateedPassword})
+            await user.save()
+            setTokenCookie(res,user._id,user.email)
+            res.status(200).json({user})
         }
     }catch(error){
+        console.log(error);
         res.status(500).json({message:"User Not Created"})
     }
     
