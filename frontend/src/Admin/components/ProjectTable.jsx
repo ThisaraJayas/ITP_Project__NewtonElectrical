@@ -125,7 +125,7 @@ export default function ProjectTable() {
                     <div className='w-80'>
                         <input className='searchbox' type='text' placeholder='Search..' onChange={handleFilter} />
                     </div>
-                    <div className='w-64'>
+                    <div className='w-96'>
                         <PDFDownloadLink document={PDFDocument} fileName="project-table.pdf">
                             {({ blob, url, loading, error }) => (
                                 <button
