@@ -13,7 +13,7 @@ import serviceRouter from './routes/ServiceRoute.js'
 import jobRouter from './routes/JobRoute.js';
 import cvRouter from './routes/CVRoute.js';
 import InventoryRouter from './routes/InventoryRoute.js'
-
+import CompletedJobs from './models/CompletedJobsModel.js'
 
 const app = express()
 
@@ -50,5 +50,7 @@ app.use('/service', serviceRouter);
 app.use('/jobs', jobRouter);
 app.use('/cv', cvRouter);
 app.use('/product',InventoryRouter)
+app.use('/completedjobs',CompletedJobs)
+
 
 
