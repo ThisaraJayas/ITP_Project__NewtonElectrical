@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/appointment.css';
 import Calendar from 'react-calendar';
@@ -22,6 +22,13 @@ const AppointmentForms = () => {
         timeSlot: new Date()
     });
     const [successMessage, setSuccessMessage] = useState('');
+    const [zipError, setZipError] = useState(false);
+    const [phoneError, setPhoneError] = useState(false);
+
+    useEffect(() => {
+        setZipError(false);
+        setPhoneError(false);
+    }, [formData.select1, formData.select2]);
 
     const handleNext = () => {
         setStep(step + 1);
@@ -52,7 +59,7 @@ const AppointmentForms = () => {
             console.log('No option selected. Not sending data to the database.');
             return; // Exit the function without sending data
         }
-    
+
         axios.post('http://localhost:3000/shedule/', formData)
             .then(response => {
                 console.log('Data sent successfully:', response.data);
@@ -80,13 +87,14 @@ const AppointmentForms = () => {
                 // Optionally, you can show an error message to the user here
             });
     };
+
     return (
         <div className="centered-container">
             {step === 1 && <Form1 data={formData} handleChange={handleChange} />}
-            {step === 2 && <Form2 data={formData} handleChange={handleChange} />}
+            {step === 2 && <Form2 data={formData} handleChange={handleChange} zipError={zipError} setZipError={setZipError} phoneError={phoneError} setPhoneError={setPhoneError} />}
             {step === 3 && <Form3 data={formData} handleChange={handleChange} />}
             {step === 4 && <Form4 data={formData} />}
-            
+
             <div className="navigation-buttons">
                 {step > 1 && <button onClick={handlePrevious}>Previous</button>}
                 {step < 4 && <button onClick={handleNext}>Next</button>}
@@ -122,26 +130,26 @@ const Form1 = ({ data, handleChange }) => {
             </div>
             <div className="form-group">
                 <label htmlFor="select2" style={{ fontSize: '32px' }}>Rooms:</label>
-                
+
                 {/* none */}
-                {data.select1 == 'none' || data.select1 == '' ? (
+                {data.select1 === 'none' || data.select1 === '' ? (
                     <select
-                    id="select2"
-                    name="select2"
-                    value={data.select2}
-                    onChange={handleSelectChange}
+                        id="select2"
+                        name="select2"
+                        value={data.select2}
+                        onChange={handleSelectChange}
                     >
                         <option value='none'>none</option>
                     </select>
                 ) : ""}
 
                 {/* powerIssue prices */}
-                {data.select1 == 'powerIssue'? (
+                {data.select1 === 'powerIssue' ? (
                     <select
-                    id="select2"
-                    name="select2"
-                    value={data.select2}
-                    onChange={handleSelectChange}
+                        id="select2"
+                        name="select2"
+                        value={data.select2}
+                        onChange={handleSelectChange}
                     >
                         <option value='none'>none</option>
                         <option value='1250'>1 Room</option>
@@ -153,12 +161,12 @@ const Form1 = ({ data, handleChange }) => {
                 ) : ""}
 
                 {/* switch/outlet prices */}
-                {data.select1 == 'switch/outlet'? (
+                {data.select1 === 'switch/outlet' ? (
                     <select
-                    id="select2"
-                    name="select2"
-                    value={data.select2}
-                    onChange={handleSelectChange}
+                        id="select2"
+                        name="select2"
+                        value={data.select2}
+                        onChange={handleSelectChange}
                     >
                         <option value='none'>none</option>
                         <option value='5000'>1 Room</option>
@@ -170,12 +178,12 @@ const Form1 = ({ data, handleChange }) => {
                 ) : ""}
 
                 {/* rewiring prices */}
-                {data.select1 == 'rewiring'? (
+                {data.select1 === 'rewiring' ? (
                     <select
-                    id="select2"
-                    name="select2"
-                    value={data.select2}
-                    onChange={handleSelectChange}
+                        id="select2"
+                        name="select2"
+                        value={data.select2}
+                        onChange={handleSelectChange}
                     >
                         <option value='none'>none</option>
                         <option value='25000'>1 Room</option>
@@ -199,124 +207,129 @@ const Form1 = ({ data, handleChange }) => {
     );
 };
 
-
-
-    const Form2 = ({ data, handleChange }) => {
-        return (
-            <form className="form">
-                
-                <div className="form-group">
-                    <label htmlFor="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" value={data.firstName} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName" value={data.lastName} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="address">Address:</label>
-                    <input type="text" id="address" name="address" value={data.address} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="city">City:</label>
-                    <input type="text" id="city" name="city" value={data.city} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="province">Province:</label>
-                    <input type="text" id="province" name="province" value={data.province} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="zipcode">Zip Code:</label>
-                    <input type="text" id="zipcode" name="zipcode"
-                    onBlur={()=>{
-                        if (zipcode.length !== 4) {
-                            // alert('Zip Must be 4 Characters');
-                        }
-                    }} value={data.zipcode} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="mobile">contact number:</label>
-                    <input type="text" id="contactNum" name="contactNum"
-                    onBlur={()=>{
-                        if (contactNum.length !== 10) {
-                        // alert('Phone Number Must be 10 Characters');
-                        }
-                    }} value={data.contactNum} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="ownProperty">I own this residential property:</label>
-                    <input type="checkbox" id="ownProperty" name="ownProperty" checked={data.ownProperty} onChange={handleChange} />
-                </div>
-            </form>
-        );
+const Form2 = ({ data, handleChange, zipError, setZipError, phoneError, setPhoneError }) => {
+    const handleBlur = (e) => {
+        const { name, value } = e.target;
+        if (name === 'zipcode') {
+            if (value.length !== 4) {
+                setZipError(true);
+            } else {
+                setZipError(false); // Clear the error if the value is correct
+            }
+        }
+        if (name === 'contactNum') {
+            if (value.length !== 10) {
+                setPhoneError(true);
+            } else {
+                setPhoneError(false); // Clear the error if the value is correct
+            }
+        }
     };
+
+    return (
+        <form className="form">
+            <div className="form-group">
+                <label htmlFor="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" value={data.firstName} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" value={data.lastName} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="address">Address:</label>
+                <input type="text" id="address" name="address" value={data.address} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="city">City:</label>
+                <input type="text" id="city" name="city" value={data.city} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="province">Province:</label>
+                <input type="text" id="province" name="province" value={data.province} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+                <label htmlFor="zipcode">Zip Code:</label>
+                <input type="text" id="zipcode" name="zipcode" onBlur={handleBlur} value={data.zipcode} onChange={handleChange} />
+                {zipError && <p style={{ color: 'red' }}>Zip Must be 4 Characters</p>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="mobile">contact number:</label>
+                <input type="text" id="contactNum" name="contactNum" onBlur={handleBlur} value={data.contactNum} onChange={handleChange} />
+                {phoneError && <p style={{ color: 'red' }}>Phone Number Must be 10 Characters</p>}
+            </div>
+            <div className="form-group">
+                <label htmlFor="ownProperty">I own this residential property:</label>
+                <input type="checkbox" id="ownProperty" name="ownProperty" checked={data.ownProperty} onChange={handleChange} />
+            </div>
+        </form>
+    );
+};
 
 const Form3 = ({ data, handleChange }) => {
-        const [date, setDate] = useState(new Date());
-    
-        const onChange = newDate => {
-            setDate(newDate);
-            handleChange({ target: { name: 'timeSlot', value: newDate } });
-        };
-    
-        const handleTimeSlotChange = e => {
-            handleChange(e); // Call the handleChange function to update the time slot in the parent component
-        };
-    
-        return (
-            <div className="calendar-container">
-                <h2 style={{fontSize:'32px'}}>Select a Date and Time Slot</h2>
-                <div className="form-group">
-                    <label htmlFor="date">Date:</label>
-                    <Calendar
-                        onChange={onChange}
-                        value={date}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="timeSlot">Time Slot:</label>
-                    <input
-                        type="text"
-                        id="timeSlot"
-                        name="timeSlot"
-                        value={data.timeSlot instanceof Date ? data.timeSlot.toLocaleString() : data.timeSlot}
-                        onChange={handleTimeSlotChange}
-                    />
-                </div>
-            </div>
-        );
+    const [date, setDate] = useState(new Date());
+
+    const onChange = newDate => {
+        setDate(newDate);
+        handleChange({ target: { name: 'timeSlot', value: newDate } });
     };
-    
- const Form4 = ({ data }) => {
-        const selectedOption = data.select1 || data.select2;
-    
-        return (
-            <div className="appointment-container">
-                <div className="row">
-                    <div className="column">
-                        <img src={picture} alt="Image" height={400} width={400} />
-                    </div>
-                    <div className="column2">
-                        <h1><b>CONFIRM YOUR APPOINTMENT</b></h1>
-                        <h2>{selectedOption}</h2>
-                        <div style={{marginTop:'40px'}}>
+
+    const handleTimeSlotChange = e => {
+        handleChange(e); // Call the handleChange function to update the time slot in the parent component
+    };
+
+    return (
+        <div className="calendar-container">
+            <h2 style={{ fontSize: '32px' }}>Select a Date and Time Slot</h2>
+            <div className="form-group">
+                <label htmlFor="date">Date:</label>
+                <Calendar
+                    onChange={onChange}
+                    value={date}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="timeSlot">Time Slot:</label>
+                <input
+                    type="text"
+                    id="timeSlot"
+                    name="timeSlot"
+                    value={data.timeSlot instanceof Date ? data.timeSlot.toLocaleString() : data.timeSlot}
+                    onChange={handleTimeSlotChange}
+                />
+            </div>
+        </div>
+    );
+};
+
+const Form4 = ({ data }) => {
+    const selectedOption = data.select1 || data.select2;
+
+    return (
+        <div className="appointment-container">
+            <div className="row">
+                <div className="column">
+                    <img src={picture} alt="Image" height={400} width={400} />
+                </div>
+                <div className="column2">
+                    <h1><b>CONFIRM YOUR APPOINTMENT</b></h1>
+                    <h2>{selectedOption}</h2>
+                    <div style={{ marginTop: '40px' }}>
                         <h3><b>NAME-  {data.firstName} {data.lastName}</b></h3>
-                        <br/>
-                        
+                        <br />
+
                         <h3><b>DATE-  {data.timeSlot instanceof Date ? data.timeSlot.toLocaleDateString() : data.timeSlot}</b></h3>
-                        <br/>
+                        <br />
                         <h3><b>PHONE-  {data.contactNum}</b></h3>
-                        <br/>
+                        <br />
                         <h3><b>CITY-  {data.city}</b></h3>
-                        <br/>
+                        <br />
                         <h3><b>PRICE-  Rs {data.select2}.00</b></h3>
-                        </div>  
                     </div>
                 </div>
-                
             </div>
-        );
-    };
-    
+        </div>
+    );
+};
 
 export default AppointmentForms;
