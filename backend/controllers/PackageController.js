@@ -9,14 +9,14 @@ export const InsertPackage = async (req, res) => {
       service2,
       service3,
       service4,
-      service1Price,
-      service2Price,
-      service3Price,
-      service4Price,
+      // service1Price,
+      // service2Price,
+      // service3Price,
+      // service4Price,
       monthlyPrice,
       annualPrice,
-      discountMonthly,
-      discountAnnual,
+      // discountMonthly,
+      // discountAnnual,
      
     } = req.body;
   
@@ -29,14 +29,14 @@ export const InsertPackage = async (req, res) => {
         service2,
         service3,
         service4,
-        service1Price,
-        service2Price,
-        service3Price,
-        service4Price,
+        // service1Price,
+        // service2Price,
+        // service3Price,
+        // service4Price,
         monthlyPrice,
         annualPrice,
-        discountMonthly,
-        discountAnnual,
+        // discountMonthly,
+        // discountAnnual,
         
       });
   

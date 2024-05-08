@@ -1,30 +1,22 @@
 import mongoose from "mongoose";
 
 const CartModel =new mongoose.Schema({
-    cartItem:{
+    cartId:{
         type:String,
     },
-    productDescription:{
+    productId:{
         type:String,
     },
-    productPrice: {
+    totalPrice: {
         type: String,
       
     },
     productDiscount:{
         type:String,
     },
-    productQty:{
+    cartQty:{
         type:String,
     },
-    availability:{
-        type:String,
-        default:"Available"
-    },
-    productImage:{
-        type:String,
-        default:"https://www.yiwubazaar.com/resources/assets/images/default-product.jpg"
-    }
 },{timestamps: true})
-const Product = mongoose.model('Product',InventoryScheema ) 
+const ShoppingCart = mongoose.model('cart',CartModel ) 
 export default Product
