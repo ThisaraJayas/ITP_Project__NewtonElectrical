@@ -17,6 +17,12 @@ export default function AddJobsTable() {
     e.preventDefault();
     alert("Successfully inserted.");
 
+    const handleBlur = () => {
+      if (title.length > 10) {
+        alert('Title should not exceed 10 characters.');
+      }
+    };
+
     const newJob = {
       title: Title,
       department: Department,
@@ -47,7 +53,8 @@ export default function AddJobsTable() {
               <div className="flex justify-between mb-6">
                 <div className="mr-4 w-1/2">
                   <label className="block text-sm font-semibold mb-2">Title</label>
-                  <input type="text" placeholder="Job Title" value={Title} className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-2 px-3 text-lg text-gray-700" id='Title' onChange={(e) => { setTitle(e.target.value) }} />
+                  <input type="text"  placeholder="Job Title" value={Title} className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-2 px-3 text-lg text-gray-700" id='Title' onChange={(e) => { setTitle(e.target.value) }} 
+                   onBlur={handleBlur}/>
                 </div>
                 <div className="w-1/2">
                   <label className="block text-sm font-semibold mb-2">Department</label>
