@@ -29,7 +29,6 @@ const packageSchema = new mongoose.Schema({
     },
     service1Price:{
         type:Number,
-        required:true
     },
     service2Price:{
         type:Number,
