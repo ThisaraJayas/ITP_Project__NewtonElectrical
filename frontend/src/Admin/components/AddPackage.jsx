@@ -42,7 +42,11 @@ export default function AddPackage() {
 
   // const [discountMonthlyPrice, setDiscountMonthlyPrice] = useState("")
   // const [discountAnnualPrice, setDiscountAnnualPrice] = useState("")
-
+  const handleBlur = () => {
+    if (title.length > 4) {
+      alert('Id should not exceed 4 characters.');
+    }0
+  };
 
   useEffect(() => {
     // Recalculate annual price when monthly price changes
@@ -136,6 +140,7 @@ export default function AddPackage() {
                       type="text"
                       placeholder="Enter package ID"
                       value={packageId}
+                      onBlur={handleBlur}
                       onChange={(e) => setPackageId(e.target.value)}
                     />
                   </div>
