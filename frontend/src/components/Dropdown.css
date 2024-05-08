@@ -1,0 +1,19 @@
+#menu-listitems::-webkit-scrollbar {
+  width: 8px;
+}
+
+#menu-listitems::-webkit-scrollbar-track {
+  background: #9ca3af;
+}
+
+#menu-listitems::-webkit-scrollbar-thumb {
+  background: #bcc9dc;
+}
+
+#menu-listitems::-webkit-scrollbar-thumb:hover {
+  background: #587aa7;
+}
+
+#menu-listitems::-webkit-scrollbar-thumb:active {
+  background: #466286;
+}
