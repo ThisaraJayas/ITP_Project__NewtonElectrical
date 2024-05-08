@@ -15,7 +15,7 @@ export default function Package() {
   return (
     <div className='container pt-8 pl-8'>
       <div className='mainTitle'>
-        <h3>Prackage Dashboard</h3>
+        <h3>Package Dashboard</h3>
       </div>
       <br />
       

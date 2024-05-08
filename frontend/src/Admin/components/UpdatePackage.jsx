@@ -181,12 +181,7 @@ const handleUpdate = async (e) => {
                       value={service1}
                       onChange={(e) => setService1(e.target.value)}
                     />
-                    <input
-                      type="number"
-                      placeholder="Enter service price"
-                      value={service1Price}
-                      onChange={(e) => setService1Price(e.target.value)}
-                    />
+                    
                   </div>
                   <div className="inputBox">
                     <span className="details">Service 2</span>
@@ -196,12 +191,7 @@ const handleUpdate = async (e) => {
                       value={service2}
                       onChange={(e) => setService2(e.target.value)}
                     />
-                    <input
-                      type="number"
-                      placeholder="Enter service price"
-                      value={service2Price}
-                      onChange={(e) => setService2Price(e.target.value)}
-                    />
+                    
                   </div>
                   <div className="inputBox">
                     <span className="details">Service 3</span>
@@ -211,12 +201,7 @@ const handleUpdate = async (e) => {
                       value={service3}
                       onChange={(e) => setService3(e.target.value)}
                     />
-                    <input
-                      type="number"
-                      placeholder="Enter service price"
-                      value={service3Price}
-                      onChange={(e) => setService3Price(e.target.value)}
-                    />
+                    
                   </div>
                   <div className="inputBox">
                     <span className="details">Service 4</span>
@@ -226,12 +211,7 @@ const handleUpdate = async (e) => {
                       value={service4}
                       onChange={(e) => setService4(e.target.value)}
                     />
-                    <input
-                      type="number"
-                      placeholder="Enter service price"
-                      value={service4Price}
-                      onChange={(e) => setService4Price(e.target.value)}
-                    />
+                    
                   </div>
                 </div>
 
