@@ -13,15 +13,17 @@ export default function AddJobsTable() {
   const [PostedBy, setPostedBy] = useState("");
   const navigate = useNavigate();
 
+  const handleBlur = () => {
+    if (title.length > 10) {
+      alert('Title should not exceed 10 characters.');
+    }
+  };
+
   function sendData(e) {
     e.preventDefault();
     alert("Successfully inserted.");
 
-    const handleBlur = () => {
-      if (title.length > 10) {
-        alert('Title should not exceed 10 characters.');
-      }
-    };
+    
 
     const newJob = {
       title: Title,
