@@ -61,7 +61,7 @@ const AllProjects = () => {
 
       <div className="flex items-center justify-center flex-col h-[1200px]" style={{ background: "#1c77ac" }}> {}
 
-      <div style={{marginLeft: "20px", backgroundColor: 'navy', color: 'white', padding: '30px', width: "500px"}}>
+      <div style={{marginLeft: "20px", backgroundColor: 'navy', color: 'white', padding: '30px',marginTop:'30px', width: "500px"}}>
       <span style={{ marginRight: '130px' }}>
         {completedProjects} Completed Projects
       </span>

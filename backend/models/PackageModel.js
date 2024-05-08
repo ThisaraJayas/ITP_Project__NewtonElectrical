@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 const packageSchema = new mongoose.Schema({
     packageName:{
         type:String,
-        required: true,
+        // required: true,
     },
     packageId:{
         type:String,
@@ -17,11 +17,9 @@ const packageSchema = new mongoose.Schema({
     },      
     service1:{
         type: String,
-        required:true
     },
     service2:{
         type: String,
-        required:true
     },
     service3:{
         type: String
@@ -31,11 +29,9 @@ const packageSchema = new mongoose.Schema({
     },
     service1Price:{
         type:Number,
-        required:true
     },
     service2Price:{
         type:Number,
-        required:true
     },
     service3Price:{
         type:Number
@@ -45,23 +41,23 @@ const packageSchema = new mongoose.Schema({
     },
     monthlyPrice:{
         type:Number,
-        required:true,
+       
     },
     annualPrice:{
         type:Number,
-        required:true,
+  
         
     },
-    discountMonthly:{
-        type:Number,
-        required:true,
+    // discountMonthly:{
+    //     type:Number,
+
         
-    },
-    discountAnnual:{
-        type:Number,
-        required:true,
+    // },
+    // discountAnnual:{
+    //     type:Number,
+
         
-    }
+    // }
 },{timestamps: true})
 const Package = mongoose.model('Package',packageSchema) //this becomes users in DB
 export default Package

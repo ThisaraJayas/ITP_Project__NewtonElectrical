@@ -53,10 +53,10 @@ export default function AddPackage() {
 
   const handleAddPackage = async (e) => {
     e.preventDefault();
-    if (!packageName || !packageId || !description || !service1 || !service2 || !service1Price || !service2Price || !monthlyPrice || !annualPrice || !discountMonthly || !discountAnnual) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+    // if (!packageName || !packageId || !description || !service1 || !service2 || !service1Price || !service2Price || !monthlyPrice || !annualPrice || !discountMonthly || !discountAnnual) {
+    //   alert("Please fill in all required fields.");
+    //   return;
+    // }
   
     const packageData = {
       packageName,
@@ -66,14 +66,14 @@ export default function AddPackage() {
       service2,
       service3,
       service4,
-      service1Price: parseFloat(service1Price),
-      service2Price: parseFloat(service2Price),
-      service3Price: parseFloat(service3Price),
-      service4Price: parseFloat(service4Price),
+      // service1Price: parseFloat(service1Price),
+      // service2Price: parseFloat(service2Price),
+      // service3Price: parseFloat(service3Price),
+      // service4Price: parseFloat(service4Price),
       monthlyPrice: parseFloat(monthlyPrice),
       annualPrice: parseFloat(annualPrice),
-      discountMonthly: parseFloat(discountMonthly),
-      discountAnnual: parseFloat(discountAnnual),
+      // discountMonthly: parseFloat(discountMonthly),
+      // discountAnnual: parseFloat(discountAnnual),
     };
   
     try {
