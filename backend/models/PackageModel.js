@@ -17,11 +17,9 @@ const packageSchema = new mongoose.Schema({
     },      
     service1:{
         type: String,
-        required:true
     },
     service2:{
         type: String,
-        required:true
     },
     service3:{
         type: String
@@ -35,7 +33,6 @@ const packageSchema = new mongoose.Schema({
     },
     service2Price:{
         type:Number,
-        required:true
     },
     service3Price:{
         type:Number
