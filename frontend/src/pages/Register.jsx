@@ -78,7 +78,7 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/auth/register", {
+      const response = await axios.post("https://itp-project-newton-api.vercel.app/auth/register", {
         firstName,
         lastName,
         email,
