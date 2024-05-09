@@ -17,7 +17,7 @@ const JobUpdate = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:3000/jobs/job/${id}`)
+    axios.get(`https://itp-project-newton-api.vercel.app/jobs/job/${id}`)
       .then((response) => {
         const { title, department, description, location, salary, requirements, postedBy } = response.data;
         setTitle(title);
@@ -46,7 +46,7 @@ const JobUpdate = () => {
       postedBy
     };
     setLoading(true);
-    axios.put(`http://localhost:3000/jobs/edit/${id}`, updatedJob)
+    axios.put(`https://itp-project-newton-api.vercel.app/jobs/edit/${id}`, updatedJob)
       .then(() => {
         setLoading(false);
         console.log('Job updated successfully');

@@ -55,7 +55,7 @@ export default function UpdatePackage({ package_id }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/package/packages/${package_id}`
+          `https://itp-project-newton-api.vercel.app/package/packages/${package_id}`
         );
         console.log("API Response:", response.data); // Log the response data
         const packageData = response.data;
@@ -88,7 +88,7 @@ export default function UpdatePackage({ package_id }) {
 const handleUpdate = async (e) => {
   e.preventDefault();
   try {
-    await axios.post(`http://localhost:3000/package/packages/${package_id}`, {
+    await axios.post(`https://itp-project-newton-api.vercel.app/package/packages/${package_id}`, {
       packageName,
       packageId,
       description,

@@ -75,7 +75,7 @@ export default function ProjectTable() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/project/projects');
+            const response = await axios.get('https://itp-project-newton-api.vercel.app/project/projects');
             setRecords(response.data.readProject);
             setFilteredRecords(response.data.readProject);
         } catch (error) {

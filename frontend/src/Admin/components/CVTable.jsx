@@ -14,7 +14,7 @@ const CVTable = () => {
     useEffect(() => {
         const fetchCVs = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/cv/getcvs');
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/cv/getcvs');
                 setCVs(response.data);
             } catch (error) {
                 setError(error.message);
@@ -40,7 +40,7 @@ const CVTable = () => {
             setCVs(updatedCVs);
 
             // Then send the update request to the server
-            await axios.put(`http://localhost:3000/cv/${id}`, { status });
+            await axios.put(`https://itp-project-newton-api.vercel.app/cv/${id}`, { status });
         } catch (error) {
             console.error('Error updating CV status:', error);
         }

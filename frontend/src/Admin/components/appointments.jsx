@@ -17,7 +17,7 @@ const Appointments = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/shedule/getappointments');
+            const response = await axios.get('https://itp-project-newton-api.vercel.app/shedule/getappointments');
             console.log('Fetched appointments:', response.data.data);
             setAppointments(response.data.data);
         } catch (error) {
@@ -27,7 +27,7 @@ const Appointments = () => {
 
     const handleApprove = async (id) => {
         try {
-            await axios.put(`http://localhost:3000/shedule/approve/appointments/${id}`, { status: 'approved' });
+            await axios.put(`https://itp-project-newton-api.vercel.app/shedule/approve/appointments/${id}`, { status: 'approved' });
             fetchAppointments();
         } catch (error) {
             console.error('Error approving appointment:', error);
@@ -36,7 +36,7 @@ const Appointments = () => {
 
     const handleCancel = async (id) => {
         try {
-            await axios.put(`http://localhost:3000/shedule/cancel/appointments/${id}`, { status: 'canceled' });
+            await axios.put(`https://itp-project-newton-api.vercel.app/shedule/cancel/appointments/${id}`, { status: 'canceled' });
             fetchAppointments();
         } catch (error) {
             console.error('Error canceling appointment:', error);

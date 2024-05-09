@@ -31,7 +31,7 @@ export default function UserUpdate({ userId }) {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/user/user/${userId}`
+                    `https://itp-project-newton-api.vercel.app/user/user/${userId}`
                 );
                 setFirstName(response.data.user.firstName);
                 setLastName(response.data.user.lastName);
@@ -50,7 +50,7 @@ export default function UserUpdate({ userId }) {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3000/user/user/${userId}`, {
+            await axios.put(`https://itp-project-newton-api.vercel.app/user/user/${userId}`, {
                 userType: userType,
             }).then(resul=>{console.log(resul),window.location.reload()})
         } catch (err) {

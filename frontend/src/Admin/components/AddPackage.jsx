@@ -82,7 +82,7 @@ export default function AddPackage() {
   
     try {
       const result = await axios.post(
-        "http://localhost:3000/package/packages",
+        "https://itp-project-newton-api.vercel.app/package/packages",
         packageData
       );
       console.log(result);

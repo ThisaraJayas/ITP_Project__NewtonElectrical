@@ -18,7 +18,7 @@ export default function User() {
     useEffect(()=>{
         const fetchUserCount = async()=>{
             try{
-                const response = await axios.get('http://localhost:3000/user/user-count')
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/user/user-count')
                 setUserCount(response.data.totalUsers)
                 console.log(response);
             }catch(error){
@@ -32,7 +32,7 @@ export default function User() {
     useEffect(()=>{
         const weeklyUserCount = async()=>{
             try{
-                const response = await axios.get('http://localhost:3000/user/weekly-user-count')
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/user/weekly-user-count')
                 setWeeklyUserCount(response.data.weeklyCount)
                 console.log(response.data.weeklyCount);
             }catch(error){
@@ -45,7 +45,7 @@ export default function User() {
     useEffect(()=>{
         const dailyUserCount = async()=>{
             try{
-                const response = await axios.get('http://localhost:3000/user/daily-user-count')
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/user/daily-user-count')
                 setDailyUserCount(response.data.dailyCount)
                 console.log(response.data.dailyCount);
             }catch(error){
@@ -58,7 +58,7 @@ export default function User() {
     useEffect(()=>{
         const monthlyUserCount = async()=>{
             try{
-                const response = await axios.get('http://localhost:3000/user/monthly-user-count')
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/user/monthly-user-count')
                 setMonthlyUserCount(response.data.montlyUser)
                 console.log(response.data.montlyUser);
             }catch(error){

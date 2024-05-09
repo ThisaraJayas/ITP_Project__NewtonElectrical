@@ -32,7 +32,7 @@ export default function ProjectUpdate({ projectId }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/project/projects/${projectId}`
+          `https://itp-project-newton-api.vercel.app/project/projects/${projectId}`
         );
         console.log("API Response:", response.data); // Log the response data
         const projectData = response.data;
@@ -54,7 +54,7 @@ export default function ProjectUpdate({ projectId }) {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:3000/project/projects/${projectId}`, {
+      await axios.post(`https://itp-project-newton-api.vercel.app/project/projects/${projectId}`, {
         title,
         status,
         description,

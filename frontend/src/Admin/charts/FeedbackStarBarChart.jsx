@@ -13,7 +13,7 @@ export default function FeedbackStarBarChart() {
     useEffect(() => {
         const fetchStars = async () => {
           try {
-            const response = await axios.get('http://localhost:3000/feedbacks/feedback');
+            const response = await axios.get('https://itp-project-newton-api.vercel.app/feedbacks/feedback');
             const feedback = response.data.feedbacks;
             setStar1(feedback.filter(feedback => feedback.rating === 1).length);
             setStar2(feedback.filter(feedback => feedback.rating === 2).length);

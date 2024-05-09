@@ -35,7 +35,7 @@ export default function AddJobsTable() {
       postedBy: PostedBy
     };
 
-    axios.post("http://localhost:3000/jobs/add", newJob)
+    axios.post("https://itp-project-newton-api.vercel.app/jobs/add", newJob)
       .then(() => {
         alert("Job added successfully.");
         navigate('/admin/jobsManager');
