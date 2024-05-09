@@ -192,5 +192,15 @@ transition: 0.5s;
     .scheduleBtn1{
       display: none;
   }
+ 
+    .md:flex.items-center.justify-between.bg-white.py-4.md\:px-10.px-7 {
+        background-color: white; /* Add background color for small screen dropdown */
+    
+}
+}
+@media only screen and (max-width: 600px) {
+  .dropdown-menu {
+      background-color: white; /* Add background color for small screen dropdown */
+  }
 }
 
