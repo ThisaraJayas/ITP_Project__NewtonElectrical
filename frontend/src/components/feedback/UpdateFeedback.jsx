@@ -21,7 +21,7 @@ export default function UpdateFeedback() {
         const fetchFeedback = async()=>{
             try {
                 const feedback = await axios.get(
-                  `http://localhost:3000/feedbacks/feedback/${id}`
+                  `https://itp-project-newton-api.vercel.app/feedbacks/feedback/${id}`
                 );
                 setFirstName(feedback.data.feedbacks.firstName);
                 setLastName(feedback.data.feedbacks.lastName);
@@ -38,7 +38,7 @@ export default function UpdateFeedback() {
 
     const handleFeedbackUpdate=async(e)=>{
         e.preventDefault()
-        const response = await axios.put(`http://localhost:3000/feedbacks/feedback/${id}`,{
+        const response = await axios.put(`https://itp-project-newton-api.vercel.app/feedbacks/feedback/${id}`,{
             firstName,
             lastName,
             email,

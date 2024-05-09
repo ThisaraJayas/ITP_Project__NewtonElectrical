@@ -15,7 +15,7 @@ const CareerOpenings = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/jobs/read');
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/jobs/read');
                 setJobs(response.data);
             } catch (error) {
                 console.error('Error fetching jobs data:', error);

@@ -18,7 +18,7 @@ const Card = ({ job }) => {
 
     const checkUploadedCV = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/cv/user/${userData.userId}/job/${job.title}`);
+            const response = await axios.get(`https://itp-project-newton-api.vercel.app/cv/user/${userData.userId}/job/${job.title}`);
             setUploadedCV(response.data.exists);
         } catch (error) {
             console.log(error);
@@ -38,7 +38,7 @@ const Card = ({ job }) => {
                 imageUrl = await handleCvImageUpload(productImage);
             }
 
-            const response = await axios.post('http://localhost:3000/cv/upload', {
+            const response = await axios.post('https://itp-project-newton-api.vercel.app/cv/upload', {
                 userId: userData.userId,
                 JobTitle: job.title,
                 jobCv: imageUrl,

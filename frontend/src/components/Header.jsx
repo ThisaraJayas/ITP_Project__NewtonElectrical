@@ -25,7 +25,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const response = await axios.post("http://localhost:3000/auth/logout");
+    const response = await axios.post("https://itp-project-newton-api.vercel.app/auth/logout");
     if (response.status === 200) {
       setUserData(null);
       navigate("/login");

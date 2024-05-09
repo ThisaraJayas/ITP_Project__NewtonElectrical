@@ -15,7 +15,7 @@ export default function () {
     useEffect(()=>{
         const fetchFeedback = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/feedbacks/allfeedback/${userId}`);
+                const response = await axios.get(`https://itp-project-newton-api.vercel.app/feedbacks/allfeedback/${userId}`);
                 console.log(response.data.feedbacks);
                 setFeedbacks(response.data.feedbacks)
             } catch (error) {
@@ -28,7 +28,7 @@ export default function () {
 
     const deleteFeedback = async (feedbackId) => {
         try {
-          await axios.delete(`http://localhost:3000/feedbacks/feedback/${feedbackId}`)
+          await axios.delete(`https://itp-project-newton-api.vercel.app/feedbacks/feedback/${feedbackId}`)
           window.location.reload();
             
         } catch (error) {

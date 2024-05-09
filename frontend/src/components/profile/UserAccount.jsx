@@ -98,7 +98,7 @@ export default function UserAccount() {
     const updateUser = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3000/user/user/${userId}`, {
+            await axios.put(`https://itp-project-newton-api.vercel.app/user/user/${userId}`, {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
@@ -124,7 +124,7 @@ export default function UserAccount() {
             if (oldPassword === userData.password) {
                 if (newPassword === confirmNewPassword) {
                     if (newPassword.trim() !== '') {
-                        const response = await axios.put(`http://localhost:3000/user/user/${userId}`, {
+                        const response = await axios.put(`https://itp-project-newton-api.vercel.app/user/user/${userId}`, {
                             password: confirmNewPassword,
                         });
                         setUserData(response.data.user);
