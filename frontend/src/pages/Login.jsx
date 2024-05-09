@@ -23,7 +23,7 @@ export default function Login() {
     setAlertSeverity(severity)
   }
 
-
+  axios.defaults.withCredentials = true;
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
