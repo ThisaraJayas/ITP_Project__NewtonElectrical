@@ -19,8 +19,10 @@ const app = express()
 
 //middleware
 app.use(express.json())  
-app.use(cors({
-    origin: 'http://localhost:5173',
+
+app.use(cors( {
+    origin: ["https://itp-project-newton-electrical.vercel.app"],
+    methods: ["POST", "GET"],
     credentials: true
 }))
 
