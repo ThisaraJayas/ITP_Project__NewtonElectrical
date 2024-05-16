@@ -55,8 +55,8 @@ export default function () {
                              <div className='userMessage'>{feedback.feedback}</div>
                          
                          <div className='feedbackActions flex justify-end'>
-                         <Link to={`/feedback-update/${feedback.feedbackId}`}><button className='deleteButton mr-4' >Edit</button></Link>
-                             <button onClick={() => deleteFeedback(feedback.feedbackId)} className='deleteButton' >Delete</button>
+                         <Link to={`/feedback-update/${feedback.feedbackId}`}><button className='deleteButton1 mr-4' >Edit</button></Link>
+                             <button className='deleteButton1' ><DeleteFeedback deleteId={feedback.feedbackId} /></button>
                          </div>
                      </div>
                     ))}

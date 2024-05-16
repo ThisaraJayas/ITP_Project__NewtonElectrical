@@ -53,6 +53,7 @@ export default function Feedback() {
         } else {
           pdf.save("feedback-details.pdf");
         }
+        
       };
 
       renderPage();

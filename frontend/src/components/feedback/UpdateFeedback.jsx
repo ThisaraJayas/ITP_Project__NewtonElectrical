@@ -16,6 +16,7 @@ export default function UpdateFeedback() {
     const {id}=useParams()
     const navigate = useNavigate()
     console.log(firstName);
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const fetchFeedback = async()=>{
@@ -52,7 +53,7 @@ export default function UpdateFeedback() {
         window.location.reload()
         }
         console.log(response);
-        window.location.reload()
+        navigate('/feedback')
     }
   return (
     <>
