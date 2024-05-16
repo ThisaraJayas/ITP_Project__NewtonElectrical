@@ -27,7 +27,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/forgotpassword",
+        "https://itp-project-newton-api.vercel.app/auth/forgotpassword",
         {
           email,
         }

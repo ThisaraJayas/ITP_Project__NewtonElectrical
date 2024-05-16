@@ -36,6 +36,7 @@
     height: auto;
 }
 .service{
+    
     margin: 2%;
    cursor: pointer;
    padding: auto;
@@ -45,3 +46,30 @@
     font-size: 25px;
     font-weight: bold;
 }
+@media only screen and (max-width: 768px) {
+    .serviceContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .homeContainer{
+        margin-top: 30px;
+        width: 100%;
+        height: auto;
+        background-image: url(home.png);
+        background-position: center;
+        background-size: cover;
+    }
+    .services {
+      flex-direction: column;
+      align-items: center;
+    }
+    .bannerText .title{
+        display: none;
+    }
+  
+    .service {
+        margin-top: 20%;
+      margin-bottom: 20px; /* Adjust spacing between services */
+    }
+  }

@@ -9,14 +9,6 @@ import FAQSection from '../components/FAQSection'
 import Testimonial from '../components/Testimonial'
 
 export default function Home() {
-  const { userData } = useContext(UserContext)
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!userData) {
-      navigate('/login');
-    }
-  }, [userData, navigate]);
 
   return (
     <>

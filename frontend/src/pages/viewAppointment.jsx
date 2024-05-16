@@ -20,7 +20,7 @@ const ViewAppointments = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/shedule/getappointments');
+            const response = await axios.get('https://itp-project-newton-api.vercel.app/shedule/getappointments');
             console.log('Fetched appointments:', response.data.data); // Accessing the appointments array inside the 'data' property
             setAppointments(response.data.data); // Setting the appointments array to the state
         } catch (error) {
@@ -39,7 +39,7 @@ const ViewAppointments = () => {
     const handleSave = async (id, updatedData) => {
         try {
             // Send the updated data to the backend
-            await axios.put(`http://localhost:3000/shedule/updateApp/${id}`, updatedData);
+            await axios.put(`https://itp-project-newton-api.vercel.app/shedule/updateApp/${id}`, updatedData);
             console.log('Updated appointment with ID:', id);
             setEditingId(null); // Reset the editing ID after saving
             fetchAppointments(); // Refresh appointments after update
@@ -54,7 +54,7 @@ const ViewAppointments = () => {
             const confirmDelete = window.confirm('Are you sure you want to delete this appointment?');
             if (confirmDelete) {
                 // User confirmed deletion
-                await axios.delete(`http://localhost:3000/shedule/deleteApp/${id}`);
+                await axios.delete(`https://itp-project-newton-api.vercel.app/shedule/deleteApp/${id}`);
                 console.log('Deleted appointment with ID:', id);
                 fetchAppointments(); // Refresh appointments after deletion
             } else {

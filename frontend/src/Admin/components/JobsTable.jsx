@@ -15,7 +15,7 @@ export default function JobsTable() {
     // Define fetchData function
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/jobs/read');
+            const response = await axios.get('https://itp-project-newton-api.vercel.app/jobs/read');
             setJobs(response.data);
             setFilteredJobs(response.data);
         } catch (error) {
@@ -30,7 +30,7 @@ export default function JobsTable() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/jobs/delete/${id}`);
+            await axios.delete(`https://itp-project-newton-api.vercel.app/jobs/delete/${id}`);
             console.log("Job deleted successfully");
             // Update the jobs state after deletion
             setJobs(prevJobs => prevJobs.filter(job => job._id !== id));

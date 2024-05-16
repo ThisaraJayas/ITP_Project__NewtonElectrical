@@ -16,7 +16,7 @@ console.log(productDescription);
         const fetchProduct = async()=>{
             try {
                 const product = await axios.get(
-                  `http://localhost:3000/product/product/${id}`
+                  `https://itp-project-newton-api.vercel.app/product/product/${id}`
                 );
                 setProductTitle(product.data.products.productTitle);
                 setProductPrice(product.data.products.productPrice);
@@ -33,7 +33,7 @@ console.log(productDescription);
     const handleProductUpdate=async(e)=>{
         e.preventDefault()
         try{
-            const product = await axios.put(`http://localhost:3000/product/product/${id}`,{
+            const product = await axios.put(`https://itp-project-newton-api.vercel.app/product/product/${id}`,{
                 productTitle,
                 productPrice,
                 productQty,

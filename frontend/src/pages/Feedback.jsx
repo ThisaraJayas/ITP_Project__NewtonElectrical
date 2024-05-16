@@ -57,7 +57,7 @@ export default function Feedback() {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3000/feedbacks/feedback', {
+            const response = await axios.post('https://itp-project-newton-api.vercel.app/feedbacks/feedback', {
                 userId: userData.userId,
                 firstName,
                 lastName,

@@ -53,7 +53,7 @@ export default function AddProject() {
     formData.append("image", image);
 
     const result = await axios.post(
-      "http://localhost:3000/project/projects",
+      "https://itp-project-newton-api.vercel.app/project/projects",
       formData,
       {
         headers: { "Content-Type": "multipart/form-data" },

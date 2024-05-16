@@ -10,7 +10,7 @@ console.log(products);
     useEffect(()=>{
         const allProducts = async()=>{
             try{
-                const product = await axios.get('http://localhost:3000/product/products')
+                const product = await axios.get('https://itp-project-newton-api.vercel.app/product/products')
                 setProduct(product.data.products) 
             }catch(error){
                 console.log(error);

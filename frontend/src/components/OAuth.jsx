@@ -15,7 +15,7 @@ export default function OAuth() {
             const auth = getAuth(app)
             const result = await signInWithPopup(auth,provider)
             console.log(result);
-            const response = await axios.post('http://localhost:3000/auth/googleregister',{
+            const response = await axios.post('https://itp-project-newton-api.vercel.app/auth/googleregister',{
                 name: result.user.displayName,
                 email: result.user.email,
                 avatar: result.user.photoURL

@@ -23,11 +23,11 @@ export default function Login() {
     setAlertSeverity(severity)
   }
 
-
+  axios.defaults.withCredentials = true;
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:3000/auth/login', {
+      const response = await axios.post('https://itp-project-newton-api.vercel.app/auth/login', {
         email,
         password,
       });

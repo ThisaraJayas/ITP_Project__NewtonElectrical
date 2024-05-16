@@ -9,7 +9,7 @@ export default function ProductTable() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/product/products');
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/product/products');
                 setProducts(response.data.products);
             } catch (error) {
                 console.log(error);
@@ -20,7 +20,7 @@ export default function ProductTable() {
 
     const deleteProduct = async (proId) => {
         try {
-            await axios.delete(`http://localhost:3000/product/product/${proId}`);
+            await axios.delete(`https://itp-project-newton-api.vercel.app/product/product/${proId}`);
             window.location.reload();
         } catch (error) {
             console.log(error);

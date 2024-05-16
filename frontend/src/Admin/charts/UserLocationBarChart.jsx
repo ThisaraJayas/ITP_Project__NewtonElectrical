@@ -14,7 +14,7 @@ export default function UserLocationBarChart() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/user/users');
+        const response = await axios.get('https://itp-project-newton-api.vercel.app/user/users');
         const users = response.data.user;
         setColombo(users.filter(user => user.district === 'Colombo').length);
         setGalle(users.filter(user => user.district === 'Galle').length);

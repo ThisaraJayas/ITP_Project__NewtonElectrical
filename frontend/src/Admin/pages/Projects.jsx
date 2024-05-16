@@ -12,7 +12,7 @@ export default function Projects() {
     useEffect(()=>{
         const fetchStatus = async()=>{
             try {
-                const response = await axios.get('http://localhost:3000/project/projects');
+                const response = await axios.get('https://itp-project-newton-api.vercel.app/project/projects');
                 const project = response.data.readProject
                 const ongoing = project.filter(project=>project.status==='Ongoing').length
                 const completed = project.filter(project=>project.status==='Previous').length

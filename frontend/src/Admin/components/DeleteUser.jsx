@@ -26,7 +26,7 @@ export default function DeleteUser({ userId }) {
   const handleDelete = async (e) => {
     e.preventDefault()
     try {
-      axios.delete(`http://localhost:3000/user/user/${userId}`)
+      axios.delete(`https://itp-project-newton-api.vercel.app/user/user/${userId}`)
         .then(res => { console.log(res), window.location.reload() })
         .catch(err => console.log(err))
     } catch (error) {

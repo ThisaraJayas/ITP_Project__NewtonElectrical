@@ -13,9 +13,17 @@ export default function AddJobsTable() {
   const [PostedBy, setPostedBy] = useState("");
   const navigate = useNavigate();
 
+  const handleBlur = () => {
+    if (title.length > 10) {
+      alert('Title should not exceed 10 characters.');
+    }
+  };
+
   function sendData(e) {
     e.preventDefault();
     alert("Successfully inserted.");
+
+    
 
     const newJob = {
       title: Title,
@@ -27,7 +35,7 @@ export default function AddJobsTable() {
       postedBy: PostedBy
     };
 
-    axios.post("http://localhost:3000/jobs/add", newJob)
+    axios.post("https://itp-project-newton-api.vercel.app/jobs/add", newJob)
       .then(() => {
         alert("Job added successfully.");
         navigate('/admin/jobsManager');
@@ -47,7 +55,8 @@ export default function AddJobsTable() {
               <div className="flex justify-between mb-6">
                 <div className="mr-4 w-1/2">
                   <label className="block text-sm font-semibold mb-2">Title</label>
-                  <input type="text" placeholder="Job Title" value={Title} className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-2 px-3 text-lg text-gray-700" id='Title' onChange={(e) => { setTitle(e.target.value) }} />
+                  <input type="text"  placeholder="Job Title" value={Title} className="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-2 px-3 text-lg text-gray-700" id='Title' onChange={(e) => { setTitle(e.target.value) }} 
+                   onBlur={handleBlur}/>
                 </div>
                 <div className="w-1/2">
                   <label className="block text-sm font-semibold mb-2">Department</label>

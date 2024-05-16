@@ -25,7 +25,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const response = await axios.post("http://localhost:3000/auth/logout");
+    const response = await axios.post("https://itp-project-newton-api.vercel.app/auth/logout");
     if (response.status === 200) {
       setUserData(null);
       navigate("/login");
@@ -77,14 +77,16 @@ export default function Header() {
           )}
         </div>
       </div>
-      <div className="shadow-md w-full fixed top-12 left-0 z-40">
+      <div className="shadow-md bg-white w-full fixed top-12 left-0 z-40">
         {" "}
         {/* Modified z-index to 40 */}
         <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
           {/* logo section */}
+          <Link to={'/'}>
           <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
             <img className="w-15 h-10" src={image} alt="logo" />
           </div>
+          </Link>
           {/* Menu icon */}
           <div
             onClick={() => setOpen(!open)}
@@ -94,9 +96,9 @@ export default function Header() {
           </div>
           {/* link items */}
           <ul
-            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static  md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-              open ? "top-12" : "top-[-490px]"
-            }`}
+              className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+                open ? "top-12" : "top-[-490px]"
+              } ${open ? "bg-white" : ""}`}
           >
             {Links.map((link, index) => (
               <li key={index} className="md:ml-8 md:my-0 my-7 font-semibold">

@@ -1,10 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import { FreeMode, Pagination } from "swiper/modules";
-import { RxArrowTopRight } from "react-icons/rx";
 import axios from "axios";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
@@ -18,7 +12,7 @@ export default function AllPackages() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/package/packages");
+        const response = await axios.get("https://itp-project-newton-api.vercel.app/package/packages");
         setRecords(response.data.readPackage);
       } catch (error) {
         console.error('Error fetching package data:', error);
@@ -58,50 +52,42 @@ export default function AllPackages() {
   return (
     <div>
       <button onClick={downloadPdf} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-  Download All Packages
-</button>
-      <div ref={pdfRef}>
-        <div className="card-container" style={{ marginTop: "30px" }}>
-          <Swiper
-            breakpoints={{
-              340: {
-                slidesPerView: 2,
-                spaceBetween: 15,
-              },
-              700: {
-                slidesPerView: 3,
-                spaceBetween: 15,
-              },
-            }}
-            freeMode={true}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[FreeMode, Pagination]}
-            className="max-w-[90%] lg:max-w-[80%]"
-          >
+        Download All Packages
+      </button>
+      <div style={{ overflowX: "auto" }} ref={pdfRef}>
+        <table style={{ width: "100%", whiteSpace: "nowrap", color: "black" }} className="table">
+          <thead style={{ fontWeight: "bold" }}>
+            <tr>
+              <th>Package ID</th>
+              <th>Package Name</th>
+              <th>Monthly Price</th>
+              <th>Annual Price</th>
+              <th>Service 1</th>
+              <th>Service 2</th>
+              <th>Service 3</th>
+              <th>Service 4</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
             {records.map((item) => (
-              <SwiperSlide key={item._id}>
-                <div className="flex flex-col gap-6 mb-20 group relative shadow-lg text-white rounded-xl px-6 py-8 h-[100px] w-[200px] lg:h-[400px] lg:w-[250px] overflow-hidden cursor-pointer">
-                  <div className="absolute inset-0 bg-cover bg-center border-blue-600 border" style={{ backgroundColor: "#1260CC" }} />
-                  <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
-                  <div className="relative flex flex-col gap-3">
-                    <h1 className="text-xl lg:text-2xl">{item.packageName}</h1>
-                    <h3>Rs. {item.monthlyPrice} - Monthly</h3>
-                    <h3>Rs. {item.annualPrice} - Annually</h3>
-                    <p className="lg:text-[18px]">* {item.service1}</p>
-                    <p className="lg:text-[18px]">* {item.service2}</p>
-                    <p className="lg:text-[18px]">* {item.service3}</p>
-                    <p className="lg:text-[18px]">* {item.service4}</p>
-                    <DeletePackage packageId={item._id} />
-                    <UpdatePackage package_id={item._id} />
-                  </div>
-                  <RxArrowTopRight className="absolute bottom-5 left-5 w-[35px] h-[35px] text-white group-hover:text-black-500 group-hover:rotate-45 duration-100" />
-                </div>
-              </SwiperSlide>
+              <tr key={item._id}>
+                <td>{item.packageId}</td>
+                <td>{item.packageName}</td>
+                <td>{item.monthlyPrice}</td>
+                <td>{item.annualPrice}</td>
+                <td>{item.service1}</td>
+                <td>{item.service2}</td>
+                <td>{item.service3}</td>
+                <td>{item.service4}</td>
+                <td style={{ display: "flex" }}>
+                  <DeletePackage packageId={item._id} />
+                  <UpdatePackage package_id={item._id} />
+                </td>
+              </tr>
             ))}
-          </Swiper>
-        </div>
+          </tbody>
+        </table>
       </div>
     </div>
   );

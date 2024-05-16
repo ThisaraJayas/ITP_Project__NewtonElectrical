@@ -21,7 +21,7 @@ export default function Product() {
         imageUrl = await handleImageUpload(productImage);
       }
       
-      const product = await axios.post('http://localhost:3000/product/products', {
+      const product = await axios.post('https://itp-project-newton-api.vercel.app/product/products', {
         productTitle,
         productDescription,
         productPrice,

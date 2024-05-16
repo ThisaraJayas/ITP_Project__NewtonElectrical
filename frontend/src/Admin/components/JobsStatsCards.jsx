@@ -17,12 +17,12 @@ const StatsCards = () => {
   const fetchStatsData = async () => {
     try {
       // Fetch all job postings
-      const jobResponse = await axios.get('http://localhost:3000/jobs/read');
+      const jobResponse = await axios.get('https://itp-project-newton-api.vercel.app/jobs/read');
       const allJobs = jobResponse.data;
       const postedJobs = allJobs.length;
       console.log(postedJobs);
       // Fetch all CVs
-      const cvResponse = await axios.get('http://localhost:3000/cv/getcvs');
+      const cvResponse = await axios.get('https://itp-project-newton-api.vercel.app/cv/getcvs');
       const allCVs = cvResponse.data;
 
       // Get count of accepted and rejected jobs
@@ -57,7 +57,7 @@ const StatsCards = () => {
       }));
 
       // Send a request to update the completed jobs count in the backend
-      await axios.put('http://localhost:3000/completedjobs/increment', { count: updatedCompletedJobs });
+      await axios.put('https://itp-project-newton-api.vercel.app/completedjobs/increment', { count: updatedCompletedJobs });
     } catch (error) {
       console.log(error);
     }

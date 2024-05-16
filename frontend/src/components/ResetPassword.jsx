@@ -48,7 +48,7 @@ export default function ResetPassword() {
     if (password === newPassword) {
       try {
         const response = await axios.post(
-          `http://localhost:3000/auth/resetPassword/${id}/${token}`,
+          `https://itp-project-newton-api.vercel.app/auth/resetPassword/${id}/${token}`,
           {
             password,
           }

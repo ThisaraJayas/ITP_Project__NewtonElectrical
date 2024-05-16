@@ -9,7 +9,7 @@ const DeletePackage = ({ packageId }) => {
     const handleDelete = async () => {
         try {
             setLoading(true);
-            const response = await axios.delete(`http://localhost:3000/package/packages/${packageId}`);
+            const response = await axios.delete(`https://itp-project-newton-api.vercel.app/package/packages/${packageId}`);
             alert(response.data.message);
             setLoading(false);
             setShowConfirmModal(false); 
