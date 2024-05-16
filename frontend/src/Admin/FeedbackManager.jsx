@@ -12,8 +12,9 @@ export default function FeedbackManager() {
         <Header/>
         <SideBar/>  
         <Feedback/>
-        
+
     </div>
+    
     </div>
     </>
   )
