@@ -4,6 +4,7 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import  axios  from 'axios'
 import { Link } from 'react-router-dom';
+import { DeleteFeedback } from './DeleteFeedback';
 
 export default function () {
     const {userData}=useContext(UserContext)
