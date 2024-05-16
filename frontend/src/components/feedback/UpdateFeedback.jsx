@@ -16,7 +16,7 @@ export default function UpdateFeedback() {
     const {id}=useParams()
     const navigate = useNavigate()
     console.log(firstName);
-    const navigate = useNavigate()
+   
 
     useEffect(()=>{
         const fetchFeedback = async()=>{

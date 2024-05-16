@@ -8,7 +8,7 @@ export const DeleteFeedback = ({ deleteId }) => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:3000/feedbacks/feedback/${deleteId}`)
+            await axios.delete(`https://itp-project-newton-api.vercel.app/feedbacks/feedback/${deleteId}`)
             window.location.reload();
               
           } catch (error) {
