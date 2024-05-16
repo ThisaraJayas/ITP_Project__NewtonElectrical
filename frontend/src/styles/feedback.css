@@ -146,7 +146,7 @@
   .downloadPdfBtn:hover {
     background-color: #0056b3;
   }
-  .deleteButton1 {
+  .deleteButton {
     background-color: #ff5555;
     color: white;
     border: none;
@@ -155,6 +155,6 @@
     cursor: pointer;
 }
 
-.deleteButton1:hover {
+.deleteButton:hover {
     background-color: #dd0000;
 }
