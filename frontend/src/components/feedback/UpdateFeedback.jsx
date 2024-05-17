@@ -21,6 +21,7 @@ export default function UpdateFeedback() {
     useEffect(()=>{
         const fetchFeedback = async()=>{
             try {
+                axios.defaults.withCredentials = true;
                 const feedback = await axios.get(
                   `https://itp-project-newton-api.vercel.app/feedbacks/feedback/${id}`
                 );
