@@ -22,7 +22,7 @@ app.use(express.json())
 
 app.use(cors( {
     origin: ["https://itp-project-newton-electrical.vercel.app"],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true
 }))
 
