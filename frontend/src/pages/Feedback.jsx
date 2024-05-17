@@ -9,6 +9,7 @@ import validator from 'validator';
 import MyFeedback from '../components/feedback/MyFeedback';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import { useNavigate } from 'react-router-dom';
 
 export default function Feedback() {
     const { userData } = useContext(UserContext);
@@ -20,6 +21,7 @@ export default function Feedback() {
     const [message, setMessage] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
     const [alertSeverity, setAlertSeverity] = useState('');
+    const navigate = useNavigate()
 
     const handleAlert = (message, severity) => {
         setAlertMessage(message);
@@ -69,7 +71,7 @@ export default function Feedback() {
             });
             console.log(response);
             handleAlert('Feedback submitted successfully', 'success');
-            window.location.reload();
+            navigate('/feedback')
         } catch (error) {
             console.log(error);
             handleAlert('An error occurred while submitting feedback', 'error');
