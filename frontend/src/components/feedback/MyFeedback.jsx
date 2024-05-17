@@ -10,7 +10,8 @@ export default function () {
     const {userData}=useContext(UserContext)
     const [feedback, setFeedbacks]=useState([])
 
-    const userId = userData.userId
+    const userId = userData ? userData.userId : null;
+
    
 
     useEffect(()=>{

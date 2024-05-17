@@ -52,13 +52,14 @@ export default function Feedback() {
             handleAlert('', ''); 
         }
     };
+    const userId = userData ? userData.userId : null;
 
     const handleFeedbackSumbit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await axios.post('https://itp-project-newton-api.vercel.app/feedbacks/feedback', {
-                userId: userData.userId,
+                userId: userId,
                 firstName,
                 lastName,
                 email,
