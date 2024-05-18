@@ -23,7 +23,7 @@ console.log(products);
       <Header />
       <div className="pt-20 pb-20 flex justify-between">
         <div className="">
-          <div class="sidebarCard ml-8">
+          <div class="sidebarCard ml-4">
             <h2 class="sidebarTitle">Filter by Category</h2>
             <ul class="categoryList">
               <li class="categoryItem">Electrical Tools</li>
