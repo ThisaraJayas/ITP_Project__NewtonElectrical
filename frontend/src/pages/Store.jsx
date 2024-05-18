@@ -35,8 +35,8 @@ console.log(products);
           </div>
         </div>
         
-        <div className="cardContents ml-9 mr-9">
-          <div class="grid grid-cols-3 gap-10">
+        <div className="cardContents ml-6 mr-9">
+          <div class="grid grid-cols-3 gap-8">
           {products.map((products,index)=>(
           <div key={index} class="relative ml-9 mr-9 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
           <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
