@@ -112,7 +112,7 @@ export default function AppointmentForms() {
             return; // Exit the function without sending data
         }
 
-        axios.post('http://localhost:3000/shedule/', formData)
+        axios.post('https://itp-project-newton-api.vercel.app/shedule/', formData)
             .then(response => {
                 console.log('Data sent successfully:', response.data);
                 setSuccessMessage('Appointment confirmed successfully!');
