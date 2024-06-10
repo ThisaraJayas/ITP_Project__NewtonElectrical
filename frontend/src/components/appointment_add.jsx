@@ -1,11 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState , useEffect} from 'react'
+import Banner from './app_banner'
+import Popup from 'reactjs-popup';
+import Button from 'react-bootstrap/Button';
+import 'reactjs-popup/dist/index.css';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import axios from 'axios';
 import '../styles/appointment.css';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import picture from '../assets/images/app.jpg';
+import { Link } from 'react-router-dom';
+import AppointmentAccordion from './AppointmentAccordion';
 
-const AppointmentForms = () => {
+
+const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: '50%',
+      
+      zIndex: 1000,
+    },
+    overlay: {
+        zIndex: 1000, // Ensure the overlay is also on top
+      },
+  };
+  
+ 
+
+  
+export default function AppointmentForms() {
+    const [show, setShow] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+  
+    function openModal() {
+      setIsOpen(true);
+    }
+  
+    function afterOpenModal() {
+      // references are now sync'd and can be accessed.
+      subtitle.style.color = '#f00';
+    }
+  
+    function closeModal() {
+      setIsOpen(false);
+    }
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+    const handleClose = () => {
+      setOpen(false);
+    };
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         select1: '',
@@ -60,7 +112,7 @@ const AppointmentForms = () => {
             return; // Exit the function without sending data
         }
 
-        axios.post('https://itp-project-newton-api.vercel.app/shedule/', formData)
+        axios.post('http://localhost:3000/shedule/', formData)
             .then(response => {
                 console.log('Data sent successfully:', response.data);
                 setSuccessMessage('Appointment confirmed successfully!');
@@ -88,8 +140,94 @@ const AppointmentForms = () => {
             });
     };
 
-    return (
-        <div className="centered-container">
+  return (
+    <div>
+<section class="bg-blue-950 2xl:py-24 2xl:bg-gray-50">
+    <div class="px-4 mx-auto bg-blue-950 max-w-7xl sm:px-6 lg:px-8 2xl:rounded-xl">
+        <div class="py-10 sm:py-16 lg:py-24 2xl:pl-24">
+            <div class="grid items-center grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-8 2xl:gap-x-20">
+                <div class="lg:order-2 2xl:-mr-24">
+                    <img class="w-full shadow-xl rounded-xl" src="https://stackheating.com/wp-content/uploads/2021/10/AdobeStock_271148519-scaled.jpeg" alt="" />
+                </div>
+
+                <div class="lg:order-1">
+                    <h2 class="text-3xl mb-5 font-bold leading-tight text-white sm:text-4xl lg:text-5xl lg:leading-snug">Schedule Appointment <br class="hidden xl:block" />Just Few Steps!</h2>
+
+                    <ul class="grid grid-cols-1 mt-4 sm:mt-10 sm:grid-cols-2 gap-x-10 xl:gap-x-16 gap-y-4 xl:gap-y-6">
+                        <li class="flex items-center">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-3 font-medium text-white"> Elecrical Mantainance </span>
+                        </li>
+
+                        <li class="flex items-center">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-3 font-medium text-white"> Lighting Installation </span>
+                        </li>
+
+                        <li class="flex items-center">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-3 font-medium text-white"> Surge Protection </span>
+                        </li>
+
+                        <li class="flex items-center">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-3 font-medium text-white"> Electrical Safety Inspections </span>
+                        </li>
+
+                        <li class="flex items-center">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-3 font-medium text-white"> AC Repair and Installation </span>
+                        </li>
+
+                        <li class="flex items-center">
+                            <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-3 font-medium text-white"> Security Camera Installation </span>
+                        </li>
+                    </ul>
+
+                    <div class="flex flex-col items-start mt-8 sm:space-x-4 sm:flex-row sm:items-center lg:mt-12">
+                    <Link to={'/appointments'}><button  onClick={openModal} className="btn text-2 bg-orange-500 text-white md:ml-8 font-semibold px-5 py-4 rounded-lg duration-500 md:static ">
+              Schedule Appointment
+            </button>
+            </Link>
+                        
+                        
+
+                        <a href="#" title="" class="inline-flex items-center justify-center px-4 py-4 mt-5 text-base font-semibold text-white transition-all duration-200 bg-transparent border border-white rounded-md sm:mt-0 hover:bg-white hover:text-black" role="button"> About Us </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div>
+   
+    </div>
+    <AppointmentAccordion/>
+    <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+       
+      >
+        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button> */}
+        <div className="items-center m-8">
             {step === 1 && <Form1 data={formData} handleChange={handleChange} />}
             {step === 2 && <Form2 data={formData} handleChange={handleChange} zipError={zipError} setZipError={setZipError} phoneError={phoneError} setPhoneError={setPhoneError} />}
             {step === 3 && <Form3 data={formData} handleChange={handleChange} />}
@@ -103,9 +241,10 @@ const AppointmentForms = () => {
 
             {successMessage && <p>{successMessage}</p>}
         </div>
-    );
-};
-
+      </Modal>
+    </div>
+  )
+}
 const Form1 = ({ data, handleChange }) => {
     const handleSelectChange = (e) => {
         const { name, value } = e.target;
@@ -113,8 +252,8 @@ const Form1 = ({ data, handleChange }) => {
     };
 
     return (
-        <form className="form">
-            <div className="form-group">
+        <form className="form ">
+            <div className="form-group ">
                 <label htmlFor="select1" style={{ fontSize: '32px' }}>Electrical:</label>
                 <select
                     id="select1"
@@ -281,8 +420,8 @@ const Form3 = ({ data, handleChange }) => {
     return (
         <div className="calendar-container">
             <h2 style={{ fontSize: '32px' }}>Select a Date and Time Slot</h2>
-            <div className="form-group">
-                <label htmlFor="date">Date:</label>
+            <div className="form-group items-center">
+                <label htmlFor="date"></label>
                 <Calendar
                     onChange={onChange}
                     value={date}
@@ -298,6 +437,7 @@ const Form3 = ({ data, handleChange }) => {
                     onChange={handleTimeSlotChange}
                 />
             </div>
+            
         </div>
     );
 };
@@ -331,5 +471,3 @@ const Form4 = ({ data }) => {
         </div>
     );
 };
-
-export default AppointmentForms;
