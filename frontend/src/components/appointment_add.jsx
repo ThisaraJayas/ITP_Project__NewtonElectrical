@@ -1,9 +1,9 @@
 import React, { useState , useEffect} from 'react'
 import Banner from './app_banner'
 import Popup from 'reactjs-popup';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import 'reactjs-popup/dist/index.css';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
 import '../styles/appointment.css';

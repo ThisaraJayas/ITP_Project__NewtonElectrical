@@ -8,7 +8,7 @@ function Appointment(){
     return(
         <>
         <Header/>
-        <Banner/>
+        {/* <Banner/> */}
         <AppointmentForms/>
 
         <Footer/>
