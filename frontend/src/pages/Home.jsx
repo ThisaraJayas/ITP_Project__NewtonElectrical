@@ -4,7 +4,10 @@ import { Link, useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import "../styles/home.css";
-import { BsSnow } from "react-icons/bs";
+import { BsSnow  } from "react-icons/bs";
+import { GiWireCoil } from "react-icons/gi";
+import { FaRegLightbulb } from "react-icons/fa6";
+import { BiCctv } from "react-icons/bi";
 import FAQSection from '../components/FAQSection'
 import Testimonial from '../components/Testimonial'
 
@@ -49,8 +52,8 @@ export default function Home() {
             </div>
             {/* <span className='line'></span> */}
             <div className='service h-auto text-center flex flex-col items-center justify-center'>
-              <BsSnow className=' mb-4 w-20 h-20' style={{ color: '#ffffff',fontSize: '30px', alignItems: 'center' }} />
-              <p className='serviceText mb-5'>Cooling Services</p>
+              <GiWireCoil  className=' mb-4 w-20 h-20' style={{ color: '#ffffff',fontSize: '30px', alignItems: 'center' }} />
+              <p className='serviceText mb-5'>Wiring Services</p>
               <a href="#_" class="relative inline-flex items-center justify-start inline-block px-8 rounded-lg py-3 overflow-hidden font-bold  group">
                 <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-orange-500 opacity-[3%]"></span>
                 <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-orange-500 opacity-100 group-hover:-translate-x-8"></span>
@@ -59,8 +62,8 @@ export default function Home() {
               </a>
             </div>
             <div className='service h-auto text-center flex flex-col items-center justify-center'>
-              <BsSnow className=' mb-4 w-20 h-20' style={{ color: '#ffffff',fontSize: '30px', alignItems: 'center' }} />
-              <p className='serviceText mb-5'>Cooling Services</p>
+              <FaRegLightbulb className=' mb-4 w-20 h-20' style={{ color: '#ffffff',fontSize: '30px', alignItems: 'center' }} />
+              <p className='serviceText mb-5'>Lighting Installation</p>
               <a href="#_" class="relative inline-flex items-center justify-start inline-block px-8 rounded-lg py-3 overflow-hidden font-bold  group">
                 <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-orange-500 opacity-[3%]"></span>
                 <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-orange-500 opacity-100 group-hover:-translate-x-8"></span>
@@ -69,8 +72,8 @@ export default function Home() {
               </a>
             </div>
             <div className='service h-auto text-center flex flex-col items-center justify-center'>
-              <BsSnow className=' mb-4 w-20 h-20' style={{ color: '#ffffff',fontSize: '30px', alignItems: 'center' }} />
-              <p className='serviceText mb-5'>Cooling Services</p>
+              <BiCctv className=' mb-4 w-20 h-20' style={{ color: '#ffffff',fontSize: '30px', alignItems: 'center' }} />
+              <p className='serviceText mb-5'>CCTV Installation</p>
               <a href="#_" class="relative inline-flex items-center justify-start inline-block px-8 rounded-lg py-3 overflow-hidden font-bold  group">
                 <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-orange-500 opacity-[3%]"></span>
                 <span class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-orange-500 opacity-100 group-hover:-translate-x-8"></span>

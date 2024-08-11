@@ -6,7 +6,7 @@ export default function Testimonial() {
         <section class="py-10 bg-gray-100 sm:py-16 lg:py-24">
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-3xl font-bold leading-tight text-gray-800 sm:text-4xl lg:text-5xl">Trusted by <span class="text-blue-600">30k+</span> world class companies & design teams</h2>
+            <h2 class="text-3xl font-bold leading-tight text-gray-800 sm:text-4xl lg:text-5xl">What Our Customers Are <span class="text-blue-600">Saying</span></h2>
         </div>
 
         <div class="grid max-w-xl grid-cols-1 mx-auto mt-8 text-center lg:max-w-full sm:mt-12 lg:mt-20 lg:grid-cols-3 gap-x-6 xl:gap-x-12 gap-y-6">
@@ -23,10 +23,10 @@ export default function Testimonial() {
                         </div>
                     </div>
                     <blockquote class="mt-7">
-                        <p class="text-lg text-black">“Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat”</p>
+                        <p class="text-lg text-black">“I was impressed with how easy it was to book an appointment with Newton Electricals. The electrician arrived on time, was very courteous, and fixed our issue in no time. The service was affordable, and I would definitely recommend them to others!”</p>
                     </blockquote>
-                    <p class="text-base font-semibold tex-tblack mt-9">Jenny Wilson</p>
-                    <p class="mt-1 text-base text-gray-600">Project Manager at Microsoft</p>
+                    {/* <p class="text-base font-semibold tex-tblack mt-9">Jenny Wilson</p> */}
+                    <p class="mt-1 text-base text-gray-600">Harry, Office Manager</p>
                 </div>
             </div>
 
@@ -43,10 +43,10 @@ export default function Testimonial() {
                         </div>
                     </div>
                     <blockquote class="mt-7">
-                        <p class="text-lg text-black">“Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat”</p>
+                        <p class="text-lg text-black">“I needed an urgent electrical repair, and [Your Company Name] came through for me. The electrician arrived on time and got the job done without any hassle. Their booking system was easy to use, and the customer service was top-notch!”</p>
                     </blockquote>
-                    <p class="text-base font-semibold tex-tblack mt-9">Robert Fox</p>
-                    <p class="mt-1 text-base text-gray-600">Founder at Brain.co</p>
+                    {/* <p class="text-base font-semibold tex-tblack mt-9">Robert Fox</p> */}
+                    <p class="mt-1 text-base text-gray-600">Mark S., Business Owner</p>
                 </div>
             </div>
 
@@ -63,10 +63,10 @@ export default function Testimonial() {
                         </div>
                     </div>
                     <blockquote class="mt-7">
-                        <p class="text-lg text-black">“Amet minim mollit non deserunt ullam co est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat”</p>
+                        <p class="text-lg text-black">“I was having issues with my home's wiring and reached out to Newton Electricals. The technician was prompt, professional, and explained everything clearly. The problem was fixed quickly, and the price was very reasonable. I highly recommend their services!”</p>
                     </blockquote>
-                    <p class="text-base font-semibold tex-tblack mt-9">Kristin Watson</p>
-                    <p class="mt-1 text-base text-gray-600">UX Designer at Google</p>
+                    {/* <p class="text-base font-semibold tex-tblack mt-9">Kristin Watson</p> */}
+                    <p class="mt-1 text-base text-gray-600">Kamal, Homeowner</p>
                 </div>
             </div>
         </div>
